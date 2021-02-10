@@ -1,0 +1,511 @@
+/* Inspired from https://codepen.io/swards/pen/gxQmbj */
+
+body {
+    width: 100%;
+    height: 630px;
+    font-family: helvetica;
+    /* display: flex ; */
+    flex-direction: column;
+    background: var(--themeColor);
+    align-items: center;
+  }
+  
+  .chat {
+    overflow: scroll;
+    width: 90%;
+    height: 630px;
+    border: solid 1px var(--themeColor);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .messages {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message {
+    border-radius: 20px;
+    padding: 8px 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+  
+  .yours {
+    align-items: flex-start;
+  }
+  
+  .yours .message {
+    margin-right: 25%;
+    background: linear-gradient(to bottom, var(--themeColor) 0%, var(--messColor) 100%);
+    background-attachment: fixed;
+    position: relative;
+    box-shadow: inset 0px 0px 0px var(--messColor), 0px 5px 0px 0px var(--messColor), 0px 10px 5px #999;
+  }
+
+  .yours .message .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 15%;
+  }
+  
+  .yours .message:hover .tooltiptext {
+    visibility: visible;
+  }
+  .yours .message:hover {
+    color: white;
+    margin-right: 25%;
+    background: linear-gradient(to bottom, var(--themeColor) 0%, var(--messColor) 100%);
+    background-attachment: fixed;
+    position: relative;
+  }
+  
+  .yours .message.last:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    left: -7px;
+    height: 20px;
+    width: 20px;
+    background: linear-gradient(to bottom, var(--themeColor) 0%, var(--messColor) 100%);
+    background-attachment: fixed;
+    border-bottom-right-radius: 15px;
+    box-shadow: inset 0px 0px 0px var(--backColor), 0px 5px 0px 0px var(--messColor), 0px 10px 5px #999;
+  }
+  .yours .message.last:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: -10px;
+    width: 10px;
+    height: 20px;
+    background: var(--themeColor);
+    background-attachment: fixed;
+    border-bottom-right-radius: 10px;
+    box-shadow: inset 0px 0px 0px var(--messColor), 0px 5px 0px 0px var(--backColor), 0px 10px 5px #999;
+  }
+  
+  .mine {
+    align-items: flex-end;
+  }
+  
+  .mine .message {
+    color: white;
+    margin-left: 25%;
+    background: linear-gradient(to bottom, var(--themeColor) 0%, var(--messColor) 100%);
+    background-attachment: fixed;
+    position: relative;
+    box-shadow: inset 0px 0px 0px var(--messColor), 0px 5px 0px 0px var(--messColor), 0px 10px 5px #999;
+  }
+
+  .mine .message .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -55px;
+    right: 15%;
+  }
+  
+  .mine .message:hover .tooltiptext {
+    visibility: visible;
+  }
+  .mine .message:hover {
+    color: black;
+    margin-left: 25%;
+    background: linear-gradient(to bottom, var(--themeColor) 0%, var(--messColor) 100%);
+    background-attachment: fixed;
+    position: relative;
+  }
+  
+  .mine .message.last:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    right: -8px;
+    height: 20px;
+    width: 20px;
+    background: linear-gradient(to bottom, var(--themeColor) 0%, var(--messColor) 100%);
+    background-attachment: fixed;
+    border-bottom-left-radius: 15px;
+    box-shadow: inset 0px 0px 0px var(--backColor), 0px 5px 0px 0px var(--messColor), 0px 10px 5px #999;
+  }
+  
+  .mine .message.last:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    right: -10px;
+    width: 10px;
+    height: 20px;
+    background: var(--themeColor);
+    border-bottom-left-radius: 10px;
+    box-shadow: inset 0px 0px 0px var(--messColor), 0px 5px 0px 0px var(--backColor), 0px 10px 5px #999;
+  }
+
+
+  .tooltipEmoji:not(.shown) {
+    display: none;
+  }
+  
+  .nameShow{
+    bottom: 100px;
+    font-size: 10px;
+  }
+
+  input[type=text], select, textarea {
+    width: 400px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 24px;
+    resize: vertical;
+  }
+  input[type=submit] {
+    background-color: var(--messColor);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    float: center;
+  }
+  button[type="emojiID"] {
+    background-color: var(--messColor);
+    font-size: 11px;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    float: center;
+  }
+  button[type="add"] {
+    background-color: var(--messColor);
+    font-size: 14px;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    float: center;
+  }
+
+  button[type="Group"] {
+    /* width:120px; */
+    height:20px;
+    display:inline-block;
+    font-family:Arial, "Helvetica", sans-serif;
+    font-size:10px;
+    font-weight:bold;
+    color:#fff;
+    text-decoration:none;
+    text-transform:uppercase;
+    text-align:center;
+    text-shadow:1px 1px 0px #07526e;
+    /* padding-top:6px; */
+    margin-left:auto;
+    margin-right:auto;
+    position:relative;
+    cursor:pointer;
+    border: none;
+    background: var(--messColor);
+    background-image: linear-gradient(bottom, rgb(14,137,182) 0%, var(--messColor) 100%);
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 0px var(--messColor), 0px 5px 0px 0px #07526e, 0px 10px 5px #999;
+  }
+  
+  button[type="Group"]:active {
+    top:3px;
+    box-shadow: inset 0px 0px 0px var(--messColor), 0px 2px 0px 0px #07526e, 0px 5px 3px #999;
+  }
+  
+  button[type="Group"]:before {
+    font-family: 'socialfont';
+    font-size: 50px;
+    line-height: 1em;
+    font-weight: normal;
+    color: #fff;
+    width:85px;
+    height:90px;
+    display:block;
+    position:absolute;
+    padding-top:10px;
+    top:10px;
+    text-shadow: 1px 1px 2px #07526e;
+  
+  }
+  
+  button[type="Group"]:active:before {
+    top: 7px;
+    font-size: 50px;
+    text-shadow: 0px 3px 0px #07526e, 0px 5px 1px #07526e/*, 3px 0px 1px #07526e, 3px 3px 1px #07526e,
+       -2px 0px 1px #68cff2*/;
+  }
+
+  button[type="Function"] {
+    width:100px;
+    height:40px;
+    display:inline-block;
+    font-family:Arial, "Helvetica", sans-serif;
+    font-size:16px;
+    font-weight:bold;
+    color:#fff;
+    text-decoration:none;
+    text-transform:uppercase;
+    text-align:center;
+    text-shadow:1px 1px 0px #07526e;
+    padding-top:6px;
+    margin-left:auto;
+    margin-right:auto;
+    position:relative;
+    cursor:pointer;
+    border: none;
+    background: var(--messColor);
+    background-image: linear-gradient(bottom, rgb(14,137,182) 0%, var(--messColor) 100%);
+    border-radius: 20px;
+    box-shadow: inset 0px 0px 0px var(--messColor), 0px 5px 0px 0px #07526e, 0px 10px 5px #999;
+  }
+  
+  button[type="Function"]:active {
+    top:3px;
+    box-shadow: inset 0px 0px 0px, var(--messColor), 0px 2px 0px 0px #07526e, 0px 5px 3px #999;
+  }
+  
+  button[type="Function"]:before {
+    font-family: 'socialfont';
+    font-size: 50px;
+    line-height: 1em;
+    font-weight: normal;
+    color: #fff;
+    width:85px;
+    height:90px;
+    display:block;
+    position:absolute;
+    padding-top:10px;
+    top:10px;
+    text-shadow: 1px 1px 2px #07526e;
+  
+  }
+  
+  button[type="Function"]:active:before {
+    top: 7px;
+    font-size: 50px;
+    text-shadow: 0px 3px 0px #07526e, 0px 5px 1px #07526e/*, 3px 0px 1px #07526e, 3px 3px 1px #07526e,
+       -2px 0px 1px #68cff2*/;
+  }
+
+  h1 {
+    width: 1000px;
+    color: var(--messColor);
+    text-shadow:1.5px 1.5px 0px #07526e;
+  }
+
+  div[type="usrNOTE"]{
+    font-size: 10px;
+    color: var(--messColor);
+    text-shadow:0.5px 0.5px 0px #07526e;
+  }
+  button[type="settin"]{
+    height: 40px;
+    width: 40px;
+    font-size: large;
+    border: none;
+    background-color: var(--backColor);
+  }
+  button[type="sigIO"]{
+    background-color: var(--messColor);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    float: center;
+  }
+
+  .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    width: 200px;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    font-size: 14px;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+  
+
+  .google-button {
+    height: 40px;
+    border-width: 0;
+    background: white;
+    color: #737373;
+    border-radius: 5px;
+    white-space: nowrap;
+    box-shadow: 1px 1px 0px 1px rgba(0,0,0,0.05);
+    transition-property: background-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out;
+    padding: 0;
+    
+    &:focus,
+    &:hover {
+      box-shadow: 1px 4px 5px 1px rgba(0,0,0,0.1);
+    }
+    
+    &:active {
+      background-color: #e5e5e5;
+      box-shadow: none;
+      transition-duration: 10ms;
+    }
+  }
+
+  /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+  position: fixed;
+  bottom: 0;
+  background-color: #fefefe;
+  width: 100%;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {bottom: -300px; opacity: 0} 
+  to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@-webkit-keyframes slideOut {
+  from {bottom: -300px; opacity: 0} 
+  to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideOut {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeOut {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeOut {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
