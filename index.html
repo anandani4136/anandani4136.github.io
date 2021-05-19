@@ -1,150 +1,52 @@
+<!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="FirebaseJS.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <head>
-      <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-      <link rel="manifest" href="site.webmanifest">
-      <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico">
-      <title>ARCHAT</title>
-    </head>
-    <h1 id="header1">ARCHAT
-    <button id="settings" type="settin" onclick="settingsPage()">⚙️</button>
-    <button id="clear2" type="Function" onclick="signGoogOut()">SIGN OUT</button>
-    <button id="clear1" type="Function" onclick="signGoogle()">SIGN IN</button>
-    <div id = "usrNote" type="usrNOTE"></div>
-    <div id="chatButtons">
-    <button type="Group" onclick="chatView('General')">General</button>
-    </div>
-    <!-- <div class="dropdown">
-      <button class="dropbtn">Dropdown</button>
-      <div class="dropdown-content">
-        <a href="#">harper dropouts</a>
-        <a href="#">Mushtuk</a>
-        <a href="#">Hackathon</a>
-      </div>
-    </div> -->
-    </h1>
-    
-    
-    <div class="chat" id="chatBox">
-      
-      <!-- <div class="mine messages">
-        <div class="message last">
-          Dude
-         </div>
-      </div>
-      <div class="yours messages">
-        <div class="message">
-          Hey!
-        </div>
-        <div class="message">
-          You there?
-        </div>
-        <div class="message last">
-          Hello, how's it going?
-        </div>
-      </div>
-      <div class="mine messages" id="RMessage">
-        <div class="message last">
-          Great thanks!
-        </div> 
-        <div class="message last" id="mLast">
-          How about you?
-          <span class="tooltiptext">Tooltip text</span>
-         </div>
-      </div> -->
+
+<head>
+  <meta charset="UTF-8" />
+  <title>TensorFlow.js OBD Demo</title>
+  <!-- <h1>FIND A TRANSLITERATION API</h1> -->
+  <!-- Load TensorFlow.js-->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+  <!-- Load the coco-ssd model. -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+  <!-- Load React. -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+  <!-- <script src="https://code.responsiveVoice.org/responsivevoice.js"></script> -->
+  <script src="https://code.responsivevoice.org/responsivevoice.js?key=7SkdNgJn"></script>
+  <!-- <script data-main="scripts/app" src="scripts/require.js"></script> -->
+  <script src="bundle.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  
+</head>
+<body data-gr-c-s-loaded="true">
+
+    <h1>TensorFlow.js Coco SSD's Multilingial Model Object Detection</h1>
+    <input type="button" onclick="textSpeak()" value="Speak">
+    <select id="selectionsID">
+        <option value="selectEnglish" selected>English</option>
+        <option value="selectSpanish">Spanish</option>
+        <option value="selectHindi">Hindi</option>
+    </select>
+    <!-- Load our React component. -->
+    <script src="myJS.js" type="text/babel"></script>
+    <div>
+        <p>Inspired by https://github.com/tensorflow/tfjs-models/tree/master/coco-ssd</p>
     </div>
     <br>
-    <div id = "controlDiv">
-      <input type="color" id="backColor" name="maincolor" value="#ffffff" onchange="changeThemeColor()">
-      <input type="color" id="messColor" name="favcolor" value="#0085D1" onchange="changeMessageColor()">
-      
-      <input type="text" id="inputMessage" name="lMess" placeholder="Message">
-      <button type="Function" id="emojiButton">😀</button>
-      <!-- <div class="tooltipEmoji" role="tooltipEmoji">
-        <emoji-picker id="emojiPick" ondblclick="emojiChamp()"></emoji-picker>
-      </div>
-      <button id="emoji-trigger">Emoji</button> -->
-      <button type="Function" id="inputBtn" value="Submit" onclick="insertMessage()">ENTER</button>
-    </div>
     <br>
-    <div id="myModal" class="modal">
-
-      <!-- Modal content -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <span class="close">&times;</span>
-          <h2 id="usrNote2"></h2>
+    <br>
+  
+    <!-- We will put our React component inside this div. -->
+    <div id="root">
+        <div>
+            <video autoplay="" width="920" height="600" style="position: fixed; top: 50px;"></video>
+            <canvas width="720" height="650" style="position: fixed; top: 50px;"></canvas>
         </div>
-        <div class="modal-body">
-          <br>
-          <input type="text" id="userName" name="lMessUSRNAME">
-          <input type="submit" id="nameBtn" value="Change User ID" onclick="changeName()">
-          <br>
-          <br>
-          <input type="text" id="inputFriend" name="lFess" placeholder="Enter Friend Name Here">
-          <button id="addContact" type="add" onclick="addContactPage()">+ New Friend</button>
-          <br>
-          <br>
-        </div>
-        <div class="modal-footer">
-          <h3>Hint: To add multiple friends to a chat, add a . between each name/id with no spaces before or after in the input above</h3>
-        </div>
-      </div>
-    
     </div>
-    <body>
-        
-    <!-- <script>
-        $("#inputMessage").on('keyup', function (event) {
-          if (event.keyCode === 13) {
-            //console.log("Enter key pressed!!!!!");
-          }
-        });
-    </script> -->
-        <!-- Student Name     <input id="namebox" type="text"></input> <br><br>
-        Student ID       <input id="idbox" type="text"></input> <br><br>
-        Student Grade    <input id="gradebox" type="text"></input> <br><br>
-        Student Gender   <input id="genderbox" type="text"></input> <br><br>
-        <button id="insert">INSERT</button>
-        <button id="select">SELECT</button>
-        <select id="selectionsID">
-            <option value="selectSName">Name</option>
-            <option value="selectSID" selected>ID</option>
-            <option value="selectSGrade">Grade</option>
-            <option value="selectSGender">Gender</option>
-          </select>
-        <button id="update">UPDATE</button>
-        <button id="delete">DELETE</button>
-        <button id="cleare">CLEAR</button>
-        <br>
-        <br>
-        Parent Name     <input id="pnamebox" type="text"></input> <br><br>
-        Parent Contact  <input id="pcontactbox" type="text"></input> <br><br>
-        Parent ID    <input id="pidbox" type="text"></input> <br><br>
-        <button id="lastKid"><</button><button id="nextKid">></button> -->
-
-        <!-- <button id="clear1" onclick="signGoogle()">SIGN IN</button>
-        <button id="clear2" onclick="signGoogOut()">SIGN OUT</button> -->
-
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
-        <!-- TODO: Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
-        <script src="https://unpkg.com/@popperjs/core@2"></script>
-        <script type="module" src="https://unpkg.com/emoji-picker-element@1"></script>
-        <script src="https://cdn.jsdelivr.net/npm/emoji-button@latest/dist/index.min.js"></script>
-
-        <!-- <script id="MainScript"> -->
-
-        <script src="FirebaseJS.js"></script>
-    </body>
+    <h2 style="position: fixed; top: 750px; left: 20px;" id="detectedObjectLbl"></h2>
+    
+    
+</body>
 </html>
