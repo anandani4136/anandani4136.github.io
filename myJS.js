@@ -1,220 +1,423 @@
-"use strict";
+var projectDict = { "key1" : ["value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678","link","Amogus","https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"] , 
+    "key2" : ["value2","link","caption here","https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg"] , 
+    "{data.name}": ["This website","is","Sus","https://media0.giphy.com/media/ysiCYZUJkW3XRb7k9K/giphy.gif"]
+  };
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var x;
+var primed = false
 
 
+// var modalShowing = false;
+// var modal;
+let didScroll = false;
+let paralaxTitles = document.querySelectorAll('.paralax-title');
+function runMe() {
+    document.getElementById("h").innerHTML = "look at me";
+    document.getElementById("h").style.color = "red"
+}
+function runMeAlso() {
+    alert("check");
+    meToo();
 
-//Quick and temporary reference for translation
-var spanDict = {
-  "book":"libro",
-  "laptop":"tableta",
-  "remote":"remote",
-  "chair":"silla",
-  "cell phone":"teléfono móbil",
-  "sports ball":"pelota deportiva"
-};
-var hindiDict = {
-  "book":"kitaab",
-  "laptop":"iPad",
-  "remote":"remote",
-  "chair":"kursee",
-  "cell phone":"cell phone",
-  "sports ball":"Khel kud ki ball"
-};
-
-
-//Text-to-Speech for the identified object
-function textSpeak(){
-  var text = document.getElementById("detectedObjectLbl").innerHTML
-  var valueT = text
-  var voice = "US English Female"
-  if(document.getElementById("selectionsID").options[document.getElementById("selectionsID").selectedIndex].value=="selectHindi"){
-    voice = "Hindi Male"
-    for(var key in hindiDict) {
-      var value = hindiDict[key];
-      if(key==text){
-        valueT = value
-        break
-      } else {
-        valueT = text
-      }
-    }
-    responsiveVoice.speak(""+valueT, voice)
-  }
-  else if(document.getElementById("selectionsID").options[document.getElementById("selectionsID").selectedIndex].value=="selectSpanish"){
-    voice = "Spanish Female"
-    for(var key in spanDict) {
-      var value = spanDict[key];
-      if(key==text || key == document.getElementById("detectedObjectLbl").innerHTML){
-        valueT = value
-        break
-      } else {
-        valueT = text
-      }
-    }
-    responsiveVoice.speak(""+valueT, voice)
-  }
-  else{
-    responsiveVoice.speak(""+valueT, voice)
-  }
 }
 
-//updates the text on the page
-function updateText(text){
-  document.getElementById("detectedObjectLbl").innerHTML = text
+function meToo() {
+    x = prompt("What is x");
+    //need to parseInt to make x a number, try taking the parsint line out
+    x=parseInt(x);
+    x=x+1;
+    alert(x)
+    andMe(x);
 }
 
-var recognizedObjects = ["a"]
 
-//parses out the object and updates the canvas to indicate the source of the object detection
-var App = function (_React$Component) {
-  _inherits(App, _React$Component);
 
-  function App() {
-    var _ref;
 
-    var _temp, _this, _ret;
+// $(".preview").click(function() { //clicked on the preview
+//     console.log("1")
+//     $(this).parent().find('.modal').show( "slow", function() { //show the modal
+//         // Animation complete.
+//         modalShowing = true;
+//         modal = $(this).parent().find('.modal');
+//     });
+// });
 
-    _classCallCheck(this, App);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+// $(".closeModal").click(function() { //want to close the model
+//     $(this).parents('.modal').hide( "slow", function() {
+//         // Animation complete.
+//         modalShowing = false; //modal not showing
+//         count = 1;
+//         // resetImages();
+//     });
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.videoRef = React.createRef(), _this.canvasRef = React.createRef(), _this.styles = {
-      position: 'fixed',
-      top: 150,
-      left: 20
-    }, _this.detectFromVideoFrame = function (model, video) {
-      model.detect(video).then(function (predictions) {
-        _this.showDetections(predictions);
+// });
 
-        requestAnimationFrame(function () {
-          _this.detectFromVideoFrame(model, video);
-        });
-      }, function (error) {
-        console.log("Couldn't start the webcam");
-        console.error(error);
-      });
-    }, _this.showDetections = function (predictions) {
-      var ctx = _this.canvasRef.current.getContext("2d");
-      ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-      var font = "24px helvetica";
-      ctx.font = font;
-      ctx.textBaseline = "top";
+// $(document).click(function(e) {
+//     if (!$(e.target).closest('.modal-content').length && modalShowing) { //clicked off the modal
+//         modal.hide('slow').hide( "slow", function() {
+//             // Animation complete.
+//             modalShowing = false; //modal not showing
+//             // count = 1;
+//             // resetImages();
+//         });
+//     }
+// });
 
-      predictions.forEach(function (prediction) {
-        var x = prediction.bbox[0];
-        var y = prediction.bbox[1];
-        var width = prediction.bbox[2];
-        var height = prediction.bbox[3];
-        // Draw the bounding box.
-        if(prediction.class!="person"){
-          ctx.strokeStyle = "#2fff00";
-          ctx.lineWidth = 1;
-          ctx.strokeRect(x, y, width, height);
-          // Draw the label background.
-          ctx.fillStyle = "#2fff00";
-          var textWidth = ctx.measureText(prediction.class).width;
-          var textHeight = parseInt(font, 10);
-          // draw top left rectangle
-          ctx.fillRect(x, y, textWidth + 10, textHeight + 10);
-          // draw bottom left rectangle
-          ctx.fillRect(x, y + height - textHeight, textWidth + 15, textHeight + 10);
+// function t() {
+//     $('#featuredProjects').click();
+// }
 
-          // Draw the text last to ensure it's on top.
+// function start() {
+//     setTimeout(t, 25);
+// }
+window.onload = function(){ 
+    headerAnimate()
+    particles()
+    cardAnimate()
+    modalFunc()
+    scrollProgress()
+    
+    
+    window.addEventListener('scroll', () => {
+          
+        cardAnimate()
+        headerAnimate()
+        scrollProgress()
         
-          ctx.fillStyle = "#990000";
-          ctx.fillText(prediction.class, x, y);
-          ctx.fillText(prediction.score.toFixed(2), x, y + height - textHeight);
-          console.log((prediction.class))
-          updateText(prediction.class)
-          if(prediction.score.toFixed(2) > 0.7){
-            if(!recognizedObjects.includes(prediction.class)){
-              textSpeak();
-              recognizedObjects.unshift(prediction.class)
-              recognizedObjects.pop()
-            }
-            //console.log(recognizedObjects) 
-          }
+    });
+    
+};
+
+
+function headerAnimate(){
+    var bGround = document.getElementsByClassName("background")[0];
+    var header = document.getElementsByClassName("scrolls")[0];
+    var sticky = innerHeight*0.86;
+
+
+    var scrollLbl = document.getElementsByClassName("sdcontainer1")[0];
+    var navBar = document.getElementsByClassName("navBar")[0];
+
+    if (window.pageYOffset > sticky) {
+        // header.style.position = "sticky"
+        // console.log("yes")
+        header.classList.add("sticky");
+        bGround.style.paddingTop = (innerHeight*0.098)+"px"
+        scrollLbl.style.visibility = "hidden"//"translateX("+ (window.scrollY - 6*window.innerHeight) / 138 + "%)"
+        navBar.style.transform = "translate(0vw,-15vh)"
+    } else {
+        header.classList.remove("sticky");
+        bGround.style.paddingTop = "0px"
+        // scrollLbl.style.transform = ""
+        scrollLbl.style.visibility = "visible"
+        navBar.style.transform = "translate(0vw,-15vh)"
+    }
+
+
+    console.log(scrollY)
+    
+
+    // console.log(window.scrollY)
+
+    if(window.scrollY >= 0.96*window.innerHeight){
+        if (!primed){
+            // console.log(2)
+            primed = true
         }
-      });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+        
+    } else {
+        primed = false
+    }
+
+}
+
+
+
+function scrollProgress() {
+    // var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    // var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    // var scrolled = (winScroll / height) * 100;
+    // console.log(scrolled)
+    // console.log(height)
+    // console.log(winScroll)
+    // console.log(document.getElementById("aboutMe").getBoundingClientRect().top)
+    // console.log(document.getElementById("experience").getBoundingClientRect().top)
+    var lastIndex = 0
+    if(document.getElementById("aboutMe").getBoundingClientRect().top > 0 && document.getElementById("experience").getBoundingClientRect().top > 0){
+        var winScroll = document.getElementById("featuredWork").getBoundingClientRect().top;
+        var height = document.getElementById("featuredWork").getBoundingClientRect().top - document.getElementById("aboutMe").getBoundingClientRect().top;
+        var scrolled = (winScroll / height) * 100;
+        document.getElementsByClassName("pageProgress")[0].style.transform = "translate(-21vw,-2vh) translateX("+ scrolled/0.408+ "%)";
+        lastIndex = scrolled/0.408
+        // document.getElementById("footer").style.visibility = "hidden"
+    }
+    if(document.getElementById("aboutMe").getBoundingClientRect().top <= 0 && document.getElementById("experience").getBoundingClientRect().top > 0){
+        // var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        // var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var winScroll = document.getElementById("aboutMe").getBoundingClientRect().top
+        var height = document.getElementById("aboutMe").getBoundingClientRect().top - document.getElementById("experience").getBoundingClientRect().top;
+        var scrolled = (winScroll / height) * 100;
+        console.log(document.getElementById("aboutMe").getBoundingClientRect().top - document.getElementById("experience").getBoundingClientRect().top)
+        document.getElementsByClassName("pageProgress")[0].style.transform = "translate(-21vw,-2vh) translateX("+ (250+(scrolled/0.408)) + "%)";
+        // document.getElementById("footer").style.visibility = "hidden"
+    }
+    if(document.getElementById("experience").getBoundingClientRect().top <= 0 && document.getElementById("myWork").getBoundingClientRect().top > 0){
+        var winScroll = document.getElementById("experience").getBoundingClientRect().top
+        var height = document.getElementById("experience").getBoundingClientRect().top - document.getElementById("myWork").getBoundingClientRect().top;
+        var scrolled = (winScroll / height) * 100;
+        document.getElementsByClassName("pageProgress")[0].style.transform = "translate(-21vw,-2vh) translateX("+ (500+(scrolled/0.390))+ "%)";
+        // document.getElementById("footer").style.visibility = "hidden"
+        
+    }
+    // if(document.getElementById("myWork").getBoundingClientRect().top + 100 <= 0){
+    //     document.getElementById("footer").style.visibility = "visible"
+    // } else {
+    //     document.getElementById("footer").style.visibility = "hidden"
+    // }
+    
+
+
+
   }
-  // reference to both the video and canvas
 
 
-  // we are gonna use inline style
-
-
-  _createClass(App, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      if (navigator.mediaDevices.getUserMedia || navigator.mediaDevices.webkitGetUserMedia) {
-        // define a Promise that'll be used to load the webcam and read its frames
-        var webcamPromise = navigator.mediaDevices.getUserMedia({
-          video: true,
-          audio: false
-        }).then(function (stream) {
-          // pass the current frame to the window.stream
-          window.stream = stream;
-          // pass the stream to the videoRef
-          _this2.videoRef.current.srcObject = stream;
-
-          return new Promise(function (resolve) {
-            _this2.videoRef.current.onloadedmetadata = function () {
-              resolve();
-            };
-          });
-        }, function (error) {
-          console.log("Couldn't start the webcam");
-          console.error(error);
-        });
-
-        // define a Promise that'll be used to load the model
-        var loadlModelPromise = cocoSsd.load();
-
-        // resolve all the Promises
-        Promise.all([loadlModelPromise, webcamPromise]).then(function (values) {
-          _this2.detectFromVideoFrame(values[0], _this2.videoRef.current);
-        }).catch(function (error) {
-          console.error(error);
-        });
-      }
+function modalFunc(){
+    var modal = document.getElementById("myModal");
+    var modalHead = document.getElementsByClassName("inModalTitle")[0]
+    var modalValue = document.getElementsByClassName("inModalText")[0]
+    var modalCaption = document.getElementsByClassName("captionTxt")[0]
+    var modalImage = document.getElementsByClassName("modalImage")[0]
+    // Get the button that opens the modal
+    var btn = document.getElementsByClassName("projItem");
+    var name = document.getElementsByClassName("modalName");
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    // When the user clicks on the button, open the modal 
+    // btn.onclick = function() {
+    // modal.style.display = "block";
+    // }
+    
+    // console.log(btn.length)
+    for (let i = 0; i < btn.length; i++) {
+        btn[i].onclick = function() {
+            modal.style.display = "block";
+            modalHead.innerHTML = (name[i].innerHTML)
+            modalValue.innerHTML = (projectDict[name[i].innerHTML][0])
+            modalCaption.innerHTML = (projectDict[name[i].innerHTML][2])
+            modalImage.src = (projectDict[name[i].innerHTML][3])
+        };
+        
     }
 
-    // here we are returning the video frame and canvas to draw,
-    // so we are in someway drawing our video "on the go"
-
-  }, {
-    key: "render",
-    value: function render() {
-      return React.createElement(
-        "div",
-        null,
-        React.createElement("video", {
-          style: this.styles,
-          autoPlay: true,
-          muted: true,
-          ref: this.videoRef,
-          width: "720",
-          height: "600"
-        }),
-        React.createElement("canvas", { style: this.styles, ref: this.canvasRef, width: "720", height: "650" })
-      );
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
     }
-  }]);
 
-  return App;
-}(React.Component);
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
 
-var domContainer = document.querySelector('#root');
-ReactDOM.render(React.createElement(App), domContainer);
+
+function cardAnimate(){
+    var indexCard = document.getElementsByClassName("container1")[0]
+    var indexName = document.getElementsByClassName("name")[0]
+    var indexPic = document.getElementsByClassName("bioImg2")[0]
+    var indexBio = document.getElementsByClassName("bioContainer2")[0]
+    var bio = document.getElementsByClassName("container1")[0];
+    var innerPic = document.getElementsByClassName("bioImg")[0]
+    var innerBioTxt = document.getElementsByClassName("bioContainer")[0]
+    var innerBio = document.getElementById("aboutMe");
+
+
+    /*
+        Version 1.0 - Absolute Transitions: Fixed window size
+    */
+
+
+    // if(window.scrollY >= 1000 && window.scrollY <= 2440){
+        
+    //     indexCard.style.transform = "rotateY("+((window.scrollY - 1000)/8)+"deg)"
+    // //     // indexCard.style.transform = "matrix(1, 0, 0.5, 1, 150, 0);"
+    // //     indexCard.style.transform = "scale("+ (((window.scrollY - 4000) / 5000)+1) + ") translateY("+ (window.scrollY - 5900) / 4 + "%)"
+    // //     // indexCard.style.transform = "translateY("+ (window.scrollY - 5900) / 4 + "%)"
+    // }
+    // if(window.scrollY >= 1000 && window.scrollY <= 2440){
+    //     indexCard.style.transform = "rotateY("+((window.scrollY - 1000)/8)+"deg) scale("+ (((window.scrollY - 1000) / 1000)+1) + ")"
+    // }
+    // if(window.scrollY <= 1720){
+    //     bio.style.visibility = "visible"
+    //     indexName.innerHTML = "Ronit Anandani"
+    //     indexPic.style.visibility = "hidden"
+    //     indexBio.style.visibility = "hidden"
+    // }
+    // if(window.scrollY > 1720){
+    //     indexName.innerHTML = ""
+    //     bio.style.visibility = "visible"
+    //     indexPic.style.visibility = "visible"
+    //     indexBio.style.visibility = "visible"
+    //     indexCard.style.transform = "rotateY("+((window.scrollY - 2440)/8)+"deg) scale("+ (((window.scrollY - 1190) / 1000)+1) + ") "
+    // }
+    // if(window.scrollY >= 2440){
+    //     indexCard.style.transform = "scale("+ (((window.scrollY - 1690) / 600)+1) + ")"
+    //     // console.log(indexCard.offsetWidth)
+    // }
+    // if(window.scrollY >= 3100){
+    //     indexCard.style.transform = "scale("+ (((3100 - 1690) / 600)+1) + ")"
+    //     window.location.hash = '#aboutMe'
+    // }
+    // if(window.scrollY >= 4750){
+    //     bio.style.visibility = "hidden"
+    //     indexPic.style.visibility = "hidden"
+    //     indexBio.style.visibility = "hidden"
+    // }
+
+    var windowHeight = window.innerHeight
+
+    /*
+        Version 2.0 - Dynamic Progression: Changes based on window height
+    */
+    if(window.scrollY >= 0 && window.scrollY < (windowHeight)){
+        indexCard.style.transform = ""
+    }
+    if(window.scrollY >= windowHeight && window.scrollY <= (windowHeight * 2.440)){
+        indexCard.style.transform = "rotateY("+((window.scrollY - windowHeight)/(windowHeight*0.008))+"deg)"
+    }
+    if(window.scrollY >= windowHeight && window.scrollY <= (windowHeight * 2.440)){
+        indexCard.style.transform = "rotateY("+((window.scrollY - windowHeight)/(windowHeight*0.008))+"deg) scale("+ (((window.scrollY - windowHeight) / windowHeight)+1) + ")"
+    }
+    if(window.scrollY <= (windowHeight * 1.720)){
+        bio.style.visibility = "visible"
+        indexName.innerHTML = "Ronit Anandani"
+        indexPic.style.visibility = "hidden"
+        indexBio.style.visibility = "hidden"
+    }
+    if(window.scrollY > (windowHeight * 1.720)){
+        indexName.innerHTML = ""
+        bio.style.visibility = "visible"
+        indexPic.style.visibility = "visible"
+        indexBio.style.visibility = "visible"
+        indexCard.style.transform = "rotateY("+((window.scrollY - (windowHeight * 2.440))/(windowHeight*0.008))+"deg) scale("+ (((window.scrollY - (windowHeight)) / windowHeight)+1) + ") "
+    }
+    if(window.scrollY >= (windowHeight * 2.440)){
+        indexCard.style.transform = "scale("+ (((window.scrollY - (windowHeight * 1.580)) / (windowHeight*0.6))+1) + ")"
+    }
+    // if(((((windowHeight * 3.100) - (windowHeight * 1.690)) / (windowHeight*0.6))+1) >= 3.35){
+    //     // console.log((((window.scrollY - (windowHeight * 1.580)) / (windowHeight*0.6))+1))
+        
+    // }
+    // console.log(indexPic.getBoundingClientRect())
+    if(window.scrollY < (windowHeight * 2.960)){
+        innerBioTxt.style.visibility="hidden"
+        innerPic.style.visibility="hidden"
+        innerBio.style.zIndex = "-2";
+    }
+    if(window.scrollY >= (windowHeight * 2.960)){
+        indexCard.style.transform = "scale("+ (1) + ")"
+
+        innerBio.style.zIndex = "2";
+        innerBioTxt.style.visibility="visible"
+        innerPic.style.visibility="visible"
+
+        bio.style.visibility = "hidden"
+        indexPic.style.visibility = "hidden"
+        indexBio.style.visibility = "hidden"
+    }
+
+
+}
+
+
+function particles(){
+    particlesJS('particles-js',
+        {
+        "particles": {
+            "number": {
+            "value": 30,
+            "density": {
+                "enable": true,
+                "value_area": 800
+            }
+            },
+            "color": {
+            "value": "#ffffff"
+            },
+            "shape": {
+            "type": "triangle",
+            "stroke": {
+                "width": 0,
+                "color": "#000000"
+            },
+            "polygon": {
+                "nb_sides": 5
+            },
+            "image": {
+                "src": "img/github.svg",
+                "width": 100,
+                "height": 100
+            }
+            },
+            "opacity": {
+            "value": 0.5,
+            "random": false,
+            "anim": {
+                "enable": false,
+                "speed": 1,
+                "opacity_min": 0.1,
+                "sync": false
+            }
+            },
+            "size": {
+            "value": 7,
+            "random": true,
+            "anim": {
+                "enable": false,
+                "speed": 4,
+                "size_min": 0.1,
+                "sync": false
+            }
+            },
+            "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#ffffff",
+            "opacity": 0.4,
+            "width": 1
+            },
+            "move": {
+            "enable": true,
+            "speed": 2,
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "attract": {
+                "enable": false,
+                "rotateX": 600,
+                "rotateY": 1200
+            }
+            }
+        },
+        "retina_detect": false,
+        "config_demo": {
+            "hide_card": false,
+            "background_color": "#b61924",
+            "background_image": "",
+            "background_position": "50% 50%",
+            "background_repeat": "no-repeat",
+            "background_size": "cover"
+        }
+        }
+    
+    );
+}
+
+// function bioAutoScroll(){
+//     console.log("ok")
+//     window.scrollTo(0, 3100);
+// }
