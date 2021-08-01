@@ -18,19 +18,6 @@ html {
     place-content: center;
 }
 
-.loadFont{
-  color: #921f3b;
-  font-family: "Bodoni MT Condensed";
-  font-size: calc(1.5vw + 1.2vmin);
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  place-content: center;
-}
-
 .myImg{
   width:53vw;
   height:100vh;
@@ -166,7 +153,7 @@ html {
     position: sticky;
     position: -webkit-sticky;
     width: 100vw;
-    height: 140vh;
+    height: 40vh;
     background-color: #921f3b;
     background-image: url('');
     background-size: cover;
@@ -224,7 +211,8 @@ html {
     background-attachment: fixed;
     background-size: cover; */
     /* color: #FFFFFF; */
-    width: 100vw;
+    width: 120vw;
+    margin-left: -10vw;
     height: 204vh;
     display: flex;
     align-items: stretch;
@@ -509,7 +497,7 @@ footer {
   width: 110vw;
   height: 150vh;
   margin: -10px;
-  transform: translate(0, -30vh);
+  transform: translate(0, -20vh);
   opacity: 1;
   overflow-y: hidden;
 }
@@ -526,6 +514,32 @@ footer {
   position: sticky;
   top: 33%;
   left: 35vw;
+}
+
+.loadFont{
+  color: #921f3b;
+  font-family: "Bodoni MT Condensed";
+  font-size: calc(1.5vw + 1.2vmin);
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  place-content: center;
+}
+
+.loadFont2{
+  color: #921f3b;
+  font-family: "Bodoni MT Condensed";
+  font-size: 15px;
+  margin: 0;
+  position: absolute;
+  top: 60%;
+  left: 47%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  place-content: center;
 }
 
 /* .footer-bottom{
@@ -1187,7 +1201,7 @@ div.inModalText {
 	white-space: nowrap;
 }
 .sdcontainer1 {
-  transform: translate(40vw,-12vh);
+  transform: translate(0vw,-12vh);
   justify-content: center;
   align-items: center;
   position: relative;
@@ -1467,7 +1481,7 @@ div.inModalText {
   .pageTag{
     visibility: visible;
     font-size: 17px;
-    transform: translate(-300px,46px);
+    transform: translate(-280px,46px);
     margin-right: 35px;
     white-space: nowrap;
   }
@@ -1527,9 +1541,9 @@ div.inModalText {
 
 .vidStyle{
   object-fit: cover;
-  width: 100vw;
+  width: 120vw;
   height: 100vh;
-  /* margin-left: 10vh; */
+  margin: -10vh;
   margin-right: auto;
 }
 

@@ -118,6 +118,7 @@ async function easeInScreen(){
         console.log(loaderOpacity)
         await sleep(50)
     }
+    document.getElementById("loadingScreen").style.height = 0
     document.getElementById("loadingScreen").style.zIndex = -10
 }
 
