@@ -7,10 +7,12 @@
     <title>Ronit Anandani</title>
     
     <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
+    
     <link rel="stylesheet" href="aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="fontAwesome.css" /> -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+    <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -19,6 +21,15 @@
     <link rel="stylesheet" type="text/css" href="myCSS.css">
 </head>
 <body style="background-color:black;">
+    <div id="loadingScreen">
+        <div class="loadingIndex">
+            <h2 class="loadFont"></h2>
+            <script>
+                var randomLoadingWord = ["Building", "Initializing", "Developing", "Exploring", "Recreating", "Constructing"]
+                document.getElementsByClassName("loadFont")[0].innerHTML = randomLoadingWord[Math.floor(Math.random() * randomLoadingWord.length)]
+            </script>
+        </div>
+    </div>
     <div id="featuredWork">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" >
             <!-- Indicators -->
@@ -382,10 +393,6 @@
                 culpa qui officia deserunt mollit anim id est laborum.
             </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
         <!-- Inspired by https://codepen.io/xtrp/pen/XWWwGRy -->
         <!-- <div class="card-holder" data-aos="fade-right">
             <div class="card-container">
@@ -506,7 +513,13 @@
 
         <div class="container-fluid">
             <div class="projectCover">
+                <br>
+                <br>
                 <h1 class="projectsTitle" data-aos="fade-right">My Work</h1>
+                <br>
+                <br>
+                <br>
+                <br>
                 <br>
                 <br>
                 <br>

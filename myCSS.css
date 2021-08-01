@@ -18,6 +18,19 @@ html {
     place-content: center;
 }
 
+.loadFont{
+  color: #921f3b;
+  font-family: "Bodoni MT Condensed";
+  font-size: calc(1.5vw + 1.2vmin);
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  place-content: center;
+}
+
 .myImg{
   width:53vw;
   height:100vh;
@@ -487,6 +500,29 @@ footer {
   text-align: center;
   place-items: center;
   padding-bottom: 5px;
+}
+
+#loadingScreen {
+  z-index: 100;
+  position: fixed;
+  background-color: #01411c;
+  width: 110vw;
+  height: 100vh;
+  margin: -10px;
+  opacity: 1;
+}
+
+.loadingIndex {
+  width: 30vw;
+  border: 3px solid #73AD21;
+  /* padding-top: 10%; */
+  background-color: black;
+  /* opacity: 80%; */
+  height: 30vh; 
+  margin: 0;
+  position: sticky;
+  top: 33%;
+  left: 35vw;
 }
 
 /* .footer-bottom{
@@ -1259,11 +1295,11 @@ div.inModalText {
   transform: translate(0vw,0.6vh);
 }
 .navName2{
-  text-align: center;
-  width: 28vw;
+  /* text-align: center; */
+  /* width: 28vw; */
   color: #1570cd;
-  font-size: calc(2.75vw + 1.2vmin);
-  transform: translate(0.8vw,2.6vh);
+  font-size: 35px;
+  transform: translate(0vw,2.6vh);
 }
 .navButton{
   width: calc(1.75vw + 1.75vh + 1.2vmin);
@@ -1273,7 +1309,8 @@ div.inModalText {
   color: #1570cd;
   transition: 0.3s;
   margin-left: 1vw;
-  font-size: calc(1vw + 1.2vmin);
+  font-size: calc(1vw + 1.5vmin);
+  border: 0px;
 }
 
 .navButton:hover{
@@ -1394,9 +1431,15 @@ div.inModalText {
     margin-left: -54vw;
     border-bottom: 3px solid #1570cd;
   }
+  #particles-js{
+    height: 40vh;
+  }
 }
 
 @media (max-width: 750px) {
+  #particles-js{
+    height: 20vh;
+  }
   .navBar {
     height: 80px;
     width: 100vw;

@@ -3,6 +3,7 @@ var projectDict = { "key1" : ["value123456789345678value123456789345678value1234
     "{data.name}": ["This website","is","Sus","https://media0.giphy.com/media/ysiCYZUJkW3XRb7k9K/giphy.gif"]
   };
 
+var loaderOpacity = 1
 var x;
 var primed = false
 
@@ -71,23 +72,63 @@ function meToo() {
 // function start() {
 //     setTimeout(t, 25);
 // }
+if(document.readyState === 'ready' || document.readyState === 'complete') {
+    console.log("YES")
+    easeInScreen()
+} else {
+    console.log("No")
+}
+
 window.onload = function(){ 
+    window.__forceSmoothScrollPolyfill__ = true;
+
     headerAnimate()
     particles()
     cardAnimate()
     modalFunc()
     scrollProgress()
     
-    
-    window.addEventListener('scroll', () => {
-          
-        cardAnimate()
-        headerAnimate()
-        scrollProgress()
+    if(document.readyState === 'ready' || document.readyState === 'complete') {
+        console.log("YES")
+        easeInScreen()
+
+        // if (loaderOpacity > 0){
+        //     // setTimeout(easeInScreen, 300);
+        // }
+        // for(i=0;i<10;i++){
+        //     easeInScreen()
+        //     wait
+        // }
         
-    });
-    
+        // document.getElementById("loadingScreen").style.opacity = 1
+        // document.getElementById("loadingScreen").style.zIndex = -10
+    } else {
+        console.log("No")
+    }
 };
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function easeInScreen(){
+    for(i=0;i<10;i++){
+        document.getElementById("loadingScreen").style.opacity = loaderOpacity - 0.1
+        loaderOpacity  = loaderOpacity - 0.1
+        console.log(loaderOpacity)
+        await sleep(50)
+    }
+    document.getElementById("loadingScreen").style.zIndex = -10
+}
+
+
+window.addEventListener('scroll', () => {
+          
+    cardAnimate()
+    headerAnimate()
+    scrollProgress()
+    
+});
 
 
 function headerAnimate(){
