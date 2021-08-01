@@ -73,10 +73,10 @@ function meToo() {
 //     setTimeout(t, 25);
 // }
 if(document.readyState === 'ready' || document.readyState === 'complete') {
-    console.log("YES")
+    // console.log("YES")
     easeInScreen()
 } else {
-    console.log("No")
+    // console.log("No")
 }
 
 window.onload = function(){ 
@@ -89,7 +89,7 @@ window.onload = function(){
     scrollProgress()
     
     if(document.readyState === 'ready' || document.readyState === 'complete') {
-        console.log("YES")
+        // console.log("YES")
         easeInScreen()
 
         // if (loaderOpacity > 0){
@@ -103,7 +103,7 @@ window.onload = function(){
         // document.getElementById("loadingScreen").style.opacity = 1
         // document.getElementById("loadingScreen").style.zIndex = -10
     } else {
-        console.log("No")
+        // console.log("No")
     }
 };
 

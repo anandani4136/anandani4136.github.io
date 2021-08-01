@@ -507,9 +507,11 @@ footer {
   position: fixed;
   background-color: #01411c;
   width: 110vw;
-  height: 100vh;
+  height: 150vh;
   margin: -10px;
+  transform: translate(0, -30vh);
   opacity: 1;
+  overflow-y: hidden;
 }
 
 .loadingIndex {
@@ -518,6 +520,7 @@ footer {
   /* padding-top: 10%; */
   background-color: black;
   /* opacity: 80%; */
+  transform: translate(0, 35vh);
   height: 30vh; 
   margin: 0;
   position: sticky;
@@ -1377,6 +1380,9 @@ div.inModalText {
 
 
 @media (max-width: 1200px) {
+  #particles-js{
+    height: 40vh;
+  }
   .navBar {
     height: 70px;
   }

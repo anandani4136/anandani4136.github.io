@@ -25,8 +25,52 @@
         <div class="loadingIndex">
             <h2 class="loadFont"></h2>
             <script>
-                var randomLoadingWord = ["Building", "Initializing", "Developing", "Exploring", "Recreating", "Constructing"]
-                document.getElementsByClassName("loadFont")[0].innerHTML = randomLoadingWord[Math.floor(Math.random() * randomLoadingWord.length)]
+                var randomLoadingWord = ["Building", "Initializing", "Developing", "Exploring", "Recreating", "Constructing", "Understanding", "Generating", "Parsing", "Animating", "Making", "Expanding"]
+                var twistedDeg = 0
+                var twistedDeg2 = 0
+                var twistedDirection = true
+                var twistedDirection2 = true
+                testFunction()
+
+                function sleep(ms) {
+                    return new Promise(resolve => setTimeout(resolve, ms));
+                }
+
+                async function testFunction(){
+                    for(i=0;i<1009;i++){
+                        document.getElementsByClassName("loadingIndex")[0].style.transform = "rotateX("+twistedDeg+"deg) rotateZ("+twistedDeg2+"deg)"
+                        document.getElementsByClassName("loadFont")[0].innerHTML = randomLoadingWord[Math.floor(Math.random() * randomLoadingWord.length)]
+
+                        if(twistedDirection)
+                            twistedDeg = twistedDeg + 10
+                        else
+                            twistedDeg = twistedDeg - 10
+
+                        if(twistedDirection2)
+                            twistedDeg2 = twistedDeg2 + 10
+                        else
+                            twistedDeg2 = twistedDeg2 - 10
+
+                        if(twistedDeg%90 == 0) {
+                            if(twistedDirection) {
+                                twistedDirection = false
+                            } else {
+                                twistedDirection = true
+                                document.getElementsByClassName("loadingIndex")[0].style.transform = "rotateX("+twistedDeg+"deg) rotateZ("+twistedDeg2+"deg)"
+                                await sleep(500)
+                            }
+                        }
+                        if(twistedDeg2%90 == 0) {
+                            if(twistedDirection2) {
+                                twistedDirection2 = false
+                            } else {
+                                twistedDirection2 = true
+                            }
+                        }
+                        await sleep(50)
+                    }
+                    document.getElementsByClassName("loadFont")[0].innerHTML = "Almost Done"
+                }
             </script>
         </div>
     </div>
