@@ -152,7 +152,7 @@ html {
   #particles-js{
     position: sticky;
     position: -webkit-sticky;
-    width: 120vw;
+    width: 100vw;
     margin-left: 0px;
     height: 40vh;
     background-color: #921f3b;
@@ -212,8 +212,8 @@ html {
     background-attachment: fixed;
     background-size: cover; */
     /* color: #FFFFFF; */
-    width: 120vw;
-    margin-left: -10vw;
+    width: 100vw;
+    margin-left: -1vw;
     height: 204vh;
     display: flex;
     align-items: stretch;
@@ -237,7 +237,7 @@ html {
 .bio{
     position: sticky;
     background-color: #921f3b;
-    margin-left: 0vw;
+    margin-left: -1vw;
     width: 100vw;
     height: 100vh;
     /* z-index: -1; */
@@ -1294,6 +1294,7 @@ div.inModalText {
   background-color: #921f3b;
   left: 0;
   width: 100vw;
+  margin-left: -1vw;
   height: 1vh;
   z-index: 20;
 }

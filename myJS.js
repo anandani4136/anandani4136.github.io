@@ -145,11 +145,13 @@ function headerAnimate(){
         // header.style.position = "sticky"
         // console.log("yes")
         header.classList.add("sticky");
+        header.style.marginLeft = "0px"
         bGround.style.paddingTop = (innerHeight*0.098)+"px"
         scrollLbl.style.visibility = "hidden"//"translateX("+ (window.scrollY - 6*window.innerHeight) / 138 + "%)"
         navBar.style.transform = "translate(0vw,-15vh)"
     } else {
         header.classList.remove("sticky");
+        header.style.marginLeft = "-1vw"
         bGround.style.paddingTop = "0px"
         // scrollLbl.style.transform = ""
         scrollLbl.style.visibility = "visible"
