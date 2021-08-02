@@ -152,7 +152,8 @@ html {
   #particles-js{
     position: sticky;
     position: -webkit-sticky;
-    width: 100vw;
+    width: 120vw;
+    margin-left: 0px;
     height: 40vh;
     background-color: #921f3b;
     background-image: url('');
@@ -236,6 +237,7 @@ html {
 .bio{
     position: sticky;
     background-color: #921f3b;
+    margin-left: 0vw;
     width: 100vw;
     height: 100vh;
     /* z-index: -1; */
@@ -487,7 +489,9 @@ footer {
   display: grid;
   text-align: center;
   place-items: center;
-  padding-bottom: 5px;
+  /* padding-bottom: 5px; */
+  margin-bottom: 0px;
+  margin-left: 0px;
 }
 
 #loadingScreen {
@@ -1543,8 +1547,9 @@ div.inModalText {
   object-fit: cover;
   width: 120vw;
   height: 100vh;
-  margin: -10vh;
-  margin-right: auto;
+  margin-left: 0px;
+  /* margin: -10vh;
+  margin-right: auto; */
 }
 
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}.sr-only-focusable:active,.sr-only-focusable:focus{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}[role=button]{cursor:pointer}
