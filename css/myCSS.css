@@ -954,7 +954,7 @@ a.img-icon-zoom {
 .container-fluid{
   position: static;
   width: 101vw;
-  margin-left: -1vw;
+  margin-left: -2vw;
   min-height: 100vh;
   z-index: 5;
   
@@ -1220,13 +1220,13 @@ div.inModalText {
 }
 
 .sdc{
-  transform: translate(37.5vw,-8vh);
+  transform: translate(37vw,-8vh);
 }
 
 
 
 .sdcontainer {
-  transform: translate(9.35vw,0vh);
+  transform: translate(10.15vw,0vh);
   justify-content: center;
   align-items: center;
   position: relative;
