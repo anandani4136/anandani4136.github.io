@@ -146,12 +146,14 @@ function headerAnimate(){
         // console.log("yes")
         header.classList.add("sticky");
         header.style.marginLeft = "0px"
+        header.width = "100vw"
         bGround.style.paddingTop = (innerHeight*0.098)+"px"
         scrollLbl.style.visibility = "hidden"//"translateX("+ (window.scrollY - 6*window.innerHeight) / 138 + "%)"
         navBar.style.transform = "translate(0vw,-15vh)"
     } else {
         header.classList.remove("sticky");
         header.style.marginLeft = "-1vw"
+        header.width = "101vw"
         bGround.style.paddingTop = "0px"
         // scrollLbl.style.transform = ""
         scrollLbl.style.visibility = "visible"
@@ -360,6 +362,8 @@ function cardAnimate(){
         innerBioTxt.style.visibility="hidden"
         innerPic.style.visibility="hidden"
         innerBio.style.zIndex = "-2";
+        document.getElementsByClassName("bio")[0].style.width = "101vw"
+        document.getElementsByClassName("bio")[0].style.marginLeft = "-1vw"
     }
     if(window.scrollY >= (windowHeight * 2.960)){
         indexCard.style.transform = "scale("+ (1) + ")"
@@ -371,6 +375,8 @@ function cardAnimate(){
         bio.style.visibility = "hidden"
         indexPic.style.visibility = "hidden"
         indexBio.style.visibility = "hidden"
+        document.getElementsByClassName("bio")[0].style.width = "100vw"
+        document.getElementsByClassName("bio")[0].style.marginLeft = "0.3vw"
     }
 
 

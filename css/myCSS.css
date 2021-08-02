@@ -49,6 +49,7 @@ html {
     top: 35%;
     left: 35vw;
     z-index: 1;
+    /* transition: transform 0.00001s; */
     /* -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); */
   }
@@ -212,7 +213,7 @@ html {
     background-attachment: fixed;
     background-size: cover; */
     /* color: #FFFFFF; */
-    width: 100vw;
+    width: 101vw;
     margin-left: -1vw;
     height: 204vh;
     display: flex;
@@ -238,8 +239,9 @@ html {
     position: sticky;
     background-color: #921f3b;
     margin-left: -1vw;
-    width: 100vw;
+    width: 101vw;
     height: 100vh;
+    transform: translate(0,-3vh);
     /* z-index: -1; */
 }
 
@@ -483,15 +485,15 @@ footer {
   position: sticky;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 101vw;
   height: 200px;
   background: #252a47;
   display: grid;
   text-align: center;
   place-items: center;
   /* padding-bottom: 5px; */
-  margin-bottom: 0px;
-  margin-left: 0px;
+  margin-bottom: -1vh;
+  margin-left: -1vw;
 }
 
 #loadingScreen {
@@ -951,7 +953,8 @@ a.img-icon-zoom {
 }
 .container-fluid{
   position: static;
-  width: 100vw;
+  width: 101vw;
+  margin-left: -1vw;
   min-height: 100vh;
   z-index: 5;
   
@@ -1293,7 +1296,7 @@ div.inModalText {
 .scrolls{
   background-color: #921f3b;
   left: 0;
-  width: 100vw;
+  width: 101vw;
   margin-left: -1vw;
   height: 1vh;
   z-index: 20;

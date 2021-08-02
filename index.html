@@ -8,24 +8,23 @@
     
     <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
     
-    <link rel="stylesheet" href="aos.css" />
+    <link rel="stylesheet" href="css/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="fontAwesome.css" /> -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
-    <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="particles.js"></script>
-    <script src="myJS.js"></script>
-    <link rel="stylesheet" type="text/css" href="myCSS.css">
+    <script src="scripts/jQueryJS.js"></script>
+    <script src="scripts/animeJS.js"></script>
+    <script src="scripts/bootstrapJS.js"></script>
+    <script src="scripts/particles.js"></script>
+    <script src="scripts/myJS.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/myCSS.css">
 </head>
 <body style="background-color:black;">
     <div id="loadingScreen">
         <div class="loadingIndex">
             <h2 class="loadFont"></h2>
             <script>
-                var randomLoadingWord = ["Building", "Initializing", "Developing", "Exploring", "Recreating", "Constructing", "Understanding", "Generating", "Parsing", "Animating", "Making", "Expanding"]
+                var randomLoadingWord = ["Building", "Initializing", "Developing", "Exploring", "Recreating", "Constructing", "Understanding", "Generating", "Parsing", "Animating", "Creating", "Expanding", "Connecting"]
                 var twistedDeg = 0
                 var twistedDeg2 = 0
                 var twistedDirection = true
@@ -222,14 +221,16 @@
                     <!-- <h2 class="name2">Ronit Anandani</h2> -->
                     <div class="bioImg2">
                         <!-- <img src="https://d37jsm3yxo26ez.cloudfront.net/public/user/6f/e0/33/3379c2_d264215.jpg" alt="Ronit Anandani" class="myImg"> -->
-                        <img src="Screen Shot 2021-06-05 at 11.18.03 PM.png" alt="Ronit Anandani" class="myImg2">
+                        <img src="images/Screen Shot 2021-06-05 at 11.18.03 PM.png" alt="Ronit Anandani" class="myImg2">
                         <!-- <div class="item" data-aos="fade-up">1</div> -->
                     </div>
                     <div class="bioContainer2">
                         <br>
                         <h2 class="bio12"> Greetings!</h2>
-                        <p class="bio22">I am a senior at Conant High School looking to explore the world of technology and software, one step at a time. I like to investigate concepts in data science, web and app development, and applications of Augmented and Virtual Reality. </p>
-                        <p class="bio22">Technology has the power to push the boundaries of our society and expand upon our progress as a civilization, and others should have the ability to learn</p>
+                        <p class="bio22">I am a senior at Conant High School looking to explore the world of technology and software, one step at a time. I like to investigate concepts in data science, web and app development, and applications of Augmented and Virtual Reality.</p>
+                        <p class="bio22">I do my best to help those around me, through teaching, creating useful applications, or simply offering aid whenever I can. Similarly, I hope this website helps you learn more about me and my experience.</p>
+                        <p class="bio22">Technology has the power to push the boundaries of our society and expand upon our progress as a civilization, and everyone should have the ability to learn and expand upon our work so that we can take our progress to the next level.</p>
+                        <p class="bio22">Here I have presented some of my favorite pieces of work. Feel free to look around, learn from my successes and setbacks, and hopefully be inspired for your next creation. Feel free to contact me with any questions, comments, or anything you would like to share!</p>
                         <!-- <div class="item" data-aos="fade-up">1</div> -->
                     </div>
                 </div>
@@ -243,7 +244,7 @@
     <div class="bio" id="aboutMe">
         <div class="bioImg">
             <!-- <img src="https://d37jsm3yxo26ez.cloudfront.net/public/user/6f/e0/33/3379c2_d264215.jpg" alt="Ronit Anandani" class="myImg"> -->
-            <img src="Screen Shot 2021-06-05 at 11.18.03 PM.png" alt="Ronit Anandani" class="myImg">
+            <img src="images/Screen Shot 2021-06-05 at 11.18.03 PM.png" alt="Ronit Anandani" class="myImg">
             <!-- <div class="item" data-aos="fade-up">1</div> -->
         </div>
         <div class="bioContainer">
@@ -251,8 +252,10 @@
             <br>
             <br>
             <h2 class="bio1"> Greetings!</h2>
-            <p class="bio2">I am a senior at Conant High School looking to explore the world of technology and software, one step at a time. I like to investigate concepts in data science, web and app development, and applications of Augmented and Virtual Reality. </p>
-            <p class="bio2">Technology has the power to push the boundaries of our society and expand upon our progress as a civilization, and others should have the ability to learn</p>
+            <p class="bio2">I am a senior at Conant High School looking to explore the world of technology and software, one step at a time. I like to investigate concepts in data science, web and app development, and applications of Augmented and Virtual Reality.</p>
+            <p class="bio2">I do my best to help those around me, through teaching, creating useful applications, or simply offering aid whenever I can. Similarly, I hope this website helps you learn more about me and my experience.</p>
+            <p class="bio2">Technology has the power to push the boundaries of our society and expand upon our progress as a civilization, and everyone should have the ability to learn and expand upon our work so that we can take our progress to the next level.</p>
+            <p class="bio2">Here I have presented some of my favorite pieces of work. Feel free to look around, learn from my successes and setbacks, and hopefully be inspired for your next creation. Feel free to contact me with any questions, comments, or anything you would like to share!</p>
             <!-- <div class="item" data-aos="fade-up">1</div> -->
         </div>
     </div>
@@ -439,6 +442,10 @@
                 culpa qui officia deserunt mollit anim id est laborum.
             </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
         <!-- Inspired by https://codepen.io/xtrp/pen/XWWwGRy -->
         <!-- <div class="card-holder" data-aos="fade-right">
             <div class="card-container">
@@ -559,8 +566,6 @@
 
         <div class="container-fluid">
             <div class="projectCover">
-                <br>
-                <br>
                 <h1 class="projectsTitle" data-aos="fade-right">My Work</h1>
                 <br>
                 <br>
