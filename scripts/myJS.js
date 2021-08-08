@@ -148,9 +148,6 @@ function headerAnimate(){
     var navBar = document.getElementsByClassName("navBar")[0];
 
     if (window.pageYOffset > sticky) {
-        autoScroll()
-        autoScroll()
-        autoScroll()
         // header.style.position = "sticky"
         // console.log("yes")
         header.classList.add("sticky");
