@@ -1,11 +1,17 @@
-var projectDict = { "key1" : ["value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678","link","Amogus","https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"] , 
+var projectDict = { 
+    "key1" : ["value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678","link","Amogus","https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"] , 
     "key2" : ["value2","link","caption here","https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg"] , 
-    "{data.name}": ["This website","is","Sus","https://media0.giphy.com/media/ysiCYZUJkW3XRb7k9K/giphy.gif"]
+    "{data.name}": ["This website","is","Sus","https://media0.giphy.com/media/ysiCYZUJkW3XRb7k9K/giphy.gif"] ,
+    "Rube Goldberg Machine": ["Utilizing the Matter.js physics engine, this project aims to create a Rube Goldberg Machine using various different physics based elements. Created by Timothy Gonzalez, Jay Gandhi, and Ronit Anandani.","is","November - December 2020","https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg"],
+    "Third slide label": ["This website","is","Sus","https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg"],
+    "First slide label": ["This website","is","Sus","https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg"]
   };
 
 var loaderOpacity = 1
 var x;
 var primed = false
+// import smoothscroll from 'smoothscroll-polyfill'
+// smoothscroll.polyfill();
 
 
 // var modalShowing = false;
@@ -80,12 +86,12 @@ if(document.readyState === 'ready' || document.readyState === 'complete') {
 }
 
 window.onload = function(){ 
-    window.__forceSmoothScrollPolyfill__ = true;
 
     headerAnimate()
     particles()
     cardAnimate()
     modalFunc()
+    carouselFunc()
     scrollProgress()
     
     if(document.readyState === 'ready' || document.readyState === 'complete') {
@@ -115,7 +121,7 @@ async function easeInScreen(){
     for(i=0;i<10;i++){
         document.getElementById("loadingScreen").style.opacity = loaderOpacity - 0.1
         loaderOpacity  = loaderOpacity - 0.1
-        console.log(loaderOpacity)
+        // console.log(loaderOpacity)
         await sleep(50)
     }
     document.getElementById("loadingScreen").style.height = 0
@@ -142,6 +148,9 @@ function headerAnimate(){
     var navBar = document.getElementsByClassName("navBar")[0];
 
     if (window.pageYOffset > sticky) {
+        autoScroll()
+        autoScroll()
+        autoScroll()
         // header.style.position = "sticky"
         // console.log("yes")
         header.classList.add("sticky");
@@ -161,7 +170,7 @@ function headerAnimate(){
     }
 
 
-    console.log(scrollY)
+    // console.log(scrollY)
     
 
     // console.log(window.scrollY)
@@ -204,7 +213,7 @@ function scrollProgress() {
         var winScroll = document.getElementById("aboutMe").getBoundingClientRect().top
         var height = document.getElementById("aboutMe").getBoundingClientRect().top - document.getElementById("experience").getBoundingClientRect().top;
         var scrolled = (winScroll / height) * 100;
-        console.log(document.getElementById("aboutMe").getBoundingClientRect().top - document.getElementById("experience").getBoundingClientRect().top)
+        // console.log(document.getElementById("aboutMe").getBoundingClientRect().top - document.getElementById("experience").getBoundingClientRect().top)
         document.getElementsByClassName("pageProgress")[0].style.transform = "translate(-21vw,-2vh) translateX("+ (250+(scrolled/0.408)) + "%)";
         // document.getElementById("footer").style.visibility = "hidden"
     }
@@ -237,6 +246,50 @@ function modalFunc(){
     // Get the button that opens the modal
     var btn = document.getElementsByClassName("projItem");
     var name = document.getElementsByClassName("modalName");
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    // When the user clicks on the button, open the modal 
+    // btn.onclick = function() {
+    // modal.style.display = "block";
+    // }
+    
+    // console.log(btn.length)
+    for (let i = 0; i < btn.length; i++) {
+        btn[i].onclick = function() {
+            modal.style.display = "block";
+            modalHead.innerHTML = (name[i].innerHTML)
+            modalValue.innerHTML = (projectDict[name[i].innerHTML][0])
+            modalCaption.innerHTML = (projectDict[name[i].innerHTML][2])
+            modalImage.src = (projectDict[name[i].innerHTML][3])
+            if (projectDict[name[i].innerHTML][1] != ""){
+                document.getElementById("modalLink").href = projectDict[name[i].innerHTML][1]
+            }
+        };
+        
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
+function carouselFunc(){
+    var modal = document.getElementById("myModal");
+    var modalHead = document.getElementsByClassName("inModalTitle")[0]
+    var modalValue = document.getElementsByClassName("inModalText")[0]
+    var modalCaption = document.getElementsByClassName("captionTxt")[0]
+    var modalImage = document.getElementsByClassName("modalImage")[0]
+    // Get the button that opens the modal
+    var btn = document.getElementsByClassName("item");
+    var name = document.getElementsByClassName("itemName");
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
     // When the user clicks on the button, open the modal 
@@ -380,6 +433,15 @@ function cardAnimate(){
     }
 
 
+}
+
+async function autoScroll(){
+    if(window.pageYOffset > innerHeight*0.86){
+        if (window.scrollY < (window.innerHeight * 2.961)){
+            window.scrollBy(0, 2)
+        }
+    }
+    
 }
 
 
