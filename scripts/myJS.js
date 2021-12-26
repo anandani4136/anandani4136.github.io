@@ -2,9 +2,17 @@ var projectDict = {
     "key1" : ["value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678value123456789345678","link","Amogus","https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"] , 
     "key2" : ["value2","link","caption here","https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg"] , 
     "{data.name}": ["This website","is","Sus","https://media0.giphy.com/media/ysiCYZUJkW3XRb7k9K/giphy.gif"] ,
-    "Rube Goldberg Machine": ["Utilizing the Matter.js physics engine, this project aims to create a Rube Goldberg Machine using various different physics based elements. Created by Timothy Gonzalez, Jay Gandhi, and Ronit Anandani.","is","November - December 2020","https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg"],
-    "Third slide label": ["This website","is","Sus","https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg"],
-    "First slide label": ["This website","is","Sus","https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg"]
+    "Rube Goldberg Machine": ["Utilizing the Matter.js physics engine, this project aims to create a Rube Goldberg Machine using various different physics based elements.","Rube Goldberg Machine","November - December 2020","media/videos/rubeGoldbergShort.gif", "https://gonzalez9616.github.io/rube-goldberg-machine/"],
+    "Multilingual Object Detection": ["An object detection model is used to identify prominent objects using the webcam and the name of the object is spoken out based on the chosen language, either repeating a direct translation or utilizing an accent. Uses Coco SSD, TensorFlow, and Text-to-Speech.","Multilingual Object Detection","May 2021","media/images/tensorFlow.png", "https://anandani4136.github.io/Multilingual-Object-Detection/"],
+    "This Website": ["Drawing elements from various animation and CSS scripts, this website was made from scratch using JavaScript, HTML, and CSS. Unlike many other sites of its kind, this site does not use a custom template but instead was designed entirely by me. The code is available to view below.","Code on GitHub","2021","media/images/tensorFlow.png", "https://github.com/anandani4136/anandani4136.github.io"],
+    "First slide label": ["This website","is","Sus","https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg"],
+    "CompSci Kids Parent Portal": ["This is a website that allows parents to register kids for after-school CS tutoring sessions. It replaced an online form that parents had to fill out numerous times. Not only does this website save parents a lot of time, but it lays the groundwork for other future CompSci Kids sites.","CSK Portal","2020-Present","media/images/cskportal.png","https://parents.compscikids.net/"],
+    "Stock Market Analysis": ["A visualization of the effects of COVID-19 upon different stock market sectors like healthcare, technology, and energy to give perspective on the impact of a pandemic on different GICS sectors.","Stock Market Analysis","June 2021","media/images/smp.gif", "https://anandani4136.github.io/Stock-Market-Analysis/"],
+    "Qwttr": ["As high school students, we've seen plenty of kids go down the wrong path and take drugs. To combat this issue, we decided to create an app that gives people battling against substance abuse a place to fight against addiction. Qwttr is a feature-rich social media app designed to help people suffering from substance abuse.","DevPost","June 2021","media/images/qwttr2.png","https://devpost.com/software/qwttr"],
+    "Conant Hack Club Site": ["This website serves as a gallery of projects developed from students in Hack Club, ranging from experiemntal prototypes to fully-fledged applications. Feel free to visit the link below and check them out!","Conant Hack Club","2021","media/images/hackClub2.png","https://conant.hackclub.com/"],
+    "Shop Vision": ["An iOS app that uses object classification, text identification, and barcode scanning to determine whether an offered market price for an item is ideal considering competing prices. It uses LiDAR scanning technology to scan and reconstruct larger objects (furniture, appliances) using augmented reality to better understand size and aesthetics of potential purchases.","","2021","media/images/shopVisionPic.png",""],
+    "A11 SAF3": ["An iOS app that organizes and securely stores private documents/images for quick accessibility. Multi-factor biometric authentication using FaceID and TouchID is utilized for unlocking document access.","","2020","media/videos/A11SAF3.gif",""],
+    "Dijkstra's Shortest Path Algorithm Game": ["Based off Dijkstra’s Network Routing Algorithm, this game creates random path weightage between points with the player’s objective to gain the least weightage while going from the starting point to the ending point. The game automatically calculates the optimal route and assesses the player’s performance based on their accuracy. It serves as a visual demonstration of Dijkstra’s Algorithm in an interactive format.","","2019","media/images/pathGame.png",""]
   };
 
 var loaderOpacity = 1
@@ -91,7 +99,7 @@ window.onload = function(){
     particles()
     cardAnimate()
     modalFunc()
-    carouselFunc()
+    // carouselFunc()
     scrollProgress()
     
     if(document.readyState === 'ready' || document.readyState === 'complete') {
@@ -149,7 +157,10 @@ function headerAnimate(){
 
     if (window.pageYOffset > sticky) {
         // header.style.position = "sticky"
-        // console.log("yes")
+        //document.getElementById("aboutMe").scrollIntoView({ behavior: 'smooth', block: 'end'});
+
+
+        console.log("yes")
         header.classList.add("sticky");
         header.style.marginLeft = "0px"
         header.width = "100vw"
@@ -238,6 +249,7 @@ function modalFunc(){
     var modal = document.getElementById("myModal");
     var modalHead = document.getElementsByClassName("inModalTitle")[0]
     var modalValue = document.getElementsByClassName("inModalText")[0]
+    var modalLink = document.getElementsByClassName("inModalLink")[0]
     var modalCaption = document.getElementsByClassName("captionTxt")[0]
     var modalImage = document.getElementsByClassName("modalImage")[0]
     // Get the button that opens the modal
@@ -256,6 +268,8 @@ function modalFunc(){
             modal.style.display = "block";
             modalHead.innerHTML = (name[i].innerHTML)
             modalValue.innerHTML = (projectDict[name[i].innerHTML][0])
+            modalLink.innerHTML = (projectDict[name[i].innerHTML][1])
+            modalLink.href = (projectDict[name[i].innerHTML][4])
             modalCaption.innerHTML = (projectDict[name[i].innerHTML][2])
             modalImage.src = (projectDict[name[i].innerHTML][3])
             if (projectDict[name[i].innerHTML][1] != ""){
@@ -278,46 +292,46 @@ function modalFunc(){
     }
 }
 
-function carouselFunc(){
-    var modal = document.getElementById("myModal");
-    var modalHead = document.getElementsByClassName("inModalTitle")[0]
-    var modalValue = document.getElementsByClassName("inModalText")[0]
-    var modalCaption = document.getElementsByClassName("captionTxt")[0]
-    var modalImage = document.getElementsByClassName("modalImage")[0]
-    // Get the button that opens the modal
-    var btn = document.getElementsByClassName("item");
-    var name = document.getElementsByClassName("itemName");
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-    // When the user clicks on the button, open the modal 
-    // btn.onclick = function() {
-    // modal.style.display = "block";
-    // }
+// function carouselFunc(){
+//     var modal = document.getElementById("myModal");
+//     var modalHead = document.getElementsByClassName("inModalTitle")[0]
+//     var modalValue = document.getElementsByClassName("inModalText")[0]
+//     var modalCaption = document.getElementsByClassName("captionTxt")[0]
+//     var modalImage = document.getElementsByClassName("modalImage")[0]
+//     // Get the button that opens the modal
+//     var btn = document.getElementsByClassName("item");
+//     var name = document.getElementsByClassName("itemName");
+//     // Get the <span> element that closes the modal
+//     var span = document.getElementsByClassName("close")[0];
+//     // When the user clicks on the button, open the modal 
+//     // btn.onclick = function() {
+//     // modal.style.display = "block";
+//     // }
     
-    // console.log(btn.length)
-    for (let i = 0; i < btn.length; i++) {
-        btn[i].onclick = function() {
-            modal.style.display = "block";
-            modalHead.innerHTML = (name[i].innerHTML)
-            modalValue.innerHTML = (projectDict[name[i].innerHTML][0])
-            modalCaption.innerHTML = (projectDict[name[i].innerHTML][2])
-            modalImage.src = (projectDict[name[i].innerHTML][3])
-        };
+//     // console.log(btn.length)
+//     for (let i = 0; i < btn.length; i++) {
+//         btn[i].onclick = function() {
+//             modal.style.display = "block";
+//             modalHead.innerHTML = (name[i].innerHTML)
+//             modalValue.innerHTML = (projectDict[name[i].innerHTML][0])
+//             modalCaption.innerHTML = (projectDict[name[i].innerHTML][2])
+//             modalImage.src = (projectDict[name[i].innerHTML][3])
+//         };
         
-    }
+//     }
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
+//     // When the user clicks on <span> (x), close the modal
+//     span.onclick = function() {
+//         modal.style.display = "none";
+//     }
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-}
+//     // When the user clicks anywhere outside of the modal, close it
+//     window.onclick = function(event) {
+//         if (event.target == modal) {
+//             modal.style.display = "none";
+//         }
+//     }
+// }
 
 
 function cardAnimate(){

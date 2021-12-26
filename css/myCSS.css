@@ -63,7 +63,8 @@ html {
     /* padding-top: 10%; */
     height: 100vh; 
     margin: 0;
-    background-color: rgb(101, 101, 103);
+    /* background-color: rgb(101, 101, 103); */
+    background-color: rgb(10, 36, 44);
     /* position: absolute; */
     /* top: 150%;
     /* left: 50%; */
@@ -87,7 +88,8 @@ html {
     /* padding-top: 10%; */
     height: 30vh; 
     margin: 0;
-    background-color: rgb(101, 101, 103);
+    /* background-color: rgb(101, 101, 103); */
+    background-color: rgb(10, 36, 44);
     /* position: absolute; */
     /* top: 150%;
     /* left: 50%; */
@@ -130,6 +132,7 @@ html {
     color: thistle;
     padding: 20px;
     margin: 20px;
+    font-size: 22px;
   }
   .roleTitle{
     margin-left: 40px;
@@ -141,6 +144,7 @@ html {
     margin-left: 40px;
     color: thistle;
     font-style: italic;
+    font-size: 22px;
   }
 
   
@@ -871,12 +875,17 @@ a.img-icon-zoom {
   }
   
   .projItem {
-	  position: relative;
+	  /* position: relative;
     background-color: rgb(0, 0, 0);
     border-style: double;
     border-width: 10px;
     border-color: #4a4aa0;
-    border-radius: 5%;
+    border-radius: 5%; */
+    position: relative;
+    background-color: rgb(0, 0, 0);
+    border-style: ridge;
+    border-width: 10px;
+    border-color: #4a4aa0;
   }
 
   .image {
@@ -977,6 +986,7 @@ a.img-icon-zoom {
   text-align: center;
   color: white;
   background-color: rgb(0,0,0);
+  font-size: 40px;
 }
 
 .projectCover{
@@ -998,7 +1008,7 @@ a.img-icon-zoom {
 div.inModalText {
   height: 35vh;
   width: 40vw;
-  margin-left: -5%;
+  margin-left: 5%;
   margin-top: 4%;
   overflow-y: auto;
   word-wrap: break-word;
@@ -1315,15 +1325,17 @@ div.inModalText {
 .navName{
   text-align: center;
   width: 28vw;
-  color: #1570cd;
+  /* color: #1570cd; */
+  color: red;
   font-size: calc(2.75vw + 1.2vmin);
   transform: translate(0vw,0.6vh);
 }
 .navName2{
   /* text-align: center; */
   /* width: 28vw; */
-  color: #1570cd;
-  font-size: 35px;
+  /* color: #1570cd; */
+  color: red;
+  font-size: 45px;
   transform: translate(0vw,2.6vh);
 }
 .navButton{
@@ -1331,7 +1343,8 @@ div.inModalText {
   height: calc(1.75vw + 1.75vh + 1.2vmin);
   transform: translate(0vw,0.7vh);
   background-color: #000;
-  color: #1570cd;
+  /* color: #1570cd; */
+  color: red;
   transition: 0.3s;
   margin-left: 1vw;
   font-size: calc(1vw + 1.5vmin);
@@ -1341,7 +1354,7 @@ div.inModalText {
 .navButton:hover{
   /* transform: translate(0vw,0.7vh); */
   /* transform: translate(0vw,1vh); */
-  color: red;
+  color: blue;
 }
 
 .navMenu {
@@ -1351,19 +1364,20 @@ div.inModalText {
   font-size: 28px;
   margin-top: 25px;
   margin-right: 25px;
-  color: #1570cd;
-}
-
-.navMenu:hover {
+  /* color: #1570cd; */
   color: red;
 }
 
+.navMenu:hover {
+  color: blue;
+}
+
 .pageTag{
-  background:
+  /* background:
      linear-gradient(
        to bottom, #ff9800 0%,
        #ff9800 50%
-     );
+     ); */
   background-position: 0 -50%;
   background-repeat: repeat-x;
   background-size: 2px 0px;
@@ -1371,7 +1385,8 @@ div.inModalText {
   text-align: center;
   width: 10vw;
   /* margin: auto; */
-  color: #1570cd;
+  /* color: #1570cd; */
+  color: red;
   font-size: calc(1vw + 1.2vmin);
   /* margin-left: 10px; */
   transform: translate(16vw,2vh);
@@ -1382,8 +1397,9 @@ div.inModalText {
 }
 
 .pageProgress{
-  color: #1570cd;
-  border-bottom: 0.2vw solid #1570cd;
+  /* color: #1570cd; */
+  color: red;
+  border-bottom: 0.2vw solid red;
   width: 4vw;
   transform: translate(-21vw,-2vh);
 }
@@ -1427,8 +1443,8 @@ div.inModalText {
   }
   .pageProgress{
     /* visibility: hidden; */
-    color: #1570cd;
-    border-bottom: 0.3vw solid #1570cd;
+    color: red;
+    border-bottom: 0.3vw solid red;
     height: 70px;
     width: 4vw;
     margin-left: -17vw;
@@ -1457,7 +1473,7 @@ div.inModalText {
     height: 70px;
     width: 5vw;
     margin-left: -54vw;
-    border-bottom: 3px solid #1570cd;
+    border-bottom: 3px solid red;
   }
   #particles-js{
     height: 40vh;
@@ -1489,7 +1505,7 @@ div.inModalText {
   .pageTag{
     visibility: visible;
     font-size: 17px;
-    transform: translate(-280px,46px);
+    transform: translate(-200px,46px);
     margin-right: 35px;
     white-space: nowrap;
   }
@@ -1499,8 +1515,8 @@ div.inModalText {
   .pageProgress{
     height: 88px;
     width: 42px;
-    margin-left: -570px;
-    border-bottom: 2px solid #1570cd;
+    margin-left: -490px;
+    border-bottom: 2px solid red;
     /* visibility: hidden; */
     /* visibility: hidden; */
   }
