@@ -160,7 +160,7 @@ function headerAnimate(){
         //document.getElementById("aboutMe").scrollIntoView({ behavior: 'smooth', block: 'end'});
 
 
-        console.log("yes")
+        //console.log("yes")
         header.classList.add("sticky");
         header.style.marginLeft = "0px"
         header.width = "100vw"
