@@ -113,13 +113,15 @@ html {
 
   .bio12{
     color: white;
-    font-size: calc(1vw + 1.2vmin);
+    font-size: calc(1vw + 1.3vmin);
     margin: 0.4vw;
   }
   
   .bio22{
     color: white;
-    font-size: calc(0.1vw + 0.695vmin);
+    font-size: calc(0.092vw + 0.6958vmin);
+    line-height: 1.3;
+    /* font-size: calc(0.087vw + 0.7045vmin); */
     margin: 0.4vw;
   }
 
