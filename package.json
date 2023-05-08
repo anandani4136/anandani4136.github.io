@@ -5,11 +5,13 @@
   "homepage": "https://anandani4136.github.io/",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dem": "next build && next export",
+    "export": "next export"
   },
   "dependencies": {
     "@types/node": "20.1.0",

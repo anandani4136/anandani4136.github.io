@@ -53,7 +53,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2> 
-            <Image width={60} height={60} alt="GitHub" className={styles.icon} src='https://cdn.onlinewebfonts.com/svg/img_415633.png'/>
+            <img alt="GitHub" className={styles.icon} src='https://cdn.onlinewebfonts.com/svg/img_415633.png'/>
             <span>-&gt;
             </span>
           </h2>
@@ -67,7 +67,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2> 
-            <Image width={60} height={60} alt="LinkedIn" className={styles.icon} src='https://www.vhv.rs/file/max/8/80784_linkedin-logo-white-png.png'/>
+            <img alt="LinkedIn" className={styles.icon} src='https://www.vhv.rs/file/max/8/80784_linkedin-logo-white-png.png'/>
             <span>-&gt;
             </span>
           </h2>
@@ -81,7 +81,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2> 
-            <Image width={90} height={60} alt="Email" className={styles.icon} src='https://clipartcraft.com/images/email-logo-png-icon-8.png'/>
+            <img alt="Email" className={styles.icon} src='https://clipartcraft.com/images/email-logo-png-icon-8.png'/>
             <span>-&gt;
             </span>
           </h2>
@@ -95,7 +95,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           <h2> 
-            <Image width={80} height={60} alt="Code" className={styles.icon} src='https://th.bing.com/th/id/R.011ae1fdea8f1a6363c1f61c8b2e1464?rik=LP2VqoG63PNwgQ&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_133326.png&ehk=jeqNN5ZQoA4UuNpOHFSGQ2SB7v0aNVskxPUqrOlp8UA%3d&risl=&pid=ImgRaw&r=0'/>
+            <img alt="Code" className={styles.icon} src='https://th.bing.com/th/id/R.011ae1fdea8f1a6363c1f61c8b2e1464?rik=LP2VqoG63PNwgQ&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_133326.png&ehk=jeqNN5ZQoA4UuNpOHFSGQ2SB7v0aNVskxPUqrOlp8UA%3d&risl=&pid=ImgRaw&r=0'/>
             <span>-&gt;
             </span>
           </h2>
