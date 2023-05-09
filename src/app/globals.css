@@ -13,12 +13,12 @@
   --background-end-rgb: 255, 255, 255;
 
   --primary-glow: conic-gradient(from 180deg at 80% 80%,
-      #16aaff89 0deg,
-      #0883ffa1 55deg,
-      #546bff33 120deg,
-      #0071ff33 160deg,
+      #16aaff50 0deg,
+      #0883ff3a 55deg,
+      #546bff79 120deg,
+      #0073ff6b 160deg,
       transparent 360deg);
-  --secondary-glow: radial-gradient(rgba(255, 255, 255, 1),
+  --secondary-glow: radial-gradient(rgba(120, 99, 218, 0.642),
       rgba(255, 255, 255, 0));
 
   --tile-start-rgb: 239, 245, 249;
