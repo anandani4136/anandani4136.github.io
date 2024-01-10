@@ -1,0 +1,228 @@
+"use client";
+
+import React, { useState, useEffect, useRef } from 'react';
+import styles from './projects.module.css'
+import ProjectItem from './projectItem'
+import 'animate.css'
+import AOS from "aos";
+import "aos/dist/aos.css";
+import SocialLogo from 'social-logos';
+
+
+export default function Footer() {
+
+    useEffect(() => {
+        AOS.init({
+          easing: "ease-out-cubic",
+          once: true,
+          offset: 50,
+        });
+      }, []);
+    
+
+    const projects = [
+        // {
+        //     imageSrc: 'https://media.istockphoto.com/id/1419410282/photo/silent-forest-in-spring-with-beautiful-bright-sun-rays.webp?b=1&s=612x612&w=0&k=20&c=C318sxgBBIO66E7vi_0Eu3lXHm9uRDauKvRgeyxY2O4=',
+        //     title: 'Project 1',
+        //     desc: 'Project Description',
+        //     technologies: ['Java', 'Python'],
+        //     tasks: ['Task 1', 'Task 2', 'Task 3'],
+        //     githubLink: 'https://www.github.com/project1',
+        //     videoLink: 'https://www.youtube.com/project1',
+        //     siteLink: 'http://www.project1.com'
+        // },
+        {
+            imageSrc: 'media/hack23.png',
+            title: 'HackIllinois 2023 Site',
+            desc: `UIUC's Hackathon Website`,
+            technologies: ['Typescript', 'NextJS'],
+            tasks: ['Created the Registration and RSVP pages for 2023, working closely with Design and API teams to develop a reliable and intuitive system used by hundreds of registrants', 'Developed the mentors, map, and elements of the landing page, ensuring responsive design and effective UI across all pages'],
+            githubLink: 'https://github.com/HackIllinois/site',
+            // videoLink: 'https://www.youtube.com/project1',
+            siteLink: 'https://2023.hackillinois.org/'
+        },
+        {
+            imageSrc: 'media/tripvisor.jpg',
+            title: 'TripVisor',
+            desc: 'Interactive map and route builder app',
+            technologies: ['React', 'Typescript'],
+            tasks: ['Users can add and remove waypoints, and the app will automatically calculate the optimal route', 'Uses Google Maps API to display map and calculate routes, Google Places API to search for locations, and Bing Local Suggestions API to autocomplete locations'],
+            githubLink: 'https://github.com/CS-222-Group-Project/TripVisor',
+            videoLink: 'https://youtu.be/dJn0BEAKQeY',
+            // siteLink: 'https://parents.compscikids.net/'
+        },
+        {
+            imageSrc: 'media/cskportal.png',
+            title: 'CompSci Kids Portal',
+            desc: 'Registration portal for CS tutoring program',
+            technologies: ['React', 'NodeJS', 'MongoDB'],
+            tasks: ['Robust online portal that allows parents to register kids for after-school CS tutoring sessions','Replaced an online form that parents had to fill out numerous times, simplifying the registration flow and allowing for more efficient data management'],
+            githubLink: 'https://github.com/Comp-Sci-Kids/CSKPortal',
+            // videoLink: 'https://www.youtube.com/project1',
+            siteLink: 'https://parents.compscikids.net/'
+        },
+        {
+            imageSrc: 'media/mbp.jpeg',
+            title: 'MacBook Pro Review',
+            desc: 'Award-Winning Media Production',
+            // technologies: ['React', 'NodeJS', 'MongoDB'],
+            tasks: ['My submission for the Business Professionals of America (BPA) 2022 Illinois State Leadership Conference', 'Event 420: Digital Media Production', 'Placed First in State'],
+            // githubLink: 'https://github.com/Comp-Sci-Kids/CSKPortal',
+            videoLink: 'https://youtu.be/iHeZMgYKGfI',
+            // siteLink: 'https://parents.compscikids.net/'
+        },
+        {
+            imageSrc: 'media/shopVision.jpg',
+            title: 'ShopVision',
+            desc: 'iOS Shopping Assistant + AR Scanner',
+            technologies: ['Swift', 'Python', 'Firebase'],
+            tasks: ['An iOS app that uses object classification, text identification, and barcode scanning to determine whether an offered market price for an item is ideal considering competing prices','Uses LiDAR scanning technology to scan and reconstruct larger objects (furniture, appliances) using augmented reality to better understand size and aesthetics of potential purchases'],
+            // githubLink: 'https://github.com/CS-222-Group-Project/TripVisor',
+            videoLink: 'https://youtu.be/gGwphVuTld4',
+            // siteLink: 'https://parents.compscikids.net/'
+        },
+        {
+            imageSrc: 'media/smp.gif',
+            title: 'Stock Market Analysis',
+            desc: 'Data Visualization of COVID-19 Impact on Stock Market',
+            technologies: ['R', 'HTML'],
+            tasks: ['A visualization of the effects of COVID-19 upon various stock market sectors like healthcare, technology, and energy to give perspective on the impact of a pandemic on different GICS sectors'],
+            githubLink: 'https://github.com/anandani4136/Stock-Market-Analysis',
+            // videoLink: 'https://youtu.be/gGwphVuTld4',
+            siteLink: 'https://www.ronitanandani.com/Stock-Market-Analysis/'
+        },
+        {
+            imageSrc: 'media/mod.jpg',
+            title: 'Multilingual Object Detection',
+            desc: 'Tensorflow Object Detection and Translation Concept',
+            technologies: ['TensorFlow', 'HTML'],
+            tasks: ['An object detection model is used to identify prominent objects using the webcam and the name of the object is spoken out based on the chosen language, either repeating a direct translation or utilizing an accent','Uses Coco SSD, TensorFlow, and Text-to-Speech'],
+            githubLink: 'https://github.com/anandani4136/Multilingual-Object-Detection',
+            // videoLink: 'https://youtu.be/gGwphVuTld4',
+            siteLink: 'https://www.ronitanandani.com/Multilingual-Object-Detection/'
+        },
+        {
+            imageSrc: 'media/rgm.jpeg',
+            title: 'Rube Goldberg Machine',
+            desc: 'Physics Simulation using Matter.js',
+            technologies: ['Javascript', 'HTML'],
+            tasks: ['Utilizing the Matter.js physics engine, this project simulates a Rube Goldberg Machine using various physics based elements'],
+            githubLink: 'https://github.com/Timothy-Gonzalez/rube-goldberg-machine',
+            videoLink: 'https://youtu.be/VC8XEjUEASA',
+            siteLink: 'https://timothy-gonzalez.com/rube-goldberg-machine/'
+        },
+        {
+            imageSrc: 'media/qwttr.jpg',
+            title: 'Qwttr',
+            desc: 'Substance Abuse Help Social Media',
+            technologies: ['React', 'Firebase'],
+            tasks: ['Qwttr is a feature-rich social media app designed to help people suffering from substance abuse', 'Built under 48 hours as a hackathon project', 'Won Best Health Hack at CitroHacks 2021'],
+            githubLink: 'https://github.com/Socksham/Qwttr',
+            videoLink: 'https://youtu.be/YFWUjrvnQYU?si=0AoG4UbsJOCvuu-R',
+            siteLink: 'https://devpost.com/software/qwttr'
+        },
+        {
+            imageSrc: 'media/pathGame.gif',
+            title: `Dijkstra's Path Game`,
+            desc: 'Interactive game to find shortest path',
+            technologies: ['HTML', 'CSS', 'Javascript'],
+            tasks: ['Based off Dijkstra’s Network Routing Algorithm, this game creates random path weightage between points with the player’s objective to gain the least weightage while going from the starting point to the ending point', 'The game automatically calculates the optimal route and assesses the player’s performance based on their accuracy'],
+            githubLink: 'https://github.com/anandani4136/Dijkstras-Algorithm-Game',
+            videoLink: 'https://youtu.be/NDWOd2Mnjiw',
+            siteLink: 'https://www.ronitanandani.com/Dijkstras-Algorithm-Game/'
+        },
+        // ... other projects
+    ];
+
+    // const [openDesc, setOpenDesc] = useState(false);
+
+    // const openDescription = () => {
+    //     setOpenDesc(!openDesc);
+    // };
+
+    const boxes = [1, 2, 3, 4, 5];
+
+    return (
+        <div id="projects-main" className={styles.main}>
+            <h1 data-aos="fade-right">Projects</h1>
+            <div className={styles.projContainer}>
+                {/* <div className={styles.projItem}>
+                    <div className={styles.projContent}>
+                        <div className={openDesc ? styles.imageExp : styles.image}>
+                            <img className={styles.img} src="https://media.istockphoto.com/id/1419410282/photo/silent-forest-in-spring-with-beautiful-bright-sun-rays.webp?b=1&s=612x612&w=0&k=20&c=C318sxgBBIO66E7vi_0Eu3lXHm9uRDauKvRgeyxY2O4=" />
+                        </div>
+                        <div className={styles.subPic}>
+
+                        
+                            <div className={openDesc ? styles.textExp : styles.text}>
+                                <div className={styles.leftText}>
+                                    <h2>Project 1</h2>
+                                    <p>Project Description</p>
+                                </div>
+                                <div className={styles.rightText}>
+                                    <img title="Java" alt="Java" className={styles.icon} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"/>
+                                    <img title="C++" alt="C++" className={styles.icon} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"/>
+                                    <img title="Python" alt="Python" className={styles.icon} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/>
+                                    <div className={styles.openProj} onClick={openDescription} style={{rotate: openDesc ? '90deg' : '-90deg'}}> <span className={styles.openArrow}>-&gt;</span> </div>
+                                </div>
+                            </div>
+                            <div className={openDesc ? styles.expDescription : styles.hidDesc}>
+                                <div className={styles.textContainer2}>
+                                    <p>
+                                        • Task 1
+                                    </p>
+                                    <p>
+                                        • Task 2
+                                    </p>
+                                    <p>
+                                        • Task 3
+                                    </p>
+                                </div>
+                                <div className={styles.interactIcons}>
+                                    <a href="https://www.github.com/anandani4136" className={styles.interact1}>
+                                        <div className={styles.interactText}>Code</div>
+                                        <div style={{filter: 'invert(1)'}} className={styles.interactIcon}> 
+                                            <SocialLogo icon="github" size={ 30 } />
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.youtube.com/@ronitanandani" className={styles.interact2}>
+                                        <div className={styles.interactText}>Video</div>
+                                        <div style={{filter: 'invert(1)'}} className={styles.interactIcon}> 
+                                            <SocialLogo icon="youtube" size={ 30 } />
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.linkedin.com/in/ranandani" className={styles.interact3}>
+                                        <div className={styles.interactText}>View</div>
+                                        <div style={{filter: 'invert(1)'}} className={styles.interactIcon}> 
+                                            <div className={styles.webLogo}/>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
+                {projects.map((project, index) => (
+                    <ProjectItem key={index} {...project} />
+                ))}
+                {/* {boxes.map(box => (
+                <div className={styles.flexItem} key={box}>
+                    <div className={styles.flexContent}>
+                        <div className={styles.image}>
+                            <img className={styles.img} src="https://media.istockphoto.com/id/1419410282/photo/silent-forest-in-spring-with-beautiful-bright-sun-rays.webp?b=1&s=612x612&w=0&k=20&c=C318sxgBBIO66E7vi_0Eu3lXHm9uRDauKvRgeyxY2O4=" />
+                        </div>
+                        <div className={styles.text}>
+                            <div className={styles.leftText}>
+                                <h2>Project 1</h2>
+                                <p>Project Description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))} */}
+            </div>
+        </div>
+    );
+}

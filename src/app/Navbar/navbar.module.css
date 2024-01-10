@@ -1,0 +1,209 @@
+.navbar {
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(4px);
+    z-index: 5;
+    height: 10%;
+    min-height: 75px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 1em;
+}
+
+@keyframes TransitioningBackground {
+    0% {
+      background-position: 1% 0%;
+    }
+    50% {
+      background-position: 99% 100%;
+    }
+    100% {
+      background-position: 1% 0%;
+    }
+  }
+
+.navbar img{
+    height: 50px; /* Adjust size as needed */
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+    animation: TransitioningBackground 10s ease infinite;
+    transition: 0.6s;
+    /* Add more styles as needed */
+}
+
+.navbar img::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    width: 60px;
+    height: 100%;
+    top: 0;
+    filter: blur(30px);
+    transform: translateX(-100px) skewX(-15deg);
+}
+
+.navbar img::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    width: 30px;
+    height: 100%;
+    top: 0;
+    filter: blur(5px);
+    transform: translateX(-100px) skewX(-15deg);
+}
+
+
+.navbar img:hover {
+    background-image: (linear-gradient(to left, #2d8fe5, #d155b8));
+    transform: scale(1.2);
+    cursor: pointer;
+    /* .navbar img before and after should be changed */
+
+    .navbar img::before,
+    .navbar img::after {
+        transform: translateX(300px) skewX(-15deg);
+        transition: 0.7s;
+    }
+}
+
+.navText {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background: transparent;
+    border: none;
+    color: slategray;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    /* Add more styles as needed */
+}
+
+.navText::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+    background-color: slategray;
+    /* Color of the line */
+    height: 2px;
+    /* Height of the line */
+    transition: all 0.3s ease;
+    transform: scaleX(0);
+}
+
+.navText:hover::after {
+    left: 0;
+    right: 0;
+    transform: scaleX(0.8);
+}
+
+
+.bars {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 25px;
+    right: 30px;
+}
+
+.twoBar {
+    min-height: 40px;
+    min-width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 7;
+}
+
+.topBar {
+    /* position: absolute; */
+    width: 100%;
+    height: 2px;
+    background-color: slategray;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    /* transform: rotate(135deg) translateY(-4px) translateX(5px); */
+}
+
+.bottomBar {
+    /* position: absolute; */
+    width: 100%;
+    height: 2px;
+    background-color: slategray;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+    /* transform: rotate(45deg) translateY(-4px) translateX(-4px); */
+}
+
+.expText {
+    top: -15px;
+    right: -3vw;
+    /* padding: 10px 20px; */
+    font-size: 1em;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    /* border: none; */
+    color: slategray;
+    /* width: 46vw;
+    height: 294px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 6;
+}
+
+.expNavText {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 1.3em;
+    background: transparent;
+    border: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    /* Add more styles as needed */
+}
+
+
+.navbar button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    animation: TransitioningBackground 10s ease infinite;
+    transition: 0.6s;
+    /* Add more styles as needed */
+}
+
+
+@media screen and (max-width: 500px) {
+    .bars {
+        display: flex;
+    }
+
+    .navText {
+        display: none;
+    }
+    
+}
