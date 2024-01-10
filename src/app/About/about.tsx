@@ -54,7 +54,7 @@ export default function About() {
             <div className={styles.image} ref={ref} style={ imageStyle
                 //inView ? imageStyle : undefined
                 }>
-                <img className={styles.img} src='/media/ronit.png' />
+                <img className={styles.img} src='/media/ronit.PNG' />
             </div>
             <div className={styles.description}>
                 <div className={styles.about}>
