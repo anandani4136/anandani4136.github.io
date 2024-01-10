@@ -13,6 +13,7 @@ export default function Transition() {
     const [text3Opacity, setText3Opacity] = useState(0);
     const [endTextOpacity, setEndTextOpacity] = useState(0);
     const [aboveMiddle, setAboveMiddle] = useState(false);
+    const [scrollPosition, setScrollPosition] = useState(0);
     const textRef = useRef(null);
     const textRef2 = useRef(null);
     const textRef3 = useRef(null);
@@ -22,6 +23,7 @@ export default function Transition() {
 
     useEffect(() => {
         const handleScroll = () => {
+            setScrollPosition(window.scrollY);
             const windowHeight = window.innerHeight;
             const middleScreen = windowHeight / 2;
 
@@ -206,7 +208,8 @@ export default function Transition() {
     return (
         <div ref={divRef} id="main" className={styles.main} style={{display: transPercent < 0 ? 'none' : '', backgroundColor: (transPercent > 3) ? `${interpolateColor(transPercent - 3)}` : ''}}>
             {/* <div className={styles.fadeBox}> */}
-                <div className={styles.square} style={{ 
+                <div id="square" className={styles.square} 
+                style={{ 
                     // borderColor: color, 
                     opacity: transPercent, 
                     filter: `blur(${transPercent < 1 ? 45*(1-transPercent): 0}px)`, 

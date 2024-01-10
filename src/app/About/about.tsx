@@ -46,7 +46,7 @@ export default function About() {
     }, []);
 
     const imageStyle = {
-        transform: `translateY(${scrollPosition * 0.07*divHeight - 0.35*divHeight}px)`, // Adjust this value to control the speed of scrolling
+        transform: `translateY(${scrollPosition * 0.07*divHeight - 0.35*divHeight}px) translate3d(0, 0, 0)`, // Adjust this value to control the speed of scrolling
     };
 
     return (
