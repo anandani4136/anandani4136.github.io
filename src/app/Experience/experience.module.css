@@ -1,51 +1,233 @@
+
 .main {
     display: flex;
     flex-direction: column;
     background-color: #e6e6e6;
+    color: #000000;
+    /* z-index: -1; */
     /* background-image: linear-gradient(rgb(198, 196, 196), white); */
-    align-items: center;
+    /* align-items: center; */
     /* justify-content: space-between; */
-    min-height: 200vh;
+    min-height: auto;
+    position: relative;
 }
 
 .title {
     top: 5%;
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     text-align: center;
     justify-content: center;
-    color: rgb(3, 32, 32);
+    /* color: rgb(3, 32, 32); */
+}
+
+.rightScroll {
+    position: absolute;
+    min-width: 50px;
+    min-height: 50px;
+    right: 20px;
+    border-radius: 50%;
+    background-color: #0000005e;
+    color: #ffffff;
+    transform: translateY(250px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.leftScroll {
+    position: absolute;
+    min-width: 50px;
+    min-height: 50px;
+    left: 20px;
+    right: auto;
+    border-radius: 50%;
+    background-color: #0000005e;
+    color: #ffffff;
+    transform: translateY(250px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .position {
+    position: relative;
+    scroll-behavior: smooth;
     min-width: 100%;
-    height: 500px;
+    min-height: 450px;
+    height: fit-content;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    top: 20%;
-    position: absolute;
+    /* justify-content: space-between; */
+    left: 0;
+    /* top: 20%; */
+    /* position: sticky; */
+    overflow-x: auto; /* Add this property to enable horizontal scrolling */
+    white-space: nowrap; /* Add this property to prevent line breaks */
+     animation-duration: 2s;
 }
 
 .icon {
-    margin: 5%;
-    position: sticky;
-    min-width: 20%;
-    min-height: 30%;
-    /* background-color: blue; */
+    position: absolute;
+    /* margin: 10%; */
+    height: 200px;
+    width: 300px;
+    top: 20px;
+    /* left: 50px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
 }
+
+.iconFine {
+    max-height: 150px;
+    max-width: 250px;
+    margin: auto;
+}
+
+.description:hover .icon {
+    transform: scale(1.2);
+    transition: 0.5s;
+}
+
+.description .icon {
+    transition: 0.5s;
+}
+
+.description:not(:hover) .icon {
+    transform: scale(1);
+}
+
 
 .description {
     text-align: center;
-    right: 0;
-    margin: 5%;
-    min-width: 60%;
-    min-height: 50%;
+    object-fit: contain;
+    /* right: 0; */
+    margin: 3.5%;
+    min-width: 300px;
+    max-width: 600px;
+    min-height: 300px;
+    max-height: 300px;
     background-color: #e6e6e6;
-    position: fixed;
+    color: black;
+    /* position: fixed; */
+    /* z-index: -1; */
+    position: relative;
     border-radius: 50px;
-    background: transparent;
+    /* background: transparent; */
     box-shadow: 6px 6px 14px 0 rgba(0, 0, 0, 0.2),
         -8px -8px 18px 0 rgba(255, 255, 255, 0.55);
+    transition: min-width 0.5s ease;
 }
+
+
+.expDescription {
+    text-align: center;
+    object-fit: contain;
+    position: absolute;
+    /* right: 0; */
+    margin: 3.5%;
+    min-width: 299px;
+    min-height: 300px;
+    max-height: 300px;
+    overflow-y: scroll;
+    top: -21px; /* Adjust as needed */
+    left: 280px; /* Adjust as needed */
+    background-color: #e6e6e6;
+    color: black;
+    /* z-index: -1; */
+    /* position: fixed; */
+    border-radius: 50px;
+    /* background: transparent; */
+    box-shadow: 6px 6px 14px 0 rgba(0, 0, 0, 0.2),
+        -8px -8px 18px 0 rgba(255, 255, 255, 0.55);
+    transition: background-color 0.5s ease, min-width 0.5s ease, height 0.5s ease, left 0.5s ease;
+}
+
+.smlDescription {
+    text-align: center;
+    object-fit: contain;
+    position: absolute;
+    /* right: 0; */
+    margin: 3.5%;
+    min-width: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    top: 230px; /* Adjust as needed */
+    left: 230px; /* Adjust as needed */
+    background-color: #0000005e;
+    color: black;
+    /* z-index: -1; */
+    /* position: fixed; */
+    border-radius: 50px;
+    /* background: transparent; */
+    box-shadow: 6px 6px 14px 0 rgba(0, 0, 0, 0.2),
+        -8px -8px 18px 0 rgba(255, 255, 255, 0.55);
+    transition: background-color 0.5s ease, max-width 0.5s ease, height 0.5s ease, top 1s ease, left 0.5s ease;
+    cursor: pointer;
+}
+
+
+.smlDescription:hover {
+    background-color: #000000bf;
+    transition: background-color 0.5s ease, max-width 0.5s ease, height 0.5s ease, top 1s ease, left 0.5s ease;
+}
+
+.textContainer {
+    position: absolute;
+    top: 220px;
+    width: 300px;
+    /* left: auto;
+    right: auto; */
+    /* center this horizontally */
+    /* margin-left: 25%; */
+    /* margin-right: auto; */
+    /* center children horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+.textContainer2 {
+    margin: 20px;
+    white-space: normal;
+
+}
+
+.textContainer3 {
+    position: relative;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    top: 50%;
+
+}
+
+/* .description h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 5%; */
+    /* position: sticky; */
+    /* background-color: blue; */
+/* } */
+/* 
+.description p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 5%;
+    /* position: sticky; */
+    /* background-color: blue; */
+/*} 
+*/
