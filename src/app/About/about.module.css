@@ -50,12 +50,12 @@
 
 .about h2 {
     font-size: 25px;
-    font-weight: lighter;
+    font-weight: 400;
     margin-bottom: 5%;
 }
 
 .about h2 b {
-    font-weight: 1000;
+    font-weight: 700;
 }
 /* 
 .textContainer {
