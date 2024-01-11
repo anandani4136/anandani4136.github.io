@@ -22,6 +22,7 @@
     "aos": "^2.3.4",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.1",
+    "lodash": "^4.17.21",
     "next": "13.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",
+    "@types/lodash": "^4.14.202",
     "@types/social-logos": "^2.3.4",
     "gh-pages": "^5.0.0"
   }

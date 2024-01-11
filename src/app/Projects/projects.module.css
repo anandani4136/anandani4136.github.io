@@ -67,7 +67,7 @@
     justify-content: center;
     position: absolute;
     top: 0;
-    transition: max-height 0.5s;
+    transition: max-height 0.5s, min-height 0.5s;
 }
 
 .imageExp {
@@ -78,7 +78,7 @@
     justify-content: center;
     position: absolute;
     top: 0;
-    transition: max-height 0.5s;
+    transition: max-height 0.5s, min-height 0.5s;
 }
 
 .img {
@@ -113,6 +113,7 @@
     top: 20%;
     bottom: 0;
     color: black;
+    transition: 0.5s;
 }
 
 .subPic {

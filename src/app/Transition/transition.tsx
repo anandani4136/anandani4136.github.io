@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './transition.module.css'
 import 'animate.css'
+import { throttle } from 'lodash';
 
 
 export default function Transition() {
@@ -22,7 +23,7 @@ export default function Transition() {
     const divRef = useRef(null); // Ref to the target div
 
     useEffect(() => {
-        const handleScroll = () => {
+        const handleScroll = throttle(() => {
             setScrollPosition(window.scrollY);
             const windowHeight = window.innerHeight;
             const middleScreen = windowHeight / 2;
@@ -102,13 +103,13 @@ export default function Transition() {
 
                 if (divTop <= windowHeight) {
                     // The div is now in the viewport
-                    const scrollDistance = Math.max(0, windowHeight - divTop);
+                    const scrollDistance = windowHeight - divTop;
                     const maxScroll = 355; // Adjust as needed
-                    const newOpacity = Math.max(0, scrollDistance / maxScroll);
+                    // const newOpacity = Math.max(0, scrollDistance / maxScroll);
                     // setTransPercent(newOpacity);
                     // console.log(scrollDistance / divRect.height);
                     setTransPercent(4 * (scrollDistance / divRect.height));
-                    setColor(`rgba(0, 0, 255, ${newOpacity})`);
+                    // setColor(`rgba(0, 0, 255, ${newOpacity})`);
                 }
             } else {
                 // The div is not in the viewport
@@ -119,7 +120,7 @@ export default function Transition() {
                 }
             }
             requestAnimationFrame(handleScroll);
-        };
+        }, 130);
 
         window.addEventListener('scroll', handleScroll);
         requestAnimationFrame(handleScroll);
@@ -214,6 +215,7 @@ export default function Transition() {
                     opacity: transPercent, 
                     filter: `blur(${transPercent < 1 ? 45*(1-transPercent): 0}px)`, 
                 // position: transPercent>=1 ? 'fixed' : 'relative',
+                display: transPercent>=-1 ? 'flex' : 'none',
                 zIndex: transPercent>=1 ? 0 : -1 ,
                 transform: transformStyle,
                 // transform: `scale(${transPercent > 1 && transPercent < 4 ? Math.max(0.4, transPercent/1.3) : 1}) rotate3d(0, 1, 1, ${transPercent > 1 && transPercent < 4 ? 70*(transPercent-1) : 0}deg) translateX(${transPercent > 1 && transPercent < 4 ? 100*(transPercent-1) : 0}px) translateY(${transPercent > 1 && transPercent < 4 ? 100*(transPercent-1) : 0}px)`

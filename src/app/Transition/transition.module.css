@@ -19,7 +19,7 @@
     top: 5%;
     border-width: 2vw;
     border-style: solid;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     justify-content: center;
     align-items: center;

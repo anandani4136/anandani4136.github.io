@@ -58,7 +58,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ imageSrc, title, desc, techno
   return (
     <div className={styles.projItem}>
         <div className={styles.projContent}>
-            <div className={openDesc ? styles.imageExp : styles.image}>
+            <div className={openDesc ? styles.imageExp : styles.image} style={{minHeight: openDesc ? '20%' : '70%', maxHeight: openDesc ? '20%' : '70%'}}>
                 <img className={styles.img} src={imageSrc} alt={title} />
             </div>
             <div className={styles.subPic}>
