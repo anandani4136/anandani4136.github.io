@@ -118,9 +118,10 @@ export default function Experience() {
                 <div ref={scrollContainerRef} className={`${styles.position}`}>
                     <ExperienceItem logo={icons[0]} title="Co-Director" company="HackIllinois" time="04/23 - Present" tasks={["S", "L", "D"]}/>
                     <ExperienceItem logo={icons[1]} inverted={true} title="Infra Project Lead" company="ACM @ UIUC" time="02/23 - Present" tasks={["S", "L", "D"]}/>
-                    <ExperienceItem logo={icons[2]} title="Tech Committee Chair" company="NOBE" time="09/22 - Present" tasks={["S", "L", "D"]}/>
+                    <ExperienceItem logo={icons[2]} title="Tech Committee Chair" company="NOBE Illinois" time="09/22 - Present" tasks={["S", "L", "D"]}/>
+                    <ExperienceItem logo={icons[4]} title="Software Engineer Intern" company="Novaspect Inc." time="05/23 - 08/23" tasks={["S", "L", "D"]}/>
                     <ExperienceItem logo={icons[3]} title="Software Dev Engineer" company="Reflections | Projections" time="02/23 - 09/23" tasks={["S", "L", "D"]}/>
-                    <ExperienceItem logo={icons[4]} title="Software Engineer Intern" company="Novaspect" time="05/23 - 08/23" tasks={["S", "L", "D"]}/>
+                    
                     {/* <ExperienceItem logo={icons[0]} title="Infra Team Project Lead" company="ACM @ UIUC" time="02/23 - Present" tasks={["S", "L", "D"]}/> */}
                     {/* <ExperienceItem logo={icons[0]} title="Technology Committee Chair" company="NOBE" time="09/22 - Present" tasks={["S", "L", "D"]}/> */}
 

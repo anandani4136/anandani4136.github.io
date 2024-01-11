@@ -12,7 +12,7 @@
 
 .title {
     font-size: 1.3rem;
-    font-weight: 900;
+    font-weight: 700;
     white-space: nowrap;
 }
 
@@ -181,7 +181,7 @@
     /* bottom: 100%; */
     /* left: 50%; */
     /* margin-left: -60px; */
-    transform: translateX(-80px) translateY(-25px);
+    transform: translateX(-40px) translateY(-65px);
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     text-align: center;
