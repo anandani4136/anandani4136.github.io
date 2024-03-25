@@ -144,8 +144,8 @@ export default function Footer() {
 
     return (
         <div id="projects-main" className={styles.main}>
-            <h1 data-aos="fade-right">Projects</h1>
-            <div className={styles.projContainer}>
+            <h1 data-aos="fade-up" data-aos-duration="1000">Projects</h1>
+            <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500" className={styles.projContainer}>
                 {/* <div className={styles.projItem}>
                     <div className={styles.projContent}>
                         <div className={openDesc ? styles.imageExp : styles.image}>

@@ -67,7 +67,7 @@
   
   .text1 b {
     color: #ffffff;
-    text-shadow: 0 0 10px #ffffff;
+    /* text-shadow: 0 0 10px #ffffff; */
     animation: fade 2s ease-in-out infinite;
   }
 

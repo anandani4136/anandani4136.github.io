@@ -42,8 +42,9 @@ export default function Experience() {
     const handleScroll = () => {
         if (scrollContainerRef.current) {
             setScrollLeft(scrollContainerRef.current.scrollLeft);
-            setScrollRight(scrollContainerRef.current.scrollLeft + scrollContainerRef.current.clientWidth < scrollContainerRef.current.scrollWidth);
-            // console.log(scrollLeft);
+            setScrollRight(scrollContainerRef.current.scrollLeft + scrollContainerRef.current.clientWidth < (scrollContainerRef.current.scrollWidth - 50));
+
+            // console.log(scrollRight);
         }
     };
 
@@ -112,10 +113,10 @@ export default function Experience() {
 
 
     return (
-        <div id="main" className={styles.main}>
-            <h1 data-aos="fade-right" className={styles.title}>Experience</h1>
+        <div id="experience-main" className={styles.main}>
+            <h1 data-aos="fade-left" data-aos-duration="1000" className={styles.title}>Experience</h1>
             {/* <div className = {styles.positions}> */}
-                <div ref={scrollContainerRef} className={`${styles.position}`}>
+                <div data-aos="fade-left" data-aos-duration="1300" data-aos-delay="500" data-aos-easing="ease-in-sine" ref={scrollContainerRef} className={`${styles.position}`}>
                     <ExperienceItem logo={icons[0]} title="Co-Director" company="HackIllinois" time="04/23 - Present" tasks={["S", "L", "D"]}/>
                     <ExperienceItem logo={icons[1]} inverted={true} title="Infra Project Lead" company="ACM @ UIUC" time="02/23 - Present" tasks={["S", "L", "D"]}/>
                     <ExperienceItem logo={icons[2]} title="Tech Committee Chair" company="NOBE Illinois" time="09/22 - Present" tasks={["S", "L", "D"]}/>
@@ -139,7 +140,7 @@ export default function Experience() {
                 <div onClick={() => scrollTo(true)} className={styles.leftScroll} 
                     style={{opacity: scrollLeft ? 1 : 0}}><span>&lt;-</span></div>
                 <div onClick={() => scrollTo(false)} className={styles.rightScroll}
-                    style={{opacity: scrollRight ? 1 : 0}}><span>-&gt;</span></div>
+                    style={{opacity: scrollRight == true ? 1 : 0}}><span>-&gt;</span></div>
             {/* </div> */}
         </div>
     )

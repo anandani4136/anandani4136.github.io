@@ -11,7 +11,7 @@ export default function Footer() {
     return (
         <div id="main" className={styles.main}>
             <br></br>
-            <div className={styles.icons}>
+            <div data-aos="zoom-in" data-aos-delay="200" className={styles.icons}>
                 <a
                   href="
                     https://www.linkedin.com/in/ranandani/"

@@ -207,7 +207,7 @@ export default function Transition() {
       const transformStyle = getTransformStyle(transPercent);
 
     return (
-        <div ref={divRef} id="main" className={styles.main} style={{display: transPercent < 0 ? 'none' : '', backgroundColor: (transPercent > 3) ? `${interpolateColor(transPercent - 3)}` : ''}}>
+        <div ref={divRef} id="box-main" className={styles.main} style={{display: transPercent < 0 ? 'none' : '', backgroundColor: (transPercent > 3) ? `${interpolateColor(transPercent - 3)}` : ''}}>
             {/* <div className={styles.fadeBox}> */}
                 <div id="square" className={styles.square} 
                 style={{ 
@@ -236,7 +236,7 @@ export default function Transition() {
                 </div>
             {/* </div> */}
             <div ref={textRef} className={styles.text1} style={{opacity: textOpacity}}>
-                <h2>and bring unique ideas into <b style={{filter: `blur(${aboveMiddle ? 12*(1-textOpacity) : 0}px)`}}>focus</b></h2>
+                <h2>and bring unique ideas into <b style={{filter: `blur(${aboveMiddle ? 12*(1-textOpacity) : 0}px)`, textShadow: `0 0 ${10*(textOpacity)}px #ffffff`}}>focus</b></h2>
             </div>
             <div ref={textRef2} className={styles.text2} style={{opacity: text2Opacity}}>
                 <h2>Exploring diverse and inventive solutions</h2>
