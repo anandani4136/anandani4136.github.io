@@ -30,6 +30,15 @@ export default function Title() {
 
   useEffect(() => {
     const handleScroll = () => {
+
+      const boxElement = document.getElementById('square');
+      const pageElement = document.getElementById('box-main');
+      const boxInView = boxElement && pageElement && boxElement.getBoundingClientRect().top < (pageElement.getBoundingClientRect().top - window.innerHeight);
+      if (boxInView) {
+        console.log('in view');
+        boxElement.style.opacity = '0';
+      }
+
       const position = window.pageYOffset;
       const windowHeight = window.innerHeight;
       const middleScreen = windowHeight / 2;
@@ -173,7 +182,7 @@ export default function Title() {
             </div> */}
           </div>
           
-          <div className={styles.center} style={{ opacity: opacity }}>
+          <div id="name" className={styles.center} style={{ opacity: opacity }}>
             <div className={styles.name}> 
               <h1 className={`animate__animated animate__slideInUp ${styles.fname}`}>Ronit </h1>
               <h1 className={`animate__animated animate__slideInDown ${styles.lname}`}> Anandani</h1>

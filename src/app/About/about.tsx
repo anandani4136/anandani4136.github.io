@@ -58,14 +58,14 @@ export default function About() {
             </div>
             <div className={styles.description}>
                 <div className={styles.about}>
-                    <h2 data-aos="fade-up">Greetings!</h2>
+                    <h2 data-aos="fade-up" data-aos-duration="700">Greetings!</h2>
                     {/* <br></br> */}
-                    <h2 data-aos="fade-up">
+                    <h2 data-aos="fade-up" data-aos-duration="1000">
                         My name is <b>Ronit Anandani</b>. I am a <b>Computer Science Student</b> at the University of Illinois
                         Urbana-Champaign.
                     </h2>
                     {/* <br></br> */}
-                    <h2 data-aos="fade-up">
+                    <h2 data-aos="fade-up" data-aos-duration="1300">
                         I&apos;m a <u>self-driven engineer</u> committed to creating <b>Robust</b>, <b>Efficient</b>, and <b>Innovative</b> products. 
                         I believe in augmenting my learning by taking on novel challenges in different domains, 
                         and I&apos;m continuously pursuing new ways to advance the projects, teams, and knowledge that I engage with.

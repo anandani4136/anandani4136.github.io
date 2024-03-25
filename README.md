@@ -1,6 +1,26 @@
+<div align="center">
+  <img src="public/logo.png" alt="Image" width="80" height="80" />
+  <h1><strong>Ronit Anandani</strong></h1>
+</div>
+
+This is the repository for my portfolio website, built using [Next.js](https://nextjs.org/). Please reference the [development](#dev) section for more information on the framework and how to run this repository.
+
+Many of the site's features are custom-coded, but I also use the following libraries to enhance the visual aesthetic of the site
+
+- [Animate.css](https://animate.style/)
+- [Animate On Scroll Library](https://michalsnik.github.io/aos/)
+- [social-logos](https://github.com/Automattic/social-logos)
+
+
+---
+
+
+
+## <a name="dev"></a> Development Info
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+### Getting Started
 
 First, run the development server:
 
@@ -18,7 +38,7 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+### Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -26,9 +46,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
