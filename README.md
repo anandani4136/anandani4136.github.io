@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/logo.png" alt="Image" width="80" height="80" />
+  <img src="public/logo.png" alt="Image" width="85" height="100" />
   <h1><strong>Ronit Anandani</strong></h1>
 </div>
 
