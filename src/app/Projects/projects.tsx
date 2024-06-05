@@ -223,6 +223,11 @@ export default function Footer() {
                 </div>
             ))} */}
             </div>
+            <div className={styles.endTag}>
+                <a href="https://www.github.com/anandani4136" target="_blank" rel="noopener noreferrer" className={styles.learnMore}>
+                    Explore More on GitHub <SocialLogo className={styles.socialIcon} icon="github" size={ 28 } />
+                </a>
+            </div>
         </div>
     );
 }

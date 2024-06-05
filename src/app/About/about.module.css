@@ -21,13 +21,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 50%;
 }
 
 .img {
     transform: translateY(100px);
     object-fit: cover;
     width: 60%;
-
+    border-radius: 36%;
 }
 
 .description {
@@ -57,7 +58,7 @@
 }
 
 .about h2 b {
-    font-weight: 700;
+    font-weight: 600;
 }
 /* 
 .textContainer {
@@ -92,8 +93,8 @@
 
     .image {
         margin-top: 40%;
-        min-width: 50vw;
-        max-width: 50vw;
+        min-width: 60vw;
+        max-width: 60vw;
     }
 
     .img {

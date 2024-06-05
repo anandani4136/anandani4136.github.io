@@ -70,6 +70,50 @@
      animation-duration: 2s;
 }
 
+.positionTag {
+    position: relative;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Space between boxes */
+    margin: 5%;
+}
+
+.tagItem {
+    flex: 0 1 calc(50% - 50px); /* 50% width minus half of the gap , make first number into */
+    min-height: 150px; /* Adjust height as needed */
+    min-width: 500px; /* Adjust width as needed */
+    max-width: 550px;
+    background-color: #e6e6e6; /* Example color */
+    border-radius: 50px;
+    box-shadow: 6px 6px 14px 0 rgba(0, 0, 0, 0.2),
+        -8px -8px 18px 0 rgba(255, 255, 255, 0.55);
+    /* Add other styling as needed */
+    position: relative; /* Required for aspect ratio trick */
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.tagIcon {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-height: 125px;
+    min-height: 125px;
+    max-width: 225px;
+    min-width: 125px;
+    left: 15px;
+    top: 15px;
+    padding: 5px;
+    box-shadow: 6px 6px 14px 0 rgba(0, 0, 0, 0.2),
+        -8px -8px 18px 0 rgba(255, 255, 255, 0.55);
+    border-radius: 40px;
+}
+
 .icon {
     position: absolute;
     /* margin: 10%; */
@@ -85,8 +129,14 @@
 }
 
 .iconFine {
-    max-height: 150px;
-    max-width: 250px;
+    max-height: 105px;
+    max-width: 115px;
+    margin: auto;
+}
+
+.iconTagFine {
+    max-height: 125px;
+    max-width: 200px;
     margin: auto;
 }
 
@@ -95,11 +145,22 @@
     transition: 0.5s;
 }
 
-.description .icon {
-    transition: 0.5s;
+.tagItem:hover .tagIcon {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 14px 0 rgba(0, 0, 0, 0.4),
+        -8px -8px 18px 0 rgba(255, 255, 255, 0.35);
+    transition: 0.3s;
 }
 
-.description:not(:hover) .icon {
+
+
+.description .icon,
+.tagItem .tagIcon {
+    transition: 0.3s;
+}
+
+.description:not(:hover) .icon,
+.tagItem:not(:hover) .tagIcon {
     transform: scale(1);
 }
 
@@ -192,9 +253,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
 
-
-
+.textContainerTag {
+    position: relative;
+    top: 40px;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    word-break: break-word;
 }
 
 .textContainer2 {
@@ -213,6 +281,80 @@
     height: 40px;
     top: 50%;
 
+}
+
+@media screen and (max-width: 1200px) {
+    .tagItem {
+        flex: 0 1 calc(50% - 30px);
+    }
+
+    .positionTag {
+        margin: 5% 0%;
+        gap: 30px;
+    }
+
+}  
+
+@media screen and (max-width: 750px) { /* Adjust the 600px threshold as needed */
+    .tagItem {
+      flex-basis: 100%; /* Each item takes full width */
+    }
+
+    .positionTag {
+        margin: 5% 5%;
+    }
+
+  }
+
+
+@media screen and (max-width: 500px) {
+    .tagItem {
+        flex-basis: 100%; /* Each item takes full width */
+        min-width: 300px;
+    }
+
+    .textContainerTag {
+        max-width: 47vw;
+    }
+
+}
+
+.endTag {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    height: 100px;
+    width: 100%;
+}
+
+.learnMore {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 5%; */
+    padding: 30px;
+    border-radius: 50px;
+    background-color: #e6e6e6;
+    color: black;
+    width: 275px;
+    height: 13px;
+    box-shadow: 6px 6px 14px 0 rgba(0, 0, 0, 0.2), -8px -8px 18px 0 rgba(255, 255, 255, 0.55);
+    transition: 0.3s;
+}
+
+.learnMore:hover {
+    background-color: #0000001e;
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 14px 0 rgba(0, 0, 0, 0.4),
+        -8px -8px 18px 0 rgba(255, 255, 255, 0.35);
+    transition: 0.3s;
+}
+
+.socialIcon {
+    margin: 3px;
+    padding: 2px;
 }
 
 /* .description h1 {
