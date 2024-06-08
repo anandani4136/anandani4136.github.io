@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 200vh;
+    min-height: 185vh;
     -webkit-backface-visibility: hidden;
     /* backface-visibility: hidden; */
     /* background-color: #c6c6c6; */
@@ -119,7 +119,7 @@
     font-weight: 500;
     color: #ffffff;
     position: relative;
-    top: -12vh;
+    top: -15vh;
     text-align: center;
     margin: 5%;
 }
