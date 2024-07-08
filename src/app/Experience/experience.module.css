@@ -313,9 +313,16 @@
         min-width: 300px;
     }
 
+    .positionTag {
+        margin: 5% 2%;
+    }
+
     .textContainerTag {
         max-width: 47vw;
+
     }
+
+    
 
 }
 
@@ -345,7 +352,8 @@
 }
 
 .learnMore:hover {
-    background-color: #0000001e;
+    /* background-color: #0000001e; */
+    background-color: #e7e4e4;
     transform: translateY(-2px);
     box-shadow: 6px 6px 14px 0 rgba(0, 0, 0, 0.4),
         -8px -8px 18px 0 rgba(255, 255, 255, 0.35);

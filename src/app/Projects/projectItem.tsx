@@ -36,6 +36,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ imageSrc, title, desc, techno
         React: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
         NodeJS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
         NextJS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+        NestJS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg",
         HTML: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
         CSS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
         "C#": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
@@ -49,6 +50,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ imageSrc, title, desc, techno
         Firebase: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
         DigitalOcean: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/digitalocean/digitalocean-original.svg",
         AWS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg",
+        "Google Cloud Platform": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
         TensorFlow: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
     };
 
@@ -58,11 +60,11 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ imageSrc, title, desc, techno
   return (
     <div className={styles.projItem}>
         <div className={styles.projContent}>
-            <div className={openDesc ? styles.imageExp : styles.image} style={{minHeight: openDesc ? '20%' : '70%', maxHeight: openDesc ? '20%' : '70%'}}>
+            <div className={openDesc ? styles.imageExp : styles.image} style={{minHeight: openDesc ? '100%' : '100%', maxHeight: openDesc ? '100%' : '100%'}}>
                 <img className={styles.img} src={imageSrc} alt={title} />
             </div>
             <div className={styles.subPic}>
-                <div className={openDesc ? styles.textExp : styles.text}>
+                <div className={styles.text} style={{top: openDesc? '0%' : '70%', backgroundColor: openDesc? '#e6e6e6f6': '#e6e6e6e6'}}>
                     <div className={styles.leftText}>
                         <h2 className={styles.title}>{title}</h2>
                         <p>{desc}</p>
@@ -81,7 +83,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ imageSrc, title, desc, techno
                     </div>
                 </div>
                 <div className={openDesc ? styles.expDescription : styles.hidDesc}>
-                    <div className={styles.textContainer2}>
+                    <div className={styles.textContainer2} style={{opacity: openDesc? 1 : 0}}>
                         {tasks.map((task, index) => (
                             <p key={index}>• {task}</p>
                         ))}

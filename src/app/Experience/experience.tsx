@@ -120,8 +120,8 @@ export default function Experience() {
             {/* <div className = {styles.positions}> */}
             <div data-aos="fade-left" data-aos-duration="1300" data-aos-delay="500" data-aos-easing="ease-in-sine" className={styles.positionTag}>
                 <ExperienceTag logo={icons[5]} title="Software Engineer Intern" company="Discover Financial Services" time="06/24 - Present" tasks={["S", "L", "D"]}/>
-                <ExperienceTag logo={icons[1]} title="Vice Chair" company="ACM@UIUC" time="04/24 - Present" tasks={["S", "L", "D"]}/>
-                <ExperienceTag logo={icons[0]} title="Co-Director" company="HackIllinois" time="04/23 - 04/24" tasks={["S", "L", "D"]}/>
+                <ExperienceTag logo={icons[1]} title="Vice Chair" company="ACM@UIUC" time="04/24 - Present" tasks={["S", "L", "D"]} infoUrl='https://www.acm.illinois.edu/'/>
+                <ExperienceTag logo={icons[0]} title="Co-Director" company="HackIllinois" time="04/23 - 04/24" tasks={["S", "L", "D"]} infoUrl='https://info.hackillinois.org/'/>
                 <ExperienceTag logo={icons[2]} title="Technology Chair" company="NOBE Illinois" time="01/23 - 05/24" tasks={["S", "L", "D"]}/>
                 <ExperienceTag logo={icons[3]} title="Software Engineer" company="Reflections | Projections" time="02/23 - Present" tasks={["S", "L", "D"]}/>
                 <ExperienceTag logo={icons[4]} title="Software Engineer Intern" company="Novaspect Inc." time="05/23 - 08/23" tasks={["S", "L", "D"]}/>
