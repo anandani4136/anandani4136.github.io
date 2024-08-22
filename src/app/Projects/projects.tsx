@@ -33,7 +33,7 @@ export default function Footer() {
         // },
         {
             imageSrc: 'media/rp2023.png',
-            title: 'R | P Google Event Pass API',
+            title: 'R|P Google Event Pass API',
             desc: 'NestJS API Event Pass Generation',
             technologies: ['Typescript', 'NestJS', 'Google Cloud Platform'],
             tasks: ['Adapted the Google Wallet Event Pass generation functions for NestJS and extending our internal API by developing custom endpoints to enable a seamless integration of the feature across our registration and authentication platforms'],

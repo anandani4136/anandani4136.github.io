@@ -66,6 +66,7 @@
     background-image: (linear-gradient(to left, #2d8fe5, #d155b8));
     transform: scale(1.2);
     cursor: pointer;
+    filter: drop-shadow(0 0 0.9rem #ffffff70);
     /* .navbar img before and after should be changed */
 
     .navbar img::before,

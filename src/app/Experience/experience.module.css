@@ -261,6 +261,8 @@
     left: 40px;
     display: flex;
     flex-direction: column;
+    font-size: 14px;
+    padding-right: 10%;
     /* justify-content: center; */
     word-break: break-word;
 }
@@ -319,7 +321,8 @@
 
     .textContainerTag {
         max-width: 47vw;
-        font-size: 14px;
+        font-size: 13px;
+        padding-right: 0%;
     }
 
     
