@@ -112,7 +112,7 @@ export default function Title() {
           const newHeight = Math.min((excessScroll - 0.046*totalScrollHeight) / (totalScrollHeight) * 970);
           setHeight(Math.min(newHeight, 100));
           // console.log((newHeight - 100)/100);
-          setOpacity2(1 - 1.2*(newHeight - 100)/100);
+          setOpacity2(Math.min(1, 1 - 1.2*(newHeight - 100)/100));
         } else {
           setHeight(20);
         }
@@ -181,6 +181,8 @@ export default function Title() {
               </a>
             </div> */}
           </div>
+          {/* <div className={styles.redFlow} style={{ opacity: opacity }}/> */}
+            
           
           <div id="name" className={styles.center} style={{ opacity: opacity }}>
             <div className={styles.name}> 

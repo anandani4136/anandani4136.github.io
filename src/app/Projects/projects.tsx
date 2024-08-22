@@ -32,6 +32,14 @@ export default function Footer() {
         //     siteLink: 'http://www.project1.com'
         // },
         {
+            imageSrc: 'media/rp2023.png',
+            title: 'R|P Google Event Pass API',
+            desc: 'NestJS API Event Pass Generation',
+            technologies: ['Typescript', 'NestJS', 'Google Cloud Platform'],
+            tasks: ['Adapted the Google Wallet Event Pass generation functions for NestJS and extending our internal API by developing custom endpoints to enable a seamless integration of the feature across our registration and authentication platforms'],
+            githubLink: 'https://github.com/ReflectionsProjections/rp-api-2023/tree/main/src/wallet'
+        },
+        {
             imageSrc: 'media/hack23.png',
             title: 'HackIllinois 2023 Site',
             desc: `UIUC's Hackathon Website`,
@@ -42,7 +50,7 @@ export default function Footer() {
             siteLink: 'https://2023.hackillinois.org/'
         },
         {
-            imageSrc: 'media/tripvisor.jpg',
+            imageSrc: 'media/tripvisor.png',
             title: 'TripVisor',
             desc: 'Interactive map and route builder app',
             technologies: ['React', 'Typescript'],
@@ -54,7 +62,7 @@ export default function Footer() {
         {
             imageSrc: 'media/cskportal.png',
             title: 'CompSci Kids Portal',
-            desc: 'Registration portal for CS tutoring program',
+            desc: 'Tutoring Program Registration Portal',
             technologies: ['React', 'NodeJS', 'MongoDB'],
             tasks: ['Robust online portal that allows parents to register kids for after-school CS tutoring sessions','Replaced an online form that parents had to fill out numerous times, simplifying the registration flow and allowing for more efficient data management'],
             githubLink: 'https://github.com/Comp-Sci-Kids/CSKPortal',
@@ -72,7 +80,7 @@ export default function Footer() {
             // siteLink: 'https://parents.compscikids.net/'
         },
         {
-            imageSrc: 'media/shopVision.jpg',
+            imageSrc: 'media/shopVision.png',
             title: 'ShopVision',
             desc: 'iOS Shopping Assistant + AR Scanner',
             technologies: ['Swift', 'Python', 'Firebase'],
@@ -82,9 +90,19 @@ export default function Footer() {
             // siteLink: 'https://parents.compscikids.net/'
         },
         {
-            imageSrc: 'media/smp.gif',
-            title: 'Stock Market Analysis',
-            desc: 'Data Visualization of COVID-19 Impact on Stock Market',
+            imageSrc: 'media/qwttr.png',
+            title: 'Qwttr',
+            desc: 'Substance Abuse Help Social Media',
+            technologies: ['React', 'Firebase'],
+            tasks: ['Qwttr is a feature-rich social media app designed to help people suffering from substance abuse', 'Built under 48 hours as a hackathon project', 'Won Best Health Hack at CitroHacks 2021'],
+            githubLink: 'https://github.com/Socksham/Qwttr',
+            videoLink: 'https://youtu.be/YFWUjrvnQYU?si=0AoG4UbsJOCvuu-R',
+            siteLink: 'https://devpost.com/software/qwttr'
+        },
+        {
+            imageSrc: 'media/smp.png',
+            title: 'COVID-19 Stock Market Analysis',
+            desc: 'Stock Market Effects Data Visualization',
             technologies: ['R', 'HTML'],
             tasks: ['A visualization of the effects of COVID-19 upon various stock market sectors like healthcare, technology, and energy to give perspective on the impact of a pandemic on different GICS sectors'],
             githubLink: 'https://github.com/anandani4136/Stock-Market-Analysis',
@@ -92,7 +110,7 @@ export default function Footer() {
             siteLink: 'https://www.ronitanandani.com/Stock-Market-Analysis/'
         },
         {
-            imageSrc: 'media/mod.jpg',
+            imageSrc: 'media/mod.png',
             title: 'Multilingual Object Detection',
             desc: 'Tensorflow Object Detection and Translation Concept',
             technologies: ['TensorFlow', 'HTML'],
@@ -110,16 +128,6 @@ export default function Footer() {
             githubLink: 'https://github.com/Timothy-Gonzalez/rube-goldberg-machine',
             videoLink: 'https://youtu.be/VC8XEjUEASA',
             siteLink: 'https://timothy-gonzalez.com/rube-goldberg-machine/'
-        },
-        {
-            imageSrc: 'media/qwttr.jpg',
-            title: 'Qwttr',
-            desc: 'Substance Abuse Help Social Media',
-            technologies: ['React', 'Firebase'],
-            tasks: ['Qwttr is a feature-rich social media app designed to help people suffering from substance abuse', 'Built under 48 hours as a hackathon project', 'Won Best Health Hack at CitroHacks 2021'],
-            githubLink: 'https://github.com/Socksham/Qwttr',
-            videoLink: 'https://youtu.be/YFWUjrvnQYU?si=0AoG4UbsJOCvuu-R',
-            siteLink: 'https://devpost.com/software/qwttr'
         },
         {
             imageSrc: 'media/pathGame.gif',

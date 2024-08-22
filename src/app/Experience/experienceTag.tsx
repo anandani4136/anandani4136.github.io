@@ -8,9 +8,10 @@ interface ExperienceItemProps {
     company: string;
     time: string;
     tasks: string[];
+    infoUrl?: string; 
 }
 
-const ExperienceItem: React.FC<ExperienceItemProps> = ({ logo, inverted, title, company, time, tasks }) => {
+const ExperienceItem: React.FC<ExperienceItemProps> = ({ logo, inverted, title, company, time, tasks, infoUrl }) => {
   const [openDesc, setOpenDesc] = useState(false);
 
   const openDescription = () => {
@@ -19,9 +20,15 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({ logo, inverted, title, 
 
   return (
     <div className={styles.tagItem}>
-      <div className={styles.tagIcon} style={{filter: `invert(${inverted ? 1 : 0})`}}>
+      <a
+        style={{filter: `invert(${inverted ? 1 : 0})`}}
+        href={infoUrl}
+        className={`animate__animated animate__backInUp ${styles.tagIcon}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img className={styles.iconFine} src={logo} alt={`${company} logo`} />
-      </div>
+      </a>
 
       <div className={styles.textContainerTag}>
         <div>
