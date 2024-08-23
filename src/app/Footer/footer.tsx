@@ -45,7 +45,7 @@ export default function Footer() {
 
                 <a
                   href="
-                    mailto:ra7353@hotmail.com"
+                    mailto:contact@ronitanandani.com"
                     className={`animate__animated animate__backInUp ${styles.img}`}
                     target="_blank"
                     rel="noopener noreferrer"
