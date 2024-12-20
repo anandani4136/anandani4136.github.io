@@ -1,0 +1,70 @@
+.main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+    color: white;
+}
+
+.content {
+    z-index: 2;
+    position: relative;
+    text-align: center;
+}
+
+.name {
+    font-size: 3rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+@media (min-width: 768px) {
+    .main {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 2rem;
+    }
+
+    .name {
+        text-align: left;
+        font-size: 5rem;
+    }
+
+    .video {
+        position: relative;
+        height: auto;
+        width: 50%;
+        object-fit: cover;
+        z-index: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .video {
+        z-index: 0;
+    }
+
+    .main::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Low opacity overlay */
+        z-index: 1;
+    }
+}

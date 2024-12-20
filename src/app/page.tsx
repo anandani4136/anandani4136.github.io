@@ -3,6 +3,7 @@ import styles from './page.module.css'
 import 'animate.css'
 import Navbar from './Navbar/navbar'
 import Title from './title'
+import Header from './Header/header'
 import Transition from './Transition/transition'
 import About from './About/about'
 import Experience from './Experience/experience'
@@ -14,7 +15,8 @@ export default function Home() {
   return (
     <div>
       <Navbar/>
-      <Title/>
+      <Header/>
+      {/* <Title/> */}
       <Transition/>
       <About/>
       <Experience/>
