@@ -10,6 +10,22 @@
     padding-top: 5%;
 }
 
+.mainTitle {
+    top: 5%;
+    width: 70%;
+    text-align: left;
+    justify-content: flex-start;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.horizontalLine {
+    width: 70%;
+    height: 2px;
+    background-color: #000000;
+    margin: 0 auto;
+}
+
 
 .title {
     font-size: 1.3rem;
@@ -63,6 +79,7 @@
 .image {
     min-width: 100%;
     max-width: 100%;
+    background-color: #ffffff;
     /* max-height: 70%; */
     display: flex;
     justify-content: center;
@@ -72,6 +89,7 @@
 }
 
 .imageExp {
+    background-color: #ffffff;
     min-width: 100%;
     max-width: 100%;
     max-height: 20%;
@@ -83,7 +101,7 @@
 }
 
 .img {
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
 }
 

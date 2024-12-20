@@ -116,7 +116,8 @@ export default function Experience() {
 
     return (
         <div id="experience-main" className={styles.main}>
-            <h1 data-aos="fade-left" data-aos-duration="1000" className={styles.title}>Experience</h1>
+            <h1 data-aos="fade-right" data-aos-duration="1000" className={styles.title}>Experience</h1>
+            <div data-aos="fade-right" className={styles.horizontalLine}></div>
             {/* <div className = {styles.positions}> */}
             <div data-aos="fade-left" data-aos-duration="1300" data-aos-delay="500" data-aos-easing="ease-in-sine" className={styles.positionTag}>
                 <ExperienceTag logo={icons[1]} title="Vice Chair" company="ACM@UIUC" time="04/24 - Present" tasks={["S", "L", "D"]} infoUrl='https://www.acm.illinois.edu/'/>

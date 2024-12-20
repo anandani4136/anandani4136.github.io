@@ -6,7 +6,7 @@
     color: #000000;
     /* z-index: -1; */
     /* background-image: linear-gradient(rgb(198, 196, 196), white); */
-    /* align-items: center; */
+    align-items: center;
     /* justify-content: space-between; */
     min-height: auto;
     position: relative;
@@ -14,11 +14,18 @@
 
 .title {
     top: 5%;
-    /* position: absolute; */
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    /* color: rgb(3, 32, 32); */
+    width: 70%;
+    text-align: left;
+    justify-content: flex-start;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.horizontalLine {
+    width: 70%;
+    height: 2px;
+    background-color: #000000;
+    margin: 0 auto;
 }
 
 .rightScroll {
