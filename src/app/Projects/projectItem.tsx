@@ -31,8 +31,8 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ imageSrc, title, desc, techno
         Python: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
         Swift: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
         R: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg",
-        Javascript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-        Typescript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+        JavaScript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+        TypeScript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
         React: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
         NodeJS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
         NextJS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
@@ -49,7 +49,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ imageSrc, title, desc, techno
         Docker: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
         Firebase: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
         DigitalOcean: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/digitalocean/digitalocean-original.svg",
-        AWS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg",
+        AWS: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
         "Google Cloud Platform": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
         TensorFlow: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
     };
@@ -64,7 +64,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ imageSrc, title, desc, techno
                 <img className={styles.img} src={imageSrc} alt={title} />
             </div>
             <div className={styles.subPic}>
-                <div className={styles.text} style={{top: openDesc? '0%' : '70%', backgroundColor: openDesc? '#e6e6e6f6': '#e6e6e6e6'}}>
+                <div className={styles.text} style={{top: openDesc? '0%' : '70%', backgroundColor: openDesc? '#e6e6e6f6': '#e6e6e6a6'}}>
                     <div className={styles.leftText}>
                         <h2 className={styles.title}>{title}</h2>
                         <p>{desc}</p>
