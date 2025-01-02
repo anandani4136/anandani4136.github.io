@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image'
-import logo from './logo.png';
+import logo from './logo.svg';
 import styles from './navbar.module.css'
 import 'animate.css'
 
@@ -25,25 +25,26 @@ export default function Navbar() {
               rel="noopener noreferrer"
               onClick={() => scrollToComponent('header')}
             >
-              <img alt="Logo" src='/logo.png'/>
+              <img alt="Logo" src='/logo.svg'/>
             </a>
             <div className={styles.menu}>
                 <div className={styles.bars}>
                     <div className={styles.twoBar} onClick={() => setExpandMenu(!expandMenu)}>
-                            <span className={styles.topBar} style={{transform: `${expandMenu ? 'rotate(-45deg) translateY(4px) translateX(-5px)' : ''}`}}/>
-                            <span className={styles.bottomBar} style={{transform: `${expandMenu ? 'rotate(45deg) translateY(-4px) translateX(-4px)' : ''}`}}/>
+                            <span className={styles.topBar} style={{transform: `${expandMenu ? 'rotate(-45deg) translateY(7px) translateX(-6px)' : ''}`}}/>
+                            <span className={styles.middleBar} style={{opacity: `${expandMenu ? '0' : '1'}`}}/>
+                            <span className={styles.bottomBar} style={{transform: `${expandMenu ? 'rotate(45deg) translateY(-7px) translateX(-6px)' : ''}`}}/>
                         </div>
-                    <div className={styles.expText} style={{height: expandMenu ? '150px' : '0vw', width: expandMenu ? '92vw' : '0px', borderWidth: expandMenu ? '2px' : '0px'}}>
-                        <a className={styles.expNavText} onClick={() => scrollToComponent('about-main')}>About</a>
-                        <a className={styles.expNavText} onClick={() => scrollToComponent('experience-main')}>Experience</a>
-                        <a className={styles.expNavText} onClick={() => scrollToComponent('projects-main')}>Projects</a>
+                    <div className={styles.expText} style={{height: expandMenu ? '175px' : '0vw', width: expandMenu ? 'calc(100vw - 17px)' : '0px', borderWidth: expandMenu ? '2px' : '0px'}}>
+                        <a data-aos="fade-up" data-aos-duration="1000" className={styles.expNavText} onClick={() => scrollToComponent('about')}>About</a>
+                        <a data-aos="fade-up" data-aos-duration="1000" className={styles.expNavText} onClick={() => scrollToComponent('experience')}>Experience</a>
+                        <a data-aos="fade-up" data-aos-duration="1000" className={styles.expNavText} onClick={() => scrollToComponent('projects')}>Projects</a>
                     </div>
                 </div>
                 {/* <a style={{cursor: "pointer"}} onClick={() => scrollToComponent('header')}><img alt="GitHub" className={styles.icon} src='https://cdn.onlinewebfonts.com/svg/img_415633.png'/></a> */}
                 {/* <button className={styles.button} onClick={() => scrollToComponent('about-main')}>About</button> */}
-                <a className={styles.navText} onClick={() => scrollToComponent('about-main')}>About</a>
-                <a className={styles.navText} onClick={() => scrollToComponent('experience-main')}>Experience</a>
-                <a className={styles.navText} onClick={() => scrollToComponent('projects-main')}>Projects</a>
+                <a className={styles.navText} onClick={() => scrollToComponent('about')}>About</a>
+                <a className={styles.navText} onClick={() => scrollToComponent('experience')}>Experience</a>
+                <a className={styles.navText} onClick={() => scrollToComponent('projects')}>Projects</a>
                 {/* <button className={styles.button} onClick={() => scrollToComponent('projects-main')}>Projects</button> */}
             </div>
         </div>

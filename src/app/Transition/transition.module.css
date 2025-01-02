@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 1900px;
+    min-height: 120vh;
     -webkit-backface-visibility: hidden;
     /* backface-visibility: hidden; */
     /* background-color: #c6c6c6; */
@@ -104,7 +104,7 @@
     font-weight: 500;
     color: #ffffff;
     position: relative;
-    top: -35vh;
+    top: -8vh;
     text-align: center;
     margin: 5%;
     /* text-shadow: 0 0 10px #ffffff; */
@@ -113,15 +113,42 @@
   }
 
 .endText {
-    z-index: 1;
     /* font-size: 6vw; */
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-weight: 500;
-    color: #ffffff;
+    /* font-size: clamp(2rem, 5vw, 3rem); */
+    /* font-size: 3rem; */
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    z-index: 5;
     position: relative;
-    top: -15vh;
+    top: -10vh;
     text-align: center;
     margin: 5%;
+}
+
+/* .adaptText {
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff, 0 0 25px #ffffff
+} */
+
+.adaptText {
+  background: linear-gradient(90deg, #f37175cd, #faf6c4cd, #a291cecd);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientScroll 3s infinite;
+  /* display: inline-block; To make animation smooth */
+}
+
+@keyframes gradientScroll {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 /*   
 @media screen and (max-width: 700px) {

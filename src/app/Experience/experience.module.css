@@ -6,7 +6,7 @@
     color: #000000;
     /* z-index: -1; */
     /* background-image: linear-gradient(rgb(198, 196, 196), white); */
-    /* align-items: center; */
+    align-items: center;
     /* justify-content: space-between; */
     min-height: auto;
     position: relative;
@@ -14,11 +14,35 @@
 
 .title {
     top: 5%;
-    /* position: absolute; */
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    /* color: rgb(3, 32, 32); */
+    width: 80%;
+    text-align: left;
+    justify-content: flex-start;
+    font-size: clamp(3rem, 5vw, 4rem);
+    font-weight: bold;
+}
+
+@keyframes growLine {
+    from {
+        transform: scaleX(0); /* Start with no width */
+        opacity: 0;
+    }
+    to {
+        transform: scaleX(1); /* Grow to full width */
+        opacity: 1;
+    }
+}
+
+.horizontalLine {
+    width: 80%; /* Final width */
+    height: 2px;
+    background-color: #000000;
+    margin: 0 auto;
+    transform-origin: left; /* Set the origin to the left */
+    transform: scaleX(0);
+}
+
+.animateLine {
+    animation: growLine 2s ease-out forwards; /* Trigger the animation */
 }
 
 .rightScroll {
@@ -257,6 +281,7 @@
 
 .textContainerTag {
     position: relative;
+    width: 330px;
     top: 40px;
     left: 40px;
     display: flex;
@@ -321,6 +346,8 @@
 
     .textContainerTag {
         max-width: 47vw;
+        height: 100px;
+        overflow-y: scroll;
         font-size: 13px;
         padding-right: 0%;
     }

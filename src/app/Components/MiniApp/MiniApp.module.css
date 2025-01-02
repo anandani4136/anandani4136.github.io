@@ -1,0 +1,114 @@
+.miniApp {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(145deg, #1e1e1e, #333333);
+    border-radius: 8px;
+    transition: box-shadow 0.5s ease;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); */
+}
+
+.appTop {
+    flex: 6;
+    position: relative;
+    background-color: #111;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    max-height: 63vh; /* Default height for canvas */
+    transition: all 0.3s ease;
+}
+
+.nodeCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.nodeContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #222; /* Placeholder */
+}
+
+.backgroundVideo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: black;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Buttons Section */
+.appBottom {
+    /* flex: 4; */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Align buttons to the bottom */
+    /* padding: 10px; */
+    /* background-color: #111; */
+    height: 7vh; /* Consistent height */
+}
+
+/* Button Styles */
+.appButton {
+    flex: 1;
+    margin: 1vh;
+    height: 5vh; /* Default button height */
+    background-color: #333;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform-origin: bottom; /* Scale from the bottom */
+    transition: transform 0.5s ease, background-color 0.5s ease;
+}
+
+/* Transformed Buttons */
+.leftTransformed {
+    transform: scaleY(4); /* Slightly taller */
+    background-color: #af4d44; /* Optional color change */
+}
+
+.middleTransformed {
+    transform: scaleY(7); /* Taller */
+    background-color: #337569; /*#54B2A1 Optional color change */
+}
+
+.rightTransformed {
+    transform: scaleY(13); /* Tallest */
+    background-color: #4699C0; /* Optional color change */
+}
+
+.leftTransformed, .middleTransformed, .rightTransformed {
+    border: 1px solid rgba(255, 255, 255, 0);
+    border-radius: 0px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* .appBottom {
+        flex-direction: column;
+        align-items: center;
+    } */
+
+    /* .appButton {
+        margin: 5px 0;
+        /* width: 80%; Adjust width for vertical layout
+        transform-origin: center; 
+    } */
+
+    /* .leftTransformed {
+        transform: scaleX(4);
+    }
+
+    .middleTransformed {
+        transform: scaleX(7);
+    }
+
+    .rightTransformed {
+        transform: scaleX(13);
+    } */
+}

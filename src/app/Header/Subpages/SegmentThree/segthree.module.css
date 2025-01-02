@@ -1,0 +1,104 @@
+.mainthree {
+    position: relative;
+    height: 50vh; /* Full viewport height */
+    /* overflow: hidden; Hide overflowing rows */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.rotatingDiv {
+    width: 75%;
+    height: 75vh;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 1;
+    color: white;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid white; */
+    /* border-radius: 8px; */
+    transition: transform 0.2s ease-out;
+}
+
+.undraw {
+    animation: untrace 3s linear forwards;
+}
+
+.draw {
+    animation: untrace 3s linear reverse;
+}
+
+/* Border Effect */
+.borderEffect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border: 2px solid white;
+    border-radius: 8px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    /* animation: trace 3s linear infinite; Tracing animation */
+}
+
+/* Animation to "undraw" */
+@keyframes untrace {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Back to full border */
+    }
+    25% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%); /* Move to bottom-right */
+    }
+    50% {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* Move to top-right */
+    }
+    75% {
+        clip-path: polygon(0 0, 0 0, 100% 100%, 0 0); /* Move to top-left */
+    }
+    100% {
+        clip-path: polygon(0 0, 0 0, 0 0, 0 0); /* Start at top-left */
+    }
+}
+
+/* Animation to "trace" */
+@keyframes trace {
+    0% {
+        clip-path: polygon(0 0, 0 0, 0 0, 0 0); /* Start at top-left */
+    }
+    25% {
+        clip-path: polygon(0 0, 0 0, 100% 100%, 0 0); /* Move to top-left */
+    }
+    50% {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* Move to top-right */
+    }
+    75% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Move to bottom-right */
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Back to full border */
+    }
+}
+
+/* .rotatingDiv {
+    width: 75%;
+    height: 75vh;
+    background-color: black;
+    color: white;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 8px;
+   
+    transition: transform 0.2s ease-out;
+} */
+
+.content {
+    font-size: 1.5rem;
+    text-align: center;
+}

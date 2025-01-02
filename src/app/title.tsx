@@ -35,7 +35,7 @@ export default function Title() {
       const pageElement = document.getElementById('box-main');
       const boxInView = boxElement && pageElement && boxElement.getBoundingClientRect().top < (pageElement.getBoundingClientRect().top - window.innerHeight);
       if (boxInView) {
-        console.log('in view');
+        // console.log('in view');
         boxElement.style.opacity = '0';
       }
 
@@ -153,7 +153,7 @@ export default function Title() {
 
 
     return (
-        <main id='header' className={styles.main} style={{backgroundColor: `${scrollPercent < 0.15 ? 'black' : ''}`, }}>
+        <main id='header-o' className={styles.main} style={{backgroundColor: `${scrollPercent < 0.15 ? 'black' : ''}`, }}>
           <div className={styles.description}>
             {/* <div className={styles.textContainer}>
               <h2 className={styles.typeTag}>Greetings, my name is</h2>

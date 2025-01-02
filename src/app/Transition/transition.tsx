@@ -29,65 +29,65 @@ export default function Transition() {
             const middleScreen = windowHeight / 2;
 
 
-            if (textRef.current) {
-                const divRect = (textRef.current as HTMLElement).getBoundingClientRect();
-                const divTop = divRect.top;
-                const divBottom = divRect.bottom;
+            // if (textRef.current) {
+            //     const divRect = (textRef.current as HTMLElement).getBoundingClientRect();
+            //     const divTop = divRect.top;
+            //     const divBottom = divRect.bottom;
         
-                if (divTop < 1.5*middleScreen && divBottom > 0.5*middleScreen) {
-                //   console.log(divTop + " " + divBottom);
-                  // Calculate opacity based on distance to the middle of the screen
-                  const distanceToMiddle = middleScreen - (divTop + divRect.height / 2);
-                  const newOpacity = 1 - (6 * Math.abs(distanceToMiddle) / windowHeight);
-                  setAboveMiddle(distanceToMiddle < 0);
-                  setTextOpacity(Math.max(0, newOpacity));
-                } else {
-                  setTextOpacity(0);
-                }
-            }
+            //     if (divTop < 1.5*middleScreen && divBottom > 0.5*middleScreen) {
+            //     //   console.log(divTop + " " + divBottom);
+            //       // Calculate opacity based on distance to the middle of the screen
+            //       const distanceToMiddle = middleScreen - (divTop + divRect.height / 2);
+            //       const newOpacity = 1 - (6 * Math.abs(distanceToMiddle) / windowHeight);
+            //       setAboveMiddle(distanceToMiddle < 0);
+            //       setTextOpacity(Math.max(0, newOpacity));
+            //     } else {
+            //       setTextOpacity(0);
+            //     }
+            // }
 
-            if (textRef2.current) {
-                const divRect = (textRef2.current as HTMLElement).getBoundingClientRect();
-                const divTop = divRect.top;
-                const divBottom = divRect.bottom;
+            // if (textRef2.current) {
+            //     const divRect = (textRef2.current as HTMLElement).getBoundingClientRect();
+            //     const divTop = divRect.top;
+            //     const divBottom = divRect.bottom;
         
-                if (divTop < 1.5*middleScreen && divBottom > 0.5*middleScreen) {
-                //   console.log(divTop + " " + divBottom);
-                  // Calculate opacity based on distance to the middle of the screen
-                  const distanceToMiddle = middleScreen - (divTop + divRect.height / 2);
-                  const newOpacity = 1 - (6 * Math.abs(distanceToMiddle) / windowHeight);
-                  setText2Opacity(Math.max(0, newOpacity));
-                } else {
-                  setText2Opacity(0);
-                }
-            }
+            //     if (divTop < 1.5*middleScreen && divBottom > 0.5*middleScreen) {
+            //     //   console.log(divTop + " " + divBottom);
+            //       // Calculate opacity based on distance to the middle of the screen
+            //       const distanceToMiddle = middleScreen - (divTop + divRect.height / 2);
+            //       const newOpacity = 1 - (6 * Math.abs(distanceToMiddle) / windowHeight);
+            //       setText2Opacity(Math.max(0, newOpacity));
+            //     } else {
+            //       setText2Opacity(0);
+            //     }
+            // }
 
-            if (textRef3.current) {
-                const divRect = (textRef3.current as HTMLElement).getBoundingClientRect();
-                const divTop = divRect.top;
-                const divBottom = divRect.bottom;
+            // if (textRef3.current) {
+            //     const divRect = (textRef3.current as HTMLElement).getBoundingClientRect();
+            //     const divTop = divRect.top;
+            //     const divBottom = divRect.bottom;
         
-                if (divTop < 1.5*middleScreen && divBottom > 0.5*middleScreen) {
-                //   console.log(divTop + " " + divBottom);
-                  // Calculate opacity based on distance to the middle of the screen
-                  const distanceToMiddle = middleScreen - (divTop + divRect.height / 2);
-                  const newOpacity = 1 - (6 * Math.abs(distanceToMiddle) / windowHeight);
-                  setText3Opacity(Math.max(0, newOpacity));
-                } else {
-                  setText3Opacity(0);
-                }
-            }
+            //     if (divTop < 1.5*middleScreen && divBottom > 0.5*middleScreen) {
+            //     //   console.log(divTop + " " + divBottom);
+            //       // Calculate opacity based on distance to the middle of the screen
+            //       const distanceToMiddle = middleScreen - (divTop + divRect.height / 2);
+            //       const newOpacity = 1 - (6 * Math.abs(distanceToMiddle) / windowHeight);
+            //       setText3Opacity(Math.max(0, newOpacity));
+            //     } else {
+            //       setText3Opacity(0);
+            //     }
+            // }
 
             if (endTextRef.current) {
                 const divRect = (endTextRef.current as HTMLElement).getBoundingClientRect();
                 const divTop = divRect.top;
                 const divBottom = divRect.bottom;
         
-                if (divTop < 1.5*middleScreen && divBottom > 0.5*middleScreen) {
+                if (divTop < 1.8*middleScreen && divBottom > 0.2*middleScreen) {
                 //   console.log(divTop + " " + divBottom);
                   // Calculate opacity based on distance to the middle of the screen
                   const distanceToMiddle = middleScreen - (divTop + divRect.height / 2);
-                  const newOpacity = 1 - (6 * Math.abs(distanceToMiddle) / windowHeight);
+                  const newOpacity = 1 - (3 * Math.abs(distanceToMiddle) / windowHeight);
                   setEndTextOpacity(Math.max(0, newOpacity));
                 } else {
                   setEndTextOpacity(0);
@@ -104,11 +104,12 @@ export default function Transition() {
                 if (divTop <= windowHeight) {
                     // The div is now in the viewport
                     const scrollDistance = windowHeight - divTop;
-                    const maxScroll = 355; // Adjust as needed
+                    // const maxScroll = 355; // Adjust as needed
                     // const newOpacity = Math.max(0, scrollDistance / maxScroll);
                     // setTransPercent(newOpacity);
                     // console.log(scrollDistance / divRect.height);
-                    setTransPercent(4 * (scrollDistance / divRect.height));
+                    setTransPercent(4.5 * (scrollDistance / divRect.height));
+                    // console.log(4 * (scrollDistance / divRect.height));
                     // setColor(`rgba(0, 0, 255, ${newOpacity})`);
                 }
             } else {
@@ -120,7 +121,7 @@ export default function Transition() {
                 }
             }
             requestAnimationFrame(handleScroll);
-        }, 130);
+        }, 60);
 
         window.addEventListener('scroll', handleScroll);
         requestAnimationFrame(handleScroll);
@@ -207,9 +208,9 @@ export default function Transition() {
       const transformStyle = getTransformStyle(transPercent);
 
     return (
-        <div ref={divRef} id="box-main" className={styles.main} style={{display: transPercent < 0 ? 'none' : '', backgroundColor: (transPercent > 3) ? `${interpolateColor(transPercent - 3)}` : ''}}>
+        <div ref={divRef} id="box-main" className={styles.main} style={{display: transPercent < 0 ? 'none' : '', backgroundColor: (transPercent > 3.5) ? `${interpolateColor(transPercent - 3.5)}` : ''}}>
             {/* <div className={styles.fadeBox}> */}
-                <div id="square" className={styles.square} 
+                {/* <div id="square" className={styles.square} 
                 style={{ 
                     // borderColor: color, 
                     opacity: transPercent, 
@@ -219,8 +220,8 @@ export default function Transition() {
                 zIndex: transPercent>=1 ? 0 : -1 ,
                 transform: transformStyle,
                 // transform: `scale(${transPercent > 1 && transPercent < 4 ? Math.max(0.4, transPercent/1.3) : 1}) rotate3d(0, 1, 1, ${transPercent > 1 && transPercent < 4 ? 70*(transPercent-1) : 0}deg) translateX(${transPercent > 1 && transPercent < 4 ? 100*(transPercent-1) : 0}px) translateY(${transPercent > 1 && transPercent < 4 ? 100*(transPercent-1) : 0}px)`
-                }}>
-                    <h2 className={styles.box} style={{display: transPercent > 2 ? 'flex' : 'none'}}>box</h2>
+                }}> */}
+                    {/* <h2 className={styles.box} style={{display: transPercent > 2 ? 'flex' : 'none'}}>box</h2> */}
                     {/* <div className={`${styles.cubeFace} ${styles.cubeFaceFront}`}>front</div>
                     <div className={`${styles.cubeFace} ${styles.cubeFaceBack}`}>back</div>
                     <div className={`${styles.cubeFace} ${styles.cubeFaceRight}`}>right</div>
@@ -233,19 +234,21 @@ export default function Transition() {
                     <div className="cube__face cube__face--left">left</div>
                     <div className="cube__face cube__face--top">top</div>
                     <div className="cube__face cube__face--bottom">bottom</div> */}
-                </div>
+                {/* </div> */}
             {/* </div> */}
-            <div ref={textRef} className={styles.text1} style={{opacity: textOpacity}}>
+            {/* <div ref={textRef} className={styles.text1} style={{opacity: textOpacity}}>
                 <h2>and bring unique ideas into <b style={{filter: `blur(${aboveMiddle ? 12*(1-textOpacity) : 0}px)`, textShadow: `0 0 ${10*(textOpacity)}px #ffffff`}}>focus</b></h2>
             </div>
             <div ref={textRef2} className={styles.text2} style={{opacity: text2Opacity}}>
                 <h2>Exploring diverse and inventive solutions</h2>
-            </div>
-            <div ref={textRef3} className={styles.text3} style={{opacity: text3Opacity}}>
+            </div> */}
+            {/* <div ref={textRef3} className={styles.text3} style={{opacity: text3Opacity}}>
                 <h2>thinking out of the</h2>
-            </div>
+            </div> */}
             <div ref={endTextRef} className={styles.endText} style={{opacity: endTextOpacity}}>
-                <h2>and always ready to adapt.</h2>
+                <h1>and always 
+                    <span data-aos="fade-up" data-aos-duration="1000" className={styles.adaptText}> adapting</span>.
+                </h1>
             </div>
         </div>
     );

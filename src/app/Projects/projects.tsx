@@ -10,14 +10,42 @@ import SocialLogo from 'social-logos';
 
 
 export default function Footer() {
+    const [animateLine, setAnimateLine] = useState(false);
+    const lineRef = useRef(null);
 
     useEffect(() => {
         AOS.init({
           easing: "ease-out-cubic",
-          once: true,
+          once: false, // whether animation should happen only once - while scrolling down
+          mirror: true, // whether elements should animate out while scrolling past them
           offset: 50,
         });
       }, []);
+
+
+    useEffect(() => {
+        // AOS.init(); // Initialize AOS
+
+        // Set up Intersection Observer
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setAnimateLine(true); // Trigger animation when visible
+                }
+            },
+            { threshold: 0.5 } // Trigger when 50% of the element is visible
+        );
+
+        if (lineRef.current) {
+            observer.observe(lineRef.current); // Observe the line element
+        }
+
+        return () => {
+            if (lineRef.current) {
+                observer.unobserve(lineRef.current); // Cleanup observer on unmount
+            }
+        };
+    }, []);
     
 
     const projects = [
@@ -35,7 +63,7 @@ export default function Footer() {
             imageSrc: 'media/rp2023.png',
             title: 'R|P Google Event Pass API',
             desc: 'NestJS API Event Pass Generation',
-            technologies: ['Typescript', 'NestJS', 'Google Cloud Platform'],
+            technologies: ['TypeScript', 'NestJS', 'Google Cloud Platform'],
             tasks: ['Adapted the Google Wallet Event Pass generation functions for NestJS and extending our internal API by developing custom endpoints to enable a seamless integration of the feature across our registration and authentication platforms'],
             githubLink: 'https://github.com/ReflectionsProjections/rp-api-2023/tree/main/src/wallet'
         },
@@ -43,7 +71,7 @@ export default function Footer() {
             imageSrc: 'media/hack23.png',
             title: 'HackIllinois 2023 Site',
             desc: `UIUC's Hackathon Website`,
-            technologies: ['Typescript', 'NextJS'],
+            technologies: ['TypeScript', 'NextJS'],
             tasks: ['Created the Registration and RSVP pages for 2023, working closely with Design and API teams to develop a reliable and intuitive system used by hundreds of registrants', 'Developed the mentors, map, and elements of the landing page, ensuring responsive design and effective UI across all pages'],
             githubLink: 'https://github.com/HackIllinois/site',
             // videoLink: 'https://www.youtube.com/project1',
@@ -53,7 +81,7 @@ export default function Footer() {
             imageSrc: 'media/tripvisor.png',
             title: 'TripVisor',
             desc: 'Interactive map and route builder app',
-            technologies: ['React', 'Typescript'],
+            technologies: ['React', 'TypeScript'],
             tasks: ['Users can add and remove waypoints, and the app will automatically calculate the optimal route', 'Uses Google Maps API to display map and calculate routes, Google Places API to search for locations, and Bing Local Suggestions API to autocomplete locations'],
             githubLink: 'https://github.com/CS-222-Group-Project/TripVisor',
             videoLink: 'https://youtu.be/dJn0BEAKQeY',
@@ -120,20 +148,20 @@ export default function Footer() {
             siteLink: 'https://www.ronitanandani.com/Multilingual-Object-Detection/'
         },
         {
-            imageSrc: 'media/rgm.jpeg',
+            imageSrc: 'media/rgm.png',
             title: 'Rube Goldberg Machine',
             desc: 'Physics Simulation using Matter.js',
-            technologies: ['Javascript', 'HTML'],
+            technologies: ['JavaScript', 'HTML'],
             tasks: ['Utilizing the Matter.js physics engine, this project simulates a Rube Goldberg Machine using various physics based elements'],
             githubLink: 'https://github.com/Timothy-Gonzalez/rube-goldberg-machine',
             videoLink: 'https://youtu.be/VC8XEjUEASA',
             siteLink: 'https://timothy-gonzalez.com/rube-goldberg-machine/'
         },
         {
-            imageSrc: 'media/pathGame.gif',
+            imageSrc: 'media/dijkstra.png',
             title: `Dijkstra's Path Game`,
             desc: 'Interactive game to find shortest path',
-            technologies: ['HTML', 'CSS', 'Javascript'],
+            technologies: ['HTML', 'CSS', 'JavaScript'],
             tasks: ['Based off Dijkstra’s Network Routing Algorithm, this game creates random path weightage between points with the player’s objective to gain the least weightage while going from the starting point to the ending point', 'The game automatically calculates the optimal route and assesses the player’s performance based on their accuracy'],
             githubLink: 'https://github.com/anandani4136/Dijkstras-Algorithm-Game',
             videoLink: 'https://youtu.be/NDWOd2Mnjiw',
@@ -151,8 +179,11 @@ export default function Footer() {
     const boxes = [1, 2, 3, 4, 5];
 
     return (
-        <div id="projects-main" className={styles.main}>
-            <h1 data-aos="fade-up" data-aos-duration="1000">Projects</h1>
+        <div id="projects" className={styles.main}>
+            <h1 data-aos="fade-right" data-aos-duration="1000" className={styles.mainTitle}>Projects</h1>
+            <div ref={lineRef} data-aos="fade-right" className={`${styles.horizontalLine} ${
+                    animateLine ? styles.animateLine : ""
+                }`}></div>
             <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="500" className={styles.projContainer}>
                 {/* <div className={styles.projItem}>
                     <div className={styles.projContent}>
