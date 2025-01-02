@@ -12,20 +12,36 @@
 
 .mainTitle {
     top: 5%;
-    width: 70%;
+    width: 80%;
     text-align: left;
     justify-content: flex-start;
-    font-size: 4rem;
+    font-size: clamp(3rem, 5vw, 4rem);
     font-weight: bold;
 }
 
+@keyframes growLine {
+    from {
+        transform: scaleX(0); /* Start with no width */
+        opacity: 0;
+    }
+    to {
+        transform: scaleX(1); /* Grow to full width */
+        opacity: 1;
+    }
+}
+
 .horizontalLine {
-    width: 70%;
+    width: 80%; /* Final width */
     height: 2px;
     background-color: #000000;
     margin: 0 auto;
+    transform-origin: left; /* Set the origin to the left */
+    transform: scaleX(0);
 }
 
+.animateLine {
+    animation: growLine 2s ease-out forwards; /* Trigger the animation */
+}
 
 .title {
     font-size: 1.3rem;
@@ -103,6 +119,7 @@
 .img {
     object-fit: contain;
     width: 100%;
+    /* transform: translateY(-15px); */
 }
 
 .text {
