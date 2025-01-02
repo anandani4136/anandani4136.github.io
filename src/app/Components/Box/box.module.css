@@ -1,0 +1,77 @@
+.scene {
+    position: absolute;
+    bottom: 50px;
+    width: 200px;
+    height: 200px;
+    perspective: 800px; /* Adds perspective for the 3D effect */
+    margin: 50px auto; /* Centers the box horizontally */
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d; /* Enables 3D transformations */
+    animation: spin 6s linear infinite; /* Continuous spinning animation */
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9); /* Default white faces */
+    border: 2px solid #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Define each face's position */
+.front {
+    transform: translateZ(100px);
+    /* background: rgba(255, 0, 0, 0.8); Red */
+    background: transparent;
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(100px);
+    /* background: rgba(0, 255, 0, 0.8); Green */
+    background: transparent;
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(100px);
+    /* background: rgba(0, 0, 255, 0.8); Blue */
+    background: transparent;
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(100px);
+    /* background: rgba(255, 255, 0, 0.8); Yellow */
+    background: transparent;
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(100px);
+    /* background: rgba(0, 255, 255, 0.8); Cyan */
+    background: transparent;
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+    /* background: rgba(255, 0, 255, 0.8); Magenta */
+    background: transparent;
+}
+
+/* Spinning animation */
+@keyframes spin {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+        transform: rotateX(0deg) rotateY(360deg);
+    }
+}
