@@ -11,7 +11,9 @@ export default function Footer() {
     return (
         <div id="main" className={styles.main}>
             <br></br>
-            <div data-aos="zoom-in" data-aos-delay="200" className={styles.icons}>
+            <div 
+            // data-aos="zoom-in" data-aos-delay="200" 
+            className={styles.icons}>
                 <a
                   href="
                     https://www.linkedin.com/in/ranandani/"
@@ -55,7 +57,7 @@ export default function Footer() {
                 
             </div>
             <br></br>
-            <p className={styles.tag}>© 2024 RONIT ANANDANI</p>
+            <p className={styles.tag}>© {new Date().getFullYear()} RONIT ANANDANI</p>
             <br></br>
         </div>
     );
