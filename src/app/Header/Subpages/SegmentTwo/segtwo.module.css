@@ -1,0 +1,103 @@
+.maintwo {
+    position: relative;
+    height: 150vh; /* Full viewport height */
+    overflow: hidden; /* Hide overflowing rows */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+/* Scrolling Rows Container */
+.scrollingRows {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Single Row of Icons */
+.row {
+    z-index: 1;
+    opacity: 0.5; /* Reduce background opacity */
+    display: flex;
+    width: 200%; /* Make row wider than the screen */
+    justify-content: space-around;
+    align-items: center;
+    animation: scrollRow 3s linear infinite; /* Infinite scrolling animation */
+}
+
+/* Reverse animation for alternating rows */
+.reverse {
+    animation-direction: reverse;
+}
+
+/* Icon Style */
+.icon {
+    width: 50px; /* Adjust icon size */
+    height: 50px;
+    object-fit: contain;
+    filter: brightness(75%);
+}
+
+/* Central Image */
+.centerImage {
+    position: absolute;
+    /* transform: translate(-50%, -50%); */
+    top: 40vh;
+    z-index: 2; /* Ensure it’s above the rows */
+}
+
+.centerImage img {
+    width: 150px; /* Adjust central image size */
+    height: 150px;
+    clip-path: circle(46%);
+    object-fit: contain;
+}
+
+/* Keyframes for Row Scrolling */
+@keyframes scrollRow {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-25%);
+    }
+}
+
+.binText {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-family: monospace;
+    color: white;
+    z-index: 2;
+}
+
+.binaryContainer {
+    width: 100vw;
+    height: 100vh;
+    will-change: transform;
+    /* content-visibility: auto; */
+    /* top: 0; */
+    /* margin-top: 15vh; */
+    background-image: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 50%, #000000 100%);
+    /* color: green; */
+    font-family: monospace;
+    font-size: 2rem;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+    /* align-items: center; */
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.2s linear, border 0.2s ease;
+}
