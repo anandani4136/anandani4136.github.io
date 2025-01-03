@@ -64,30 +64,6 @@ export default function SegmentTwo() {
     useEffect(() => {
         AOS.refresh();
 
-        if (!textAdded) {
-            const text1 = document.createElement('h1');
-            text1.setAttribute('data-aos', 'fade-up');
-            text1.setAttribute('data-aos-duration', '1000');
-            text1.setAttribute('data-aos-offset', (window.innerHeight*0.3).toString());
-            text1.textContent = 'shaping bold ideas';
-            text1.className = styles1.Text;
-
-            const text2 = document.createElement('h1');
-            text2.setAttribute('data-aos', 'fade-up');
-            text2.setAttribute('data-aos-duration', '1000');
-            text2.setAttribute('data-aos-offset', (window.innerHeight > 500 ? window.innerHeight*0.6 : 100).toString());
-            text2.textContent = 'into impactful solutions';
-            text2.className = styles1.Text;
-
-            const container = document.getElementById('textContainer2');
-            if (container) {
-                container.appendChild(text1);
-                container.appendChild(text2);
-                setTextAdded(true);
-                AOS.refresh();
-            }
-        }
-
         const handleScroll = throttle(() => {
             const scrollPosition = window.scrollY;
             const vh = window.innerHeight;
@@ -198,12 +174,12 @@ export default function SegmentTwo() {
                     transition: 'opacity 0.3s ease-out' // Smooth opacity transition
                 }}
             >
-                {/* <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-offset={`${textOffset0}`} className={styles1.Text}>
+                <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-offset={`${window.innerHeight*0.3}`} className={styles1.Text}>
                     shaping bold ideas
-                </h1> */}
-                {/* <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-offset={`${textOffset}`} className={styles1.Text}>
+                </h1>
+                <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-offset={`${window.innerHeight > 500 ? window.innerHeight*0.6 : 100}`} className={styles1.Text}>
                     into impactful solutions
-                </h1> */}
+                </h1>
                 {/* <h1
                     data-aos="fade-up"
                     data-aos-duration="1000"
