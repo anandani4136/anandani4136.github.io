@@ -1,12 +1,9 @@
 "use client";
 
-// import videoSrc from '/public/videos/DynamicBG.mp4';
-
 import React, {useEffect} from "react";
 import styles from "./header.module.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Waves from '../Components/Waves/Waves';
 
 
 export default function Header() {
@@ -41,7 +38,7 @@ export default function Header() {
                 muted 
                 playsInline
                 >
-                <source src='/videos/dynamicbg.mp4' type="video/mp4" />
+                <source src='https://d3u5zljkkuhj4j.cloudfront.net/dynamicbg.mp4' type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
             <div className={styles.gradientOverlay}></div>

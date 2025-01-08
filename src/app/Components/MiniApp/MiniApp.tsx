@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./MiniApp.module.css";
-// import videoSrc from '/videos/3drgb.mp4';
 
 export default function InnovationHub() {
     const [isTransformed, setIsTransformed] = useState(false); // State to trigger transformation
@@ -119,7 +118,7 @@ export default function InnovationHub() {
                     {/* <canvas ref={canvasRef} className={styles.nodeCanvas}></canvas> */}
                     <video
                         className={styles.backgroundVideo}
-                        src='/videos/3drgb.mp4'
+                        src='https://d3u5zljkkuhj4j.cloudfront.net/3drgb.mp4'
                         autoPlay
                         loop
                         muted
