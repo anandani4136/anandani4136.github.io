@@ -17,6 +17,7 @@ import SegmentFour from './Header/Subpages/SegmentFour/segfour'
 import SegmentFive from './Header/Subpages/SegmentFive/segfive'
 import SegmentSix from './Header/Subpages/SegmentSix/segsix'
 import dynamic from 'next/dynamic'
+import Head from 'next/head'
 
 const SegmentOne = dynamic(() => import('./Header/Subpages/SegmentOne/segone'), { ssr: false });
 const SegmentTwo = dynamic(() => import('./Header/Subpages/SegmentTwo/segtwo'), { ssr: false });
@@ -24,23 +25,27 @@ const SegmentTwo = dynamic(() => import('./Header/Subpages/SegmentTwo/segtwo'), 
 export default function Home() {
   
   return (
-    <div>
-      <Navbar/>
-      {/* <Header/> */}
-      {/* <Title/> */}
-      <TitlePage/>
-      <SegmentOne/>
-      <SegmentTwo/>
-      <SegmentThree/>
-      <SegmentFour/>
-      <SegmentFive/>
-      {/* <SegmentSix/> */}
-      <Transition/>
-      <About/>
-      <Experience/>
-      <Projects/>
-      <Footer/>
-    </div>
-    
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      </Head>
+      <div>
+        <Navbar/>
+        {/* <Header/> */}
+        {/* <Title/> */}
+        <TitlePage/>
+        <SegmentOne/>
+        <SegmentTwo/>
+        <SegmentThree/>
+        <SegmentFour/>
+        <SegmentFive/>
+        {/* <SegmentSix/> */}
+        <Transition/>
+        <About/>
+        <Experience/>
+        <Projects/>
+        <Footer/>
+      </div>
+    </>
   )
 }

@@ -26,7 +26,6 @@ export default function SegmentFive() {
         
             if (scrollPosition >= threshold) {
                 setIsPathDrawn(true); // Draw the SVG path
-                console.log("drawn");
             } else {
                 setIsPathDrawn(false); // Undraw the SVG path
             }
