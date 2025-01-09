@@ -137,7 +137,7 @@ export default function SegmentOne() {
                 playsInline
                 preload="metadata" // Added preload attribute
             >
-                <source src='https://d3u5zljkkuhj4j.cloudfront.net/puzzle4.mp4' type="video/mp4" />
+                <source src='/videos/puzzle4.mp4' type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
         </div>
