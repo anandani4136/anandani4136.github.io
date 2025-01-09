@@ -4,7 +4,7 @@ import React, {useEffect} from "react";
 import styles from "./header.module.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import Waves from '../Components/Waves/Waves';
 
 export default function Header() {
     useEffect(() => {
@@ -31,6 +31,7 @@ export default function Header() {
                 {/* <button className={styles.button}>Scroll to learn more</button> */}
             </div>
             </div>
+            <Waves />
             <video 
                 className={styles.video} 
                 autoPlay 

@@ -1,6 +1,5 @@
 "use client";
 
-// import videoSrc from '/videos/puzzle4.mp4';
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import styles from "../../header.module.css";
 import AOS from 'aos';
@@ -138,7 +137,7 @@ export default function SegmentOne() {
                 playsInline
                 preload="metadata" // Added preload attribute
             >
-                <source src='/videos/puzzle4.mp4' type="video/mp4" />
+                <source src='https://d3u5zljkkuhj4j.cloudfront.net/puzzle4.mp4' type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
         </div>
