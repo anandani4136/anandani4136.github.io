@@ -282,10 +282,11 @@
 .textContainerTag {
     position: relative;
     width: 330px;
-    top: 40px;
+    /* top: 40px; */
     left: 40px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     font-size: 14px;
     padding-right: 10%;
     /* justify-content: center; */
@@ -346,7 +347,7 @@
 
     .textContainerTag {
         max-width: 47vw;
-        height: 100px;
+        /* height: 100px; */
         overflow-y: scroll;
         font-size: 13px;
         padding-right: 0%;

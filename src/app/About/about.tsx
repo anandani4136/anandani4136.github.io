@@ -61,14 +61,15 @@ export default function About() {
                     <h1 data-aos="fade-up" data-aos-duration="700">Greetings! 👋</h1>
                     <br></br>
                     <h2 data-aos="fade-up" data-aos-duration="1000">
-                        My name is <b>Ronit Anandani</b>. I am a <b>Computer Science Student</b> at the University of Illinois
-                        Urbana-Champaign.
+                        My name is <b>Ronit</b>, and I&apos;m a <b>Computer Science</b> Master&apos;s student at the University of Illinois Urbana-Champaign.
                     </h2>
-                    {/* <br></br> */}
-                    <h2 data-aos="fade-up" data-aos-duration="1300">
-                        I&apos;m a <u>self-driven engineer</u> committed to creating <b>Impactful</b> and <b>Innovative</b> products. 
-                        I believe in augmenting my learning by taking on novel challenges in different domains, 
-                        and I&apos;m continuously pursuing new ways to advance the projects, teams, and knowledge that I engage with.
+                    
+                    <h2 data-aos="fade-up" data-aos-duration="1000">
+                        I love building things — infrastructure that <b>scales</b>, automation that <b>removes friction</b>, and tools that turn <b>complexity</b> into <i>clarity</i>.
+                    </h2>
+                    
+                    <h2 data-aos="fade-up" data-aos-duration="1200">
+                        I&apos;m drawn to hard problems and high-leverage ideas. Guided by <b>curiosity</b> and a <b>builder&apos;s mindset</b>, I thrive where <u>technical depth</u> meets <u>thoughtful design</u> — and where impact comes from empowering others through what you create.
                     </h2>
                 </div>
             </div>
