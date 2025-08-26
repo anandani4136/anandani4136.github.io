@@ -9,6 +9,7 @@ import { useInView } from 'react-intersection-observer';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ExperienceTag from './experienceTag';
+import ExperienceCard from './experienceFrame';
 import SocialLogo from 'social-logos';
 
 type Experience = {
@@ -20,14 +21,25 @@ type Experience = {
     infoUrl: string;
   };
 
+type ProfessionalExperience = {
+    title: string;
+    company: string;
+    time: string;
+    tagline: string;
+    coverImage: string;
+    logo: string;
+    infoUrl?: string;
+  };
+
 export default function Experience() {
     const [scrollPosition, setScrollPosition] = useState(0);
     const scrollContainerRef =  useRef<HTMLDivElement>(null);
-    const [scrollLeft, setScrollLeft] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(false);
     const [scrollRight, setScrollRight] = useState(true);
     const [animateLine, setAnimateLine] = useState(false);
     const [openDesc, setOpenDesc] = useState(false);
     const [experiences, setExperiences] = useState<Experience[]>([]);
+    const [professionalExperiences, setProfessionalExperiences] = useState<ProfessionalExperience[]>([]);
     
 
     const lineRef = useRef(null);
@@ -59,10 +71,13 @@ export default function Experience() {
 
     const handleScroll = () => {
         if (scrollContainerRef.current) {
-            setScrollLeft(scrollContainerRef.current.scrollLeft);
-            setScrollRight(scrollContainerRef.current.scrollLeft + scrollContainerRef.current.clientWidth < (scrollContainerRef.current.scrollWidth - 50));
-
-            // console.log(scrollRight);
+            const container = scrollContainerRef.current;
+            const scrollLeft = container.scrollLeft;
+            const clientWidth = container.clientWidth;
+            const scrollWidth = container.scrollWidth;
+            
+            setScrollLeft(scrollLeft > 10);
+            setScrollRight(scrollLeft + clientWidth < scrollWidth - 10);
         }
     };
 
@@ -88,10 +103,19 @@ export default function Experience() {
             const cardWidth = window.innerWidth * 0.7 + 420
             const scrollAmount = scrollLeft ? -cardWidth/2 : cardWidth/2;
             scrollContainerRef.current.scrollLeft += scrollAmount;
-            setScrollLeft(scrollContainerRef.current.scrollLeft);
-            setScrollRight(scrollContainerRef.current.scrollLeft + scrollContainerRef.current.clientWidth < scrollContainerRef.current.scrollWidth);
-            // setScrollRight(scrollContainerRef.current.scrollLeft + scrollContainerRef.current.clientWidth);
-            // console.log(scrollContainerRef.current.scrollLeft + scrollContainerRef.current.clientWidth < scrollContainerRef.current.scrollWidth)
+            
+            // Update scroll states after scrolling
+            setTimeout(() => {
+                if (scrollContainerRef.current) {
+                    const container = scrollContainerRef.current;
+                    const scrollLeftPos = container.scrollLeft;
+                    const clientWidth = container.clientWidth;
+                    const scrollWidth = container.scrollWidth;
+                    
+                    setScrollLeft(scrollLeftPos > 10);
+                    setScrollRight(scrollLeftPos + clientWidth < scrollWidth - 10);
+                }
+            }, 100);
         }
     };
 
@@ -133,6 +157,14 @@ export default function Experience() {
           .catch(console.error);
       }, []);
 
+    // Fetch professional experiences from JSON
+    useEffect(() => {
+        fetch("https://d3u5zljkkuhj4j.cloudfront.net/professional-experiences.json")
+          .then((res) => res.json())
+          .then((data: ProfessionalExperience[]) => setProfessionalExperiences(data))
+          .catch(console.error);
+      }, []);
+
 
 
     return (
@@ -141,7 +173,8 @@ export default function Experience() {
             <div ref={lineRef} data-aos="fade-right" className={`${styles.horizontalLine} ${
                     animateLine ? styles.animateLine : ""
                 }`}></div>
-            {/* <div className = {styles.positions}> */}
+            
+
             <div data-aos="fade-left" data-aos-duration="1300" data-aos-delay="500" data-aos-easing="ease-in-sine" className={styles.positionTag}>
                 {experiences.map((exp, i) => (
                     <ExperienceTag
@@ -155,20 +188,26 @@ export default function Experience() {
                     />
                 ))}
             </div>
-                {/* <div data-aos="fade-left" data-aos-duration="1300" data-aos-delay="500" data-aos-easing="ease-in-sine" ref={scrollContainerRef} className={`${styles.position}`}>
-                    <ExperienceItem logo={icons[0]} title="Co-Director" company="HackIllinois" time="04/23 - Present" tasks={["S", "L", "D"]}/>
-                    <ExperienceItem logo={icons[1]} title="Infra Project Lead" company="ACM @ UIUC" time="02/23 - Present" tasks={["S", "L", "D"]}/>
-                    <ExperienceItem logo={icons[2]} title="Tech Committee Chair" company="NOBE Illinois" time="09/22 - Present" tasks={["S", "L", "D"]}/>
-                    <ExperienceItem logo={icons[4]} title="Software Engineer Intern" company="Novaspect Inc." time="05/23 - 08/23" tasks={["S", "L", "D"]}/>
-                    <ExperienceItem logo={icons[3]} title="Software Dev Engineer" company="Reflections | Projections" time="02/23 - 09/23" tasks={["S", "L", "D"]}/>
-                    
-                    
+            <div data-aos="fade-up" data-aos-duration="1300" data-aos-delay="300" className={styles.professionalSection}>
+                <div ref={scrollContainerRef} className={styles.cardsContainer}>
+                    {professionalExperiences.map((exp, i) => (
+                        <ExperienceCard
+                            key={i}
+                            title={exp.title}
+                            company={exp.company}
+                            time={exp.time}
+                            tagline={exp.tagline}
+                            coverImage={exp.coverImage}
+                            logo={exp.logo}
+                            infoUrl={exp.infoUrl}
+                        />
+                    ))}
                 </div>
                 <div onClick={() => scrollTo(true)} className={styles.leftScroll} 
-                    style={{opacity: scrollLeft ? 1 : 0}}><span>&lt;-</span></div>
+                    style={{opacity: scrollLeft ? 1 : 0, visibility: scrollLeft ? 'visible' : 'hidden'}}><span>&lt;-</span></div>
                 <div onClick={() => scrollTo(false)} className={styles.rightScroll}
-                    style={{opacity: scrollRight == true ? 1 : 0}}><span>-&gt;</span></div> */}
-            {/* </div> */}
+                    style={{opacity: scrollRight ? 1 : 0, visibility: scrollRight ? 'visible' : 'hidden'}}><span>-&gt;</span></div>
+            </div>
             <div className={styles.endTag}>
                 <a href="https://www.linkedin.com/in/ranandani/" target="_blank" rel="noopener noreferrer" className={styles.learnMore}>
                     Learn More on LinkedIn <SocialLogo className={styles.socialIcon} icon="linkedin" size={ 28 } />

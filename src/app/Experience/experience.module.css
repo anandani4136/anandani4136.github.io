@@ -1,4 +1,3 @@
-
 .main {
     display: flex;
     flex-direction: column;
@@ -23,26 +22,32 @@
 
 @keyframes growLine {
     from {
-        transform: scaleX(0); /* Start with no width */
+        transform: scaleX(0);
+        /* Start with no width */
         opacity: 0;
     }
+
     to {
-        transform: scaleX(1); /* Grow to full width */
+        transform: scaleX(1);
+        /* Grow to full width */
         opacity: 1;
     }
 }
 
 .horizontalLine {
-    width: 80%; /* Final width */
+    width: 80%;
+    /* Final width */
     height: 2px;
     background-color: #000000;
     margin: 0 auto;
-    transform-origin: left; /* Set the origin to the left */
+    transform-origin: left;
+    /* Set the origin to the left */
     transform: scaleX(0);
 }
 
 .animateLine {
-    animation: growLine 2s ease-out forwards; /* Trigger the animation */
+    animation: growLine 2s ease-out forwards;
+    /* Trigger the animation */
 }
 
 .rightScroll {
@@ -50,14 +55,17 @@
     min-width: 50px;
     min-height: 50px;
     right: 20px;
+    top: 50%;
     border-radius: 50%;
     background-color: #0000005e;
     color: #ffffff;
-    transform: translateY(250px);
+    transform: translateY(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
 }
 
 .leftScroll {
@@ -65,15 +73,17 @@
     min-width: 50px;
     min-height: 50px;
     left: 20px;
-    right: auto;
+    top: 50%;
     border-radius: 50%;
     background-color: #0000005e;
     color: #ffffff;
-    transform: translateY(250px);
+    transform: translateY(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
 }
 
 .position {
@@ -89,9 +99,11 @@
     left: 0;
     /* top: 20%; */
     /* position: sticky; */
-    overflow-x: auto; /* Add this property to enable horizontal scrolling */
-    white-space: nowrap; /* Add this property to prevent line breaks */
-     animation-duration: 2s;
+    overflow-x: auto;
+    /* Add this property to enable horizontal scrolling */
+    white-space: nowrap;
+    /* Add this property to prevent line breaks */
+    animation-duration: 2s;
 }
 
 .positionTag {
@@ -101,21 +113,27 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 50px; /* Space between boxes */
+    gap: 50px;
+    /* Space between boxes */
     margin: 5%;
 }
 
 .tagItem {
-    flex: 0 1 calc(50% - 50px); /* 50% width minus half of the gap , make first number into */
-    min-height: 150px; /* Adjust height as needed */
-    min-width: 500px; /* Adjust width as needed */
+    flex: 0 1 calc(50% - 50px);
+    /* 50% width minus half of the gap , make first number into */
+    min-height: 150px;
+    /* Adjust height as needed */
+    min-width: 500px;
+    /* Adjust width as needed */
     max-width: 550px;
-    background-color: #e6e6e6; /* Example color */
+    background-color: #e6e6e6;
+    /* Example color */
     border-radius: 50px;
     box-shadow: 6px 6px 14px 0 rgba(0, 0, 0, 0.2),
         -8px -8px 18px 0 rgba(255, 255, 255, 0.55);
     /* Add other styling as needed */
-    position: relative; /* Required for aspect ratio trick */
+    position: relative;
+    /* Required for aspect ratio trick */
     overflow-y: hidden;
     display: flex;
     flex-direction: row;
@@ -221,8 +239,10 @@
     min-height: 300px;
     max-height: 300px;
     overflow-y: scroll;
-    top: -21px; /* Adjust as needed */
-    left: 280px; /* Adjust as needed */
+    top: -21px;
+    /* Adjust as needed */
+    left: 280px;
+    /* Adjust as needed */
     background-color: #e6e6e6;
     color: black;
     /* z-index: -1; */
@@ -243,8 +263,10 @@
     min-width: 40px;
     min-height: 40px;
     max-height: 40px;
-    top: 230px; /* Adjust as needed */
-    left: 230px; /* Adjust as needed */
+    top: 230px;
+    /* Adjust as needed */
+    left: 230px;
+    /* Adjust as needed */
     background-color: #0000005e;
     color: black;
     /* z-index: -1; */
@@ -321,23 +343,27 @@
         gap: 30px;
     }
 
-}  
+}
 
-@media screen and (max-width: 750px) { /* Adjust the 600px threshold as needed */
+@media screen and (max-width: 750px) {
+
+    /* Adjust the 600px threshold as needed */
     .tagItem {
-      flex-basis: 100%; /* Each item takes full width */
+        flex-basis: 100%;
+        /* Each item takes full width */
     }
 
     .positionTag {
         margin: 5% 5%;
     }
 
-  }
+}
 
 
 @media screen and (max-width: 500px) {
     .tagItem {
-        flex-basis: 100%; /* Each item takes full width */
+        flex-basis: 100%;
+        /* Each item takes full width */
         min-width: 300px;
     }
 
@@ -353,7 +379,7 @@
         padding-right: 0%;
     }
 
-    
+
 
 }
 
@@ -396,19 +422,180 @@
     padding: 2px;
 }
 
-/* .description h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin: 5%; */
-    /* position: sticky; */
-    /* background-color: blue; */
-/* } */
-/* 
-.description p {
+/* Professional Experience Cards */
+.professionalSection {
+    width: 100%;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.sectionTitle {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #000000;
+}
+
+.cardsContainer {
+    display: flex;
+    gap: 40px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 50px 80px;
+    margin: 0 -20px;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    justify-content: left;
+    min-height: 580px;
+    width: calc(100% + 40px);
+}
+
+.cardsContainer::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+.experienceCard {
+    min-width: 280px;
+    max-width: 320px;
+    height: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+}
+
+.experienceCard:hover {
+    box-shadow:
+        0 0 15px rgba(231, 19, 125, 0.6),
+        0 0 20px rgba(255, 215, 0, 0.5),
+        0 0 25px rgba(50, 205, 50, 0.6),
+        0 0 35px rgba(100, 149, 237, 0.8);
+    transform: scale(1.03);
+}
+
+.cardImage {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.cardImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 20px;
+    color: white;
+}
+
+.cardLogo {
+    position: absolute;
+    top: -273px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cardLogo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cardContent {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 10px);
+}
+
+.cardTagline {
     font-size: 1.5rem;
-    font-weight: 500;
-    margin: 5%;
-    /* position: sticky; */
-    /* background-color: blue; */
-/*} 
-*/
+    font-weight: bold;
+    margin: 0 0 20px 0;
+    color: white;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cardDetails {
+    margin-top: auto;
+}
+
+.cardTitle {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+    color: white;
+}
+
+.cardCompany {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.cardTime {
+    font-size: 0.8rem;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive design for cards */
+@media (max-width: 768px) {
+    .cardsContainer {
+        padding: 0 20px;
+        gap: 15px;
+        justify-content: flex-start;
+        margin: 0 -10px;
+        width: calc(100% + 20px);
+    }
+
+    .experienceCard {
+        min-width: 260px;
+        height: 450px;
+    }
+
+    .cardOverlay {
+        padding: 15px;
+    }
+
+    .cardLogo {
+        width: 40px;
+        height: 40px;
+        top: -210px;
+        right: 10px;
+        padding: 6px;
+    }
+}
+
+/* Wide screen centering */
+@media (min-width: 1600px) {
+    .cardsContainer {
+        justify-content: center;
+        max-width: 1500px;
+        margin: 0 auto;
+    }
+}
