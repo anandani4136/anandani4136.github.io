@@ -13,17 +13,19 @@ jobs:
 
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v1
+        uses: actions/checkout@v4
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: '20.x'
+          cache: 'npm'
 
       - name: Installing my packages
         run: npm ci
 
       - name: Build my App
-        run: npm run build && npm run export && touch ./out/.nojekyll
+        # `output: 'export'` in next.config.mjs already emits ./out on build.
+        run: npm run build && touch ./out/.nojekyll
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.4.1

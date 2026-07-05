@@ -3,11 +3,11 @@
  */
 const nextConfig = {
   output: 'export',
+  trailingSlash: true,
   images: {
     loader: 'akamai',
     path: '',
   },
-  assetPrefix: './',
   webpack(config) {
     config.module.rules.push({
       test: /\.(mp4|webm|ogg|ogv|mov|avi|wmv|flv)$/i,

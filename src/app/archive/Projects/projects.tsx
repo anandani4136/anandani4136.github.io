@@ -60,7 +60,7 @@ export default function Footer() {
         //     siteLink: 'http://www.project1.com'
         // },
         {
-            imageSrc: 'media/rp2023.png',
+            imageSrc: '/media/rp2023.png',
             title: 'R|P Google Event Pass API',
             desc: 'NestJS API Event Pass Generation',
             technologies: ['TypeScript', 'NestJS', 'Google Cloud Platform'],
@@ -68,7 +68,7 @@ export default function Footer() {
             githubLink: 'https://github.com/ReflectionsProjections/rp-api-2023/tree/main/src/wallet'
         },
         {
-            imageSrc: 'media/hack23.png',
+            imageSrc: '/media/hack23.png',
             title: 'HackIllinois 2023 Site',
             desc: `UIUC's Hackathon Website`,
             technologies: ['TypeScript', 'NextJS'],
@@ -78,7 +78,7 @@ export default function Footer() {
             siteLink: 'https://2023.hackillinois.org/'
         },
         {
-            imageSrc: 'media/tripvisor.png',
+            imageSrc: '/media/tripvisor.png',
             title: 'TripVisor',
             desc: 'Interactive map and route builder app',
             technologies: ['React', 'TypeScript'],
@@ -88,7 +88,7 @@ export default function Footer() {
             // siteLink: 'https://parents.compscikids.net/'
         },
         {
-            imageSrc: 'media/cskportal.png',
+            imageSrc: '/media/cskportal.png',
             title: 'CompSci Kids Portal',
             desc: 'Tutoring Program Registration Portal',
             technologies: ['React', 'NodeJS', 'MongoDB'],
@@ -98,7 +98,7 @@ export default function Footer() {
             siteLink: 'https://parents.compscikids.net/'
         },
         {
-            imageSrc: 'media/mbp.jpeg',
+            imageSrc: '/media/mbp.jpeg',
             title: 'MacBook Pro Review',
             desc: 'Award-Winning Media Production',
             // technologies: ['React', 'NodeJS', 'MongoDB'],
@@ -108,7 +108,7 @@ export default function Footer() {
             // siteLink: 'https://parents.compscikids.net/'
         },
         {
-            imageSrc: 'media/shopVision.png',
+            imageSrc: '/media/shopVision.png',
             title: 'ShopVision',
             desc: 'iOS Shopping Assistant + AR Scanner',
             technologies: ['Swift', 'Python', 'Firebase'],
@@ -118,7 +118,7 @@ export default function Footer() {
             // siteLink: 'https://parents.compscikids.net/'
         },
         {
-            imageSrc: 'media/qwttr.png',
+            imageSrc: '/media/qwttr.png',
             title: 'Qwttr',
             desc: 'Substance Abuse Help Social Media',
             technologies: ['React', 'Firebase'],
@@ -128,7 +128,7 @@ export default function Footer() {
             siteLink: 'https://devpost.com/software/qwttr'
         },
         {
-            imageSrc: 'media/smp.png',
+            imageSrc: '/media/smp.png',
             title: 'COVID-19 Stock Market Analysis',
             desc: 'Stock Market Effects Data Visualization',
             technologies: ['R', 'HTML'],
@@ -138,7 +138,7 @@ export default function Footer() {
             siteLink: 'https://www.ronitanandani.com/Stock-Market-Analysis/'
         },
         {
-            imageSrc: 'media/mod.png',
+            imageSrc: '/media/mod.png',
             title: 'Multilingual Object Detection',
             desc: 'Tensorflow Object Detection and Translation Concept',
             technologies: ['TensorFlow', 'HTML'],
@@ -148,7 +148,7 @@ export default function Footer() {
             siteLink: 'https://www.ronitanandani.com/Multilingual-Object-Detection/'
         },
         {
-            imageSrc: 'media/rgm.png',
+            imageSrc: '/media/rgm.png',
             title: 'Rube Goldberg Machine',
             desc: 'Physics Simulation using Matter.js',
             technologies: ['JavaScript', 'HTML'],
@@ -158,7 +158,7 @@ export default function Footer() {
             siteLink: 'https://timothy-gonzalez.com/rube-goldberg-machine/'
         },
         {
-            imageSrc: 'media/dijkstra.png',
+            imageSrc: '/media/dijkstra.png',
             title: `Dijkstra's Path Game`,
             desc: 'Interactive game to find shortest path',
             technologies: ['HTML', 'CSS', 'JavaScript'],
