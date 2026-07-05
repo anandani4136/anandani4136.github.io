@@ -47,6 +47,34 @@ export const viewport = {
   ],
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      name: 'Ronit Anandani',
+      url: siteUrl,
+      image: `${siteUrl}/media/ronit_2026.png`,
+      jobTitle: 'Software Engineer',
+      worksFor: { '@type': 'Organization', name: 'SpaceX' },
+      alumniOf: {
+        '@type': 'CollegeOrUniversity',
+        name: 'University of Illinois Urbana-Champaign',
+      },
+      knowsAbout: ['Artificial Intelligence', 'Cloud', 'Security', 'Distributed Systems'],
+      sameAs: [
+        'https://www.linkedin.com/in/ranandani/',
+        'https://www.github.com/anandani4136',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      name: 'Ronit Anandani',
+      url: siteUrl,
+    },
+  ],
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -54,7 +82,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   )
 }
